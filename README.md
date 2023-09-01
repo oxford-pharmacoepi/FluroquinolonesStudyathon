@@ -1,4 +1,4 @@
-# SudyathonFeasibilityMHRA
+# StudyathonFeasibilityMHRA
 
 ## Description
 The code here runs feasibility queries on:
