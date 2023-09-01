@@ -1,0 +1,757 @@
+"database_id","drug_concept_id","drug","ingredient_concept_id","ingredient","variable","n_records","n_records_not_missing_value","n_records_missing_value","proportion_records_missing_value","result_obscured"
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_exposure_start_date",15,15,0,0,FALSE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_exposure_end_date",15,15,0,0,FALSE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_verbatim_end_date",15,0,15,1,FALSE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_type_concept_id",15,15,0,0,FALSE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_stop_reason",15,0,15,1,FALSE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_refills",15,15,0,0,FALSE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_quantity",15,15,0,0,FALSE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_days_supply",15,15,0,0,FALSE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_sig",15,15,0,0,FALSE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_route_concept_id",15,15,0,0,FALSE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_lot_number",15,0,15,1,FALSE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_provider_id",15,15,0,0,FALSE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_visit_occurrence_id",15,15,0,0,FALSE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_visit_detail_id",15,15,0,0,FALSE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_source_value",15,15,0,0,FALSE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_source_concept_id",15,15,0,0,FALSE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_route_source_value",15,0,15,1,FALSE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_dose_unit_source_value",15,0,15,1,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_exposure_start_date",853,853,0,0,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_exposure_end_date",853,853,0,0,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_verbatim_end_date",853,0,853,1,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_type_concept_id",853,853,0,0,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_stop_reason",853,0,853,1,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_refills",853,853,0,0,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_quantity",853,853,0,0,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_days_supply",853,853,0,0,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_sig",853,853,0,0,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_route_concept_id",853,853,0,0,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_lot_number",853,0,853,1,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_provider_id",853,725,128,0.150058616647128,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_visit_occurrence_id",853,853,0,0,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_visit_detail_id",853,853,0,0,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_source_value",853,853,0,0,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_source_concept_id",853,853,0,0,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_route_source_value",853,0,853,1,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_dose_unit_source_value",853,0,853,1,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_exposure_start_date",182,182,0,0,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_exposure_end_date",182,182,0,0,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_verbatim_end_date",182,0,182,1,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_type_concept_id",182,182,0,0,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_stop_reason",182,0,182,1,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_refills",182,182,0,0,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_quantity",182,182,0,0,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_days_supply",182,182,0,0,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_sig",182,182,0,0,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_route_concept_id",182,182,0,0,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_lot_number",182,0,182,1,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_provider_id",182,182,0,0,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_visit_occurrence_id",182,182,0,0,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_visit_detail_id",182,182,0,0,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_source_value",182,182,0,0,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_source_concept_id",182,182,0,0,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_route_source_value",182,0,182,1,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_dose_unit_source_value",182,0,182,1,FALSE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_drug_exposure_start_date",498,498,0,0,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_drug_exposure_end_date",498,498,0,0,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_verbatim_end_date",498,0,498,1,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_drug_type_concept_id",498,498,0,0,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_stop_reason",498,0,498,1,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_refills",498,498,0,0,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_quantity",498,498,0,0,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_days_supply",498,498,0,0,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_sig",498,498,0,0,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_route_concept_id",498,498,0,0,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_lot_number",498,0,498,1,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_provider_id",498,495,3,0.00602409638554217,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_visit_occurrence_id",498,498,0,0,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_visit_detail_id",498,498,0,0,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_drug_source_value",498,498,0,0,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_drug_source_concept_id",498,498,0,0,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_route_source_value",498,0,498,1,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin","n_missing_dose_unit_source_value",498,0,498,1,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_exposure_start_date",187,187,0,0,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_exposure_end_date",187,187,0,0,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_verbatim_end_date",187,0,187,1,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_type_concept_id",187,187,0,0,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_stop_reason",187,0,187,1,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_refills",187,187,0,0,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_quantity",187,187,0,0,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_days_supply",187,187,0,0,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_sig",187,187,0,0,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_route_concept_id",187,187,0,0,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_lot_number",187,0,187,1,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_provider_id",187,187,0,0,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_visit_occurrence_id",187,187,0,0,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_visit_detail_id",187,187,0,0,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_source_value",187,187,0,0,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_source_concept_id",187,187,0,0,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_route_source_value",187,0,187,1,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_dose_unit_source_value",187,0,187,1,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_drug_exposure_start_date",130,130,0,0,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_drug_exposure_end_date",130,130,0,0,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_verbatim_end_date",130,0,130,1,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_drug_type_concept_id",130,130,0,0,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_stop_reason",130,0,130,1,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_refills",130,130,0,0,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_quantity",130,130,0,0,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_days_supply",130,130,0,0,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_sig",130,130,0,0,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_route_concept_id",130,130,0,0,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_lot_number",130,0,130,1,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_provider_id",130,129,1,0.00769230769230769,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_visit_occurrence_id",130,130,0,0,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_visit_detail_id",130,130,0,0,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_drug_source_value",130,130,0,0,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_drug_source_concept_id",130,130,0,0,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_route_source_value",130,0,130,1,FALSE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin","n_missing_dose_unit_source_value",130,0,130,1,FALSE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_drug_exposure_start_date",45,45,0,0,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_drug_exposure_end_date",45,45,0,0,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_verbatim_end_date",45,0,45,1,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_drug_type_concept_id",45,45,0,0,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_stop_reason",45,0,45,1,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_refills",45,45,0,0,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_quantity",45,45,0,0,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_days_supply",45,45,0,0,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_sig",45,45,0,0,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_route_concept_id",45,45,0,0,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_lot_number",45,0,45,1,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_provider_id",45,43,2,0.0444444444444444,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_visit_occurrence_id",45,45,0,0,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_visit_detail_id",45,45,0,0,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_drug_source_value",45,45,0,0,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_drug_source_concept_id",45,45,0,0,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_route_source_value",45,0,45,1,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin","n_missing_dose_unit_source_value",45,0,45,1,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_drug_exposure_start_date",117,117,0,0,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_drug_exposure_end_date",117,117,0,0,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_verbatim_end_date",117,0,117,1,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_drug_type_concept_id",117,117,0,0,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_stop_reason",117,0,117,1,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_refills",117,117,0,0,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_quantity",117,117,0,0,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_days_supply",117,117,0,0,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_sig",117,117,0,0,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_route_concept_id",117,117,0,0,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_lot_number",117,0,117,1,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_provider_id",117,116,1,0.00854700854700855,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_visit_occurrence_id",117,117,0,0,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_visit_detail_id",117,117,0,0,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_drug_source_value",117,117,0,0,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_drug_source_concept_id",117,117,0,0,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_route_source_value",117,0,117,1,FALSE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_dose_unit_source_value",117,0,117,1,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_exposure_start_date",4872,4872,0,0,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_exposure_end_date",4872,4872,0,0,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_verbatim_end_date",4872,0,4872,1,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_type_concept_id",4872,4872,0,0,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_stop_reason",4872,0,4872,1,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_refills",4872,4872,0,0,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_quantity",4872,4872,0,0,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_days_supply",4872,4872,0,0,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_sig",4872,4872,0,0,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_route_concept_id",4872,4872,0,0,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_lot_number",4872,0,4872,1,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_provider_id",4872,4777,95,0.0194991789819376,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_visit_occurrence_id",4872,4872,0,0,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_visit_detail_id",4872,4872,0,0,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_source_value",4872,4872,0,0,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_source_concept_id",4872,4872,0,0,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_route_source_value",4872,0,4872,1,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_dose_unit_source_value",4872,0,4872,1,FALSE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_drug_exposure_start_date",5,5,0,0,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_drug_exposure_end_date",5,5,0,0,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_verbatim_end_date",5,0,5,1,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_drug_type_concept_id",5,5,0,0,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_stop_reason",5,0,5,1,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_refills",5,5,0,0,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_quantity",5,5,0,0,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_days_supply",5,5,0,0,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_sig",5,5,0,0,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_route_concept_id",5,5,0,0,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_lot_number",5,0,5,1,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_provider_id",5,5,0,0,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_visit_occurrence_id",5,5,0,0,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_visit_detail_id",5,5,0,0,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_drug_source_value",5,5,0,0,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_drug_source_concept_id",5,5,0,0,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_route_source_value",5,0,5,1,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin","n_missing_dose_unit_source_value",5,0,5,1,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_drug_exposure_start_date",42,42,0,0,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_drug_exposure_end_date",42,42,0,0,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_verbatim_end_date",42,0,42,1,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_drug_type_concept_id",42,42,0,0,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_stop_reason",42,0,42,1,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_refills",42,42,0,0,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_quantity",42,42,0,0,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_days_supply",42,42,0,0,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_sig",42,42,0,0,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_route_concept_id",42,42,0,0,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_lot_number",42,0,42,1,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_provider_id",42,41,1,0.0238095238095238,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_visit_occurrence_id",42,42,0,0,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_visit_detail_id",42,42,0,0,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_drug_source_value",42,42,0,0,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_drug_source_concept_id",42,42,0,0,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_route_source_value",42,0,42,1,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin","n_missing_dose_unit_source_value",42,0,42,1,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_exposure_start_date",444,444,0,0,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_exposure_end_date",444,444,0,0,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_verbatim_end_date",444,0,444,1,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_type_concept_id",444,444,0,0,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_stop_reason",444,0,444,1,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_refills",444,444,0,0,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_quantity",444,444,0,0,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_days_supply",444,444,0,0,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_sig",444,444,0,0,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_route_concept_id",444,444,0,0,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_lot_number",444,0,444,1,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_provider_id",444,415,29,0.0653153153153153,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_visit_occurrence_id",444,444,0,0,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_visit_detail_id",444,444,0,0,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_source_value",444,444,0,0,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_source_concept_id",444,444,0,0,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_route_source_value",444,0,444,1,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_dose_unit_source_value",444,0,444,1,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_drug_exposure_start_date",32,32,0,0,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_drug_exposure_end_date",32,32,0,0,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_verbatim_end_date",32,0,32,1,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_drug_type_concept_id",32,32,0,0,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_stop_reason",32,0,32,1,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_refills",32,32,0,0,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_quantity",32,32,0,0,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_days_supply",32,32,0,0,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_sig",32,32,0,0,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_route_concept_id",32,32,0,0,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_lot_number",32,0,32,1,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_provider_id",32,32,0,0,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_visit_occurrence_id",32,32,0,0,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_visit_detail_id",32,32,0,0,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_drug_source_value",32,32,0,0,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_drug_source_concept_id",32,32,0,0,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_route_source_value",32,0,32,1,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin","n_missing_dose_unit_source_value",32,0,32,1,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_drug_exposure_start_date",19,19,0,0,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_drug_exposure_end_date",19,19,0,0,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_verbatim_end_date",19,0,19,1,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_drug_type_concept_id",19,19,0,0,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_stop_reason",19,0,19,1,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_refills",19,19,0,0,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_quantity",19,19,0,0,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_days_supply",19,19,0,0,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_sig",19,19,0,0,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_route_concept_id",19,19,0,0,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_lot_number",19,0,19,1,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_provider_id",19,19,0,0,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_visit_occurrence_id",19,19,0,0,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_visit_detail_id",19,19,0,0,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_drug_source_value",19,19,0,0,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_drug_source_concept_id",19,19,0,0,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_route_source_value",19,0,19,1,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin","n_missing_dose_unit_source_value",19,0,19,1,FALSE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_exposure_start_date",17,17,0,0,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_exposure_end_date",17,17,0,0,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_verbatim_end_date",17,0,17,1,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_type_concept_id",17,17,0,0,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_stop_reason",17,0,17,1,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_refills",17,17,0,0,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_quantity",17,17,0,0,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_days_supply",17,17,0,0,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_sig",17,17,0,0,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_route_concept_id",17,17,0,0,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_lot_number",17,0,17,1,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_provider_id",17,17,0,0,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_visit_occurrence_id",17,17,0,0,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_visit_detail_id",17,17,0,0,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_source_value",17,17,0,0,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_source_concept_id",17,17,0,0,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_route_source_value",17,0,17,1,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_dose_unit_source_value",17,0,17,1,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_exposure_start_date",7329,7329,0,0,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_exposure_end_date",7329,7329,0,0,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_verbatim_end_date",7329,0,7329,1,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_type_concept_id",7329,7329,0,0,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_stop_reason",7329,0,7329,1,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_refills",7329,7329,0,0,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_quantity",7329,7329,0,0,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_days_supply",7329,7329,0,0,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_sig",7329,7329,0,0,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_route_concept_id",7329,7329,0,0,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_lot_number",7329,0,7329,1,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_provider_id",7329,7263,66,0.00900532132623823,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_visit_occurrence_id",7329,7329,0,0,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_visit_detail_id",7329,7329,0,0,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_source_value",7329,7329,0,0,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_drug_source_concept_id",7329,7329,0,0,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_route_source_value",7329,0,7329,1,FALSE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin","n_missing_dose_unit_source_value",7329,0,7329,1,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_exposure_start_date",17,17,0,0,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_exposure_end_date",17,17,0,0,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_verbatim_end_date",17,0,17,1,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_type_concept_id",17,17,0,0,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_stop_reason",17,0,17,1,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_refills",17,17,0,0,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_quantity",17,17,0,0,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_days_supply",17,17,0,0,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_sig",17,17,0,0,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_route_concept_id",17,17,0,0,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_lot_number",17,0,17,1,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_provider_id",17,16,1,0.0588235294117647,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_visit_occurrence_id",17,17,0,0,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_visit_detail_id",17,17,0,0,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_source_value",17,17,0,0,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_drug_source_concept_id",17,17,0,0,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_route_source_value",17,0,17,1,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin","n_missing_dose_unit_source_value",17,0,17,1,FALSE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_drug_exposure_start_date",32,32,0,0,FALSE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_drug_exposure_end_date",32,32,0,0,FALSE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_verbatim_end_date",32,0,32,1,FALSE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_drug_type_concept_id",32,32,0,0,FALSE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_stop_reason",32,0,32,1,FALSE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_refills",32,32,0,0,FALSE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_quantity",32,32,0,0,FALSE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_days_supply",32,32,0,0,FALSE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_sig",32,32,0,0,FALSE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_route_concept_id",32,32,0,0,FALSE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_lot_number",32,0,32,1,FALSE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_provider_id",32,32,0,0,FALSE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_visit_occurrence_id",32,32,0,0,FALSE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_visit_detail_id",32,32,0,0,FALSE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_drug_source_value",32,32,0,0,FALSE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_drug_source_concept_id",32,32,0,0,FALSE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_route_source_value",32,0,32,1,FALSE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin","n_missing_dose_unit_source_value",32,0,32,1,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_drug_exposure_start_date",177,177,0,0,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_drug_exposure_end_date",177,177,0,0,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_verbatim_end_date",177,0,177,1,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_drug_type_concept_id",177,177,0,0,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_stop_reason",177,0,177,1,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_refills",177,177,0,0,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_quantity",177,177,0,0,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_days_supply",177,177,0,0,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_sig",177,177,0,0,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_route_concept_id",177,177,0,0,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_lot_number",177,0,177,1,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_provider_id",177,173,4,0.0225988700564972,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_visit_occurrence_id",177,177,0,0,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_visit_detail_id",177,177,0,0,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_drug_source_value",177,177,0,0,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_drug_source_concept_id",177,177,0,0,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_route_source_value",177,0,177,1,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin","n_missing_dose_unit_source_value",177,0,177,1,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_drug_exposure_start_date",481,481,0,0,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_drug_exposure_end_date",481,481,0,0,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_verbatim_end_date",481,0,481,1,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_drug_type_concept_id",481,481,0,0,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_stop_reason",481,0,481,1,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_refills",481,481,0,0,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_quantity",481,481,0,0,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_days_supply",481,481,0,0,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_sig",481,481,0,0,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_route_concept_id",481,481,0,0,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_lot_number",481,0,481,1,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_provider_id",481,476,5,0.0103950103950104,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_visit_occurrence_id",481,481,0,0,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_visit_detail_id",481,481,0,0,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_drug_source_value",481,481,0,0,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_drug_source_concept_id",481,481,0,0,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_route_source_value",481,0,481,1,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin","n_missing_dose_unit_source_value",481,0,481,1,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_drug_exposure_start_date",93,93,0,0,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_drug_exposure_end_date",93,93,0,0,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_verbatim_end_date",93,0,93,1,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_drug_type_concept_id",93,93,0,0,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_stop_reason",93,0,93,1,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_refills",93,93,0,0,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_quantity",93,93,0,0,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_days_supply",93,93,0,0,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_sig",93,93,0,0,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_route_concept_id",93,93,0,0,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_lot_number",93,0,93,1,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_provider_id",93,76,17,0.182795698924731,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_visit_occurrence_id",93,93,0,0,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_visit_detail_id",93,93,0,0,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_drug_source_value",93,93,0,0,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_drug_source_concept_id",93,93,0,0,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_route_source_value",93,0,93,1,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_dose_unit_source_value",93,0,93,1,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_drug_exposure_start_date",350,350,0,0,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_drug_exposure_end_date",350,350,0,0,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_verbatim_end_date",350,0,350,1,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_drug_type_concept_id",350,350,0,0,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_stop_reason",350,0,350,1,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_refills",350,350,0,0,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_quantity",350,350,0,0,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_days_supply",350,350,0,0,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_sig",350,350,0,0,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_route_concept_id",350,350,0,0,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_lot_number",350,0,350,1,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_provider_id",350,347,3,0.00857142857142857,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_visit_occurrence_id",350,350,0,0,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_visit_detail_id",350,350,0,0,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_drug_source_value",350,350,0,0,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_drug_source_concept_id",350,350,0,0,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_route_source_value",350,0,350,1,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin","n_missing_dose_unit_source_value",350,0,350,1,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_drug_exposure_start_date",74,74,0,0,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_drug_exposure_end_date",74,74,0,0,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_verbatim_end_date",74,0,74,1,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_drug_type_concept_id",74,74,0,0,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_stop_reason",74,0,74,1,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_refills",74,74,0,0,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_quantity",74,74,0,0,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_days_supply",74,74,0,0,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_sig",74,74,0,0,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_route_concept_id",74,74,0,0,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_lot_number",74,0,74,1,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_provider_id",74,58,16,0.216216216216216,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_visit_occurrence_id",74,74,0,0,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_visit_detail_id",74,74,0,0,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_drug_source_value",74,74,0,0,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_drug_source_concept_id",74,74,0,0,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_route_source_value",74,0,74,1,FALSE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin","n_missing_dose_unit_source_value",74,0,74,1,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_drug_exposure_start_date",83,83,0,0,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_drug_exposure_end_date",83,83,0,0,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_verbatim_end_date",83,0,83,1,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_drug_type_concept_id",83,83,0,0,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_stop_reason",83,0,83,1,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_refills",83,83,0,0,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_quantity",83,83,0,0,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_days_supply",83,83,0,0,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_sig",83,83,0,0,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_route_concept_id",83,83,0,0,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_lot_number",83,0,83,1,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_provider_id",83,81,2,0.0240963855421687,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_visit_occurrence_id",83,83,0,0,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_visit_detail_id",83,83,0,0,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_drug_source_value",83,83,0,0,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_drug_source_concept_id",83,83,0,0,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_route_source_value",83,0,83,1,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin","n_missing_dose_unit_source_value",83,0,83,1,FALSE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_drug_exposure_start_date",268,268,0,0,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_drug_exposure_end_date",268,268,0,0,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_verbatim_end_date",268,0,268,1,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_drug_type_concept_id",268,268,0,0,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_stop_reason",268,0,268,1,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_refills",268,268,0,0,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_quantity",268,268,0,0,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_days_supply",268,268,0,0,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_sig",268,268,0,0,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_route_concept_id",268,268,0,0,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_lot_number",268,0,268,1,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_provider_id",268,264,4,0.0149253731343284,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_visit_occurrence_id",268,268,0,0,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_visit_detail_id",268,268,0,0,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_drug_source_value",268,268,0,0,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_drug_source_concept_id",268,268,0,0,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_route_source_value",268,0,268,1,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin","n_missing_dose_unit_source_value",268,0,268,1,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_drug_exposure_start_date",63,63,0,0,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_drug_exposure_end_date",63,63,0,0,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_verbatim_end_date",63,0,63,1,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_drug_type_concept_id",63,63,0,0,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_stop_reason",63,0,63,1,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_refills",63,63,0,0,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_quantity",63,63,0,0,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_days_supply",63,63,0,0,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_sig",63,63,0,0,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_route_concept_id",63,63,0,0,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_lot_number",63,0,63,1,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_provider_id",63,63,0,0,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_visit_occurrence_id",63,63,0,0,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_visit_detail_id",63,63,0,0,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_drug_source_value",63,63,0,0,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_drug_source_concept_id",63,63,0,0,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_route_source_value",63,0,63,1,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin","n_missing_dose_unit_source_value",63,0,63,1,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_drug_exposure_start_date",6,6,0,0,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_drug_exposure_end_date",6,6,0,0,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_verbatim_end_date",6,0,6,1,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_drug_type_concept_id",6,6,0,0,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_stop_reason",6,0,6,1,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_refills",6,6,0,0,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_quantity",6,6,0,0,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_days_supply",6,6,0,0,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_sig",6,6,0,0,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_route_concept_id",6,6,0,0,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_lot_number",6,0,6,1,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_provider_id",6,6,0,0,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_visit_occurrence_id",6,6,0,0,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_visit_detail_id",6,6,0,0,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_drug_source_value",6,6,0,0,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_drug_source_concept_id",6,6,0,0,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_route_source_value",6,0,6,1,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_dose_unit_source_value",6,0,6,1,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_drug_exposure_start_date",34,34,0,0,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_drug_exposure_end_date",34,34,0,0,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_verbatim_end_date",34,0,34,1,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_drug_type_concept_id",34,34,0,0,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_stop_reason",34,0,34,1,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_refills",34,34,0,0,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_quantity",34,34,0,0,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_days_supply",34,34,0,0,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_sig",34,34,0,0,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_route_concept_id",34,34,0,0,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_lot_number",34,0,34,1,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_provider_id",34,33,1,0.0294117647058824,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_visit_occurrence_id",34,34,0,0,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_visit_detail_id",34,34,0,0,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_drug_source_value",34,34,0,0,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_drug_source_concept_id",34,34,0,0,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_route_source_value",34,0,34,1,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin","n_missing_dose_unit_source_value",34,0,34,1,FALSE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_drug_exposure_start_date",212,212,0,0,FALSE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_drug_exposure_end_date",212,212,0,0,FALSE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_verbatim_end_date",212,0,212,1,FALSE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_drug_type_concept_id",212,212,0,0,FALSE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_stop_reason",212,0,212,1,FALSE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_refills",212,212,0,0,FALSE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_quantity",212,212,0,0,FALSE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_days_supply",212,212,0,0,FALSE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_sig",212,212,0,0,FALSE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_route_concept_id",212,212,0,0,FALSE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_lot_number",212,0,212,1,FALSE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_provider_id",212,193,19,0.089622641509434,FALSE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_visit_occurrence_id",212,212,0,0,FALSE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_visit_detail_id",212,212,0,0,FALSE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_drug_source_value",212,212,0,0,FALSE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_drug_source_concept_id",212,212,0,0,FALSE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_route_source_value",212,0,212,1,FALSE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin","n_missing_dose_unit_source_value",212,0,212,1,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_drug_exposure_start_date",612,612,0,0,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_drug_exposure_end_date",612,612,0,0,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_verbatim_end_date",612,0,612,1,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_drug_type_concept_id",612,612,0,0,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_stop_reason",612,0,612,1,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_refills",612,612,0,0,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_quantity",612,612,0,0,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_days_supply",612,612,0,0,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_sig",612,612,0,0,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_route_concept_id",612,612,0,0,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_lot_number",612,0,612,1,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_provider_id",612,606,6,0.00980392156862745,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_visit_occurrence_id",612,612,0,0,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_visit_detail_id",612,612,0,0,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_drug_source_value",612,612,0,0,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_drug_source_concept_id",612,612,0,0,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_route_source_value",612,0,612,1,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin","n_missing_dose_unit_source_value",612,0,612,1,FALSE

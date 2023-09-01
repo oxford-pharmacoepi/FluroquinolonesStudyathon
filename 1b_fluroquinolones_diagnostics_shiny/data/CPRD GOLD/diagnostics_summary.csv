@@ -1,0 +1,6 @@
+"database_id","ingredient","ingredient_concept_id","n_records","proportion_of_records_with_dose_form","result_obscured"
+"CPRD GOLD","ciprofloxacin",1797513,14816,"0 (0%)",FALSE
+"CPRD GOLD","moxifloxacin",1716903,39,"0 (0%)",FALSE
+"CPRD GOLD","ofloxacin",923081,1258,"0 (0%)",FALSE
+"CPRD GOLD","levofloxacin",1742253,381,"0 (0%)",FALSE
+"CPRD GOLD","norfloxacin",1721543,824,"0 (0%)",FALSE

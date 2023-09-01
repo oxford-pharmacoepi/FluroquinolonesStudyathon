@@ -1,0 +1,43 @@
+"database_id","drug_concept_id","drug","ingredient_concept_id","ingredient","drug_source_concept_id","drug_source","n_records","result_obscured"
+"CPRD GOLD",36808530,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution",1797513,"ciprofloxacin",NA,NA,NA,TRUE
+"CPRD GOLD",36808533,"0.25 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Otic Solution [CETRAXAL PLUS] by Aspire",1797513,"ciprofloxacin",NA,NA,NA,TRUE
+"CPRD GOLD",42479124,"Ciprofloxacin 3 MG/ML / Dexamethasone 1 MG/ML Otic Solution",1797513,"ciprofloxacin",37800933,"Ciprofloxacin 0.3% / Dexamethasone 0.1% ear drops",117,FALSE
+"CPRD GOLD",36063774,"ciprofloxacin 3 MG/ML / dexamethasone 1 MG/ML Otic Solution [Cilodex] by Consilient",1797513,"ciprofloxacin",37800935,"Cilodex ear drops (Novartis Pharmaceuticals UK Ltd)",32,FALSE
+"CPRD GOLD",40719630,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution",1797513,"ciprofloxacin",42520570,"Ciprofloxacin 2mg/ml ear drops 0.25ml unit dose preservative free",42,FALSE
+"CPRD GOLD",40719628,"0.25 ML Ciprofloxacin 2 MG/ML Otic Solution [Cetraxal] by Aspire",1797513,"ciprofloxacin",42520836,"Cetraxal 2mg/ml ear drops 0.25ml unit dose (Aspire Pharma Ltd)",5,FALSE
+"CPRD GOLD",21140601,"Ciprofloxacin 250 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin",45731297,"Ciproxin 250mg tablets (Bayer Plc)",853,FALSE
+"CPRD GOLD",21042519,"Ciprofloxacin 500 MG Oral Tablet by Actavis",1797513,"ciprofloxacin",NA,NA,NA,TRUE
+"CPRD GOLD",21111217,"Ciprofloxacin 50 MG/ML Oral Suspension [Ciproxin] by Bayer",1797513,"ciprofloxacin",45733341,"Ciproxin 250mg/5ml oral suspension (Bayer Plc)",15,FALSE
+"CPRD GOLD",21032606,"Ciprofloxacin 500 MG Oral Tablet by A A H",1797513,"ciprofloxacin",NA,NA,NA,TRUE
+"CPRD GOLD",21120866,"Ciprofloxacin 250 MG Oral Tablet by TEVA",1797513,"ciprofloxacin",NA,NA,NA,TRUE
+"CPRD GOLD",19075380,"ciprofloxacin 500 MG Oral Tablet",1797513,"ciprofloxacin",45734959,"Ciprofloxacin 500mg tablets",7329,FALSE
+"CPRD GOLD",21062121,"Ciprofloxacin 500 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin",45736782,"Ciproxin 500mg tablets (Bayer Plc)",444,FALSE
+"CPRD GOLD",1797516,"ciprofloxacin 750 MG Oral Tablet",1797513,"ciprofloxacin",45737034,"Ciprofloxacin 750mg tablets",187,FALSE
+"CPRD GOLD",1797515,"ciprofloxacin 250 MG Oral Tablet",1797513,"ciprofloxacin",45738639,"Ciprofloxacin 250mg tablets",4872,FALSE
+"CPRD GOLD",40737701,"Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan] by Novartis",1797513,"ciprofloxacin",45738887,"Ciloxan 0.3% eye drops (Novartis Pharmaceuticals UK Ltd)",45,FALSE
+"CPRD GOLD",19075378,"ciprofloxacin 3 MG/ML Ophthalmic Solution",1797513,"ciprofloxacin",45738888,"Ciprofloxacin 0.3% eye drops",498,FALSE
+"CPRD GOLD",21120863,"Ciprofloxacin 100 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin",45740615,"Ciproxin 100mg tablets (Bayer Plc)",17,FALSE
+"CPRD GOLD",21091473,"Ciprofloxacin 0.003 MG/MG Ophthalmic Ointment [Ciloxan] by Alcon",1797513,"ciprofloxacin",NA,NA,NA,TRUE
+"CPRD GOLD",19075379,"ciprofloxacin 50 MG/ML Oral Suspension",1797513,"ciprofloxacin",45742375,"Ciprofloxacin 250mg/5ml oral suspension",130,FALSE
+"CPRD GOLD",19075377,"ciprofloxacin 0.003 MG/MG Ophthalmic Ointment",1797513,"ciprofloxacin",45742815,"Ciprofloxacin 3mg/g eye ointment",19,FALSE
+"CPRD GOLD",21111205,"Ciprofloxacin 750 MG Oral Tablet [Ciproxin] by Bayer",1797513,"ciprofloxacin",45744141,"Ciproxin 750mg tablets (Bayer Plc)",17,FALSE
+"CPRD GOLD",19021637,"ciprofloxacin 100 MG Oral Tablet",1797513,"ciprofloxacin",45744142,"Ciprofloxacin 100mg tablets",182,FALSE
+"CPRD GOLD",40734597,"moxifloxacin 5 MG/ML Ophthalmic Solution [Moxivig] by Novartis",1716903,"moxifloxacin",NA,NA,NA,TRUE
+"CPRD GOLD",1716905,"moxifloxacin 400 MG Oral Tablet",1716903,"moxifloxacin",45731815,"Moxifloxacin 400mg tablets",32,FALSE
+"CPRD GOLD",21134231,"moxifloxacin 400 MG Oral Tablet [Avelox] by Bayer",1716903,"moxifloxacin",NA,NA,NA,TRUE
+"CPRD GOLD",19102471,"moxifloxacin 5 MG/ML Ophthalmic Solution",1716903,"moxifloxacin",NA,NA,NA,TRUE
+"CPRD GOLD",21084501,"Ofloxacin 400 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin",45736967,"Tarivid 400mg tablets (Sanofi)",74,FALSE
+"CPRD GOLD",19019417,"ofloxacin 400 MG Oral Tablet",923081,"ofloxacin",45736968,"Ofloxacin 400mg tablets",481,FALSE
+"CPRD GOLD",19079151,"ofloxacin 3 MG/ML Ophthalmic Solution",923081,"ofloxacin",45739531,"Ofloxacin 0.3% eye drops",177,FALSE
+"CPRD GOLD",21094224,"Ofloxacin 200 MG Oral Tablet [Tarivid] by Sanofi",923081,"ofloxacin",45740564,"Tarivid 200mg tablets (Sanofi)",93,FALSE
+"CPRD GOLD",21084506,"Ofloxacin 3 MG/ML Ophthalmic Solution [Exocin] by Allergan",923081,"ofloxacin",45741415,"Exocin 0.3% eye drops (Allergan Ltd)",83,FALSE
+"CPRD GOLD",19019415,"ofloxacin 200 MG Oral Tablet",923081,"ofloxacin",45742320,"Ofloxacin 200mg tablets",350,FALSE
+"CPRD GOLD",1742254,"levofloxacin 250 MG Oral Tablet",1742253,"levofloxacin",37826194,"Levofloxacin 250mg tablets",63,FALSE
+"CPRD GOLD",1742255,"levofloxacin 500 MG Oral Tablet",1742253,"levofloxacin",37826195,"Levofloxacin 500mg tablets",268,FALSE
+"CPRD GOLD",21074820,"Levofloxacin 250 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin",37826203,"Tavanic 250mg tablets (Sanofi)",6,FALSE
+"CPRD GOLD",21035364,"Levofloxacin 500 MG Oral Tablet [Tavanic] by Sanofi",1742253,"levofloxacin",37826204,"Tavanic 500mg tablets (Sanofi)",34,FALSE
+"CPRD GOLD",19080152,"levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,TRUE
+"CPRD GOLD",40746481,"Levofloxacin 5 MG/ML Ophthalmic Solution [Oftaquix] by Santen",1742253,"levofloxacin",NA,NA,NA,TRUE
+"CPRD GOLD",21118034,"0.5 ML Levofloxacin 5 MG/ML Ophthalmic Solution",1742253,"levofloxacin",NA,NA,NA,TRUE
+"CPRD GOLD",21044378,"Norfloxacin 400 MG Oral Tablet [Utinor] by Merck",1721543,"norfloxacin",45733316,"Utinor 400mg tablets (Merck Sharp & Dohme Ltd)",212,FALSE
+"CPRD GOLD",19019411,"norfloxacin 400 MG Oral Tablet",1721543,"norfloxacin",45744111,"Norfloxacin 400mg tablets",612,FALSE

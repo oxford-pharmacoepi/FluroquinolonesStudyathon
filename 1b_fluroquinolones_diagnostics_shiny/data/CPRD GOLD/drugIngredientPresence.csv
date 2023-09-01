@@ -1,0 +1,23 @@
+"database_id","ingredient_concept_id","ingredient","days_supply_specified","quantity_specified","drug_exposure_end_date_specified","strength_specified","sig_specified","drug_exposure_days_specified","n_records","n_people","result_obscured"
+"CPRD GOLD",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",1797513,"ciprofloxacin",NA,NA,NA,NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",1797513,"ciprofloxacin","Yes","Yes","Yes","No","No","Yes",524,368,FALSE
+"CPRD GOLD",1797513,"ciprofloxacin","Yes","Yes","Yes","No","Yes","Yes",13378,6151,FALSE
+"CPRD GOLD",1797513,"ciprofloxacin","Yes","Yes","Yes","Yes","No","Yes",439,271,FALSE
+"CPRD GOLD",1797513,"ciprofloxacin","Yes","Yes","Yes","Yes","Yes","Yes",471,341,FALSE
+"CPRD GOLD",1716903,"moxifloxacin",NA,NA,NA,NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",1716903,"moxifloxacin","Yes","Yes","Yes","No","Yes","Yes",34,27,FALSE
+"CPRD GOLD",1716903,"moxifloxacin",NA,NA,NA,NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",1716903,"moxifloxacin",NA,NA,NA,NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",923081,"ofloxacin","Yes","Yes","Yes","No","No","Yes",75,59,FALSE
+"CPRD GOLD",923081,"ofloxacin","Yes","Yes","Yes","No","Yes","Yes",923,571,FALSE
+"CPRD GOLD",923081,"ofloxacin","Yes","Yes","Yes","Yes","No","Yes",78,50,FALSE
+"CPRD GOLD",923081,"ofloxacin","Yes","Yes","Yes","Yes","Yes","Yes",182,99,FALSE
+"CPRD GOLD",1742253,"levofloxacin","Yes","Yes","Yes","No","No","Yes",33,18,FALSE
+"CPRD GOLD",1742253,"levofloxacin","Yes","Yes","Yes","No","Yes","Yes",338,209,FALSE
+"CPRD GOLD",1742253,"levofloxacin",NA,NA,NA,NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",1742253,"levofloxacin","Yes","Yes","Yes","Yes","Yes","Yes",7,5,FALSE
+"CPRD GOLD",1721543,"norfloxacin",NA,NA,NA,NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",1721543,"norfloxacin",NA,NA,NA,NA,NA,NA,NA,NA,TRUE
+"CPRD GOLD",1721543,"norfloxacin","Yes","Yes","Yes","No","Yes","Yes",816,318,FALSE
