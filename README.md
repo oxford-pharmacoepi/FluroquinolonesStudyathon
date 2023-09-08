@@ -1,15 +1,28 @@
 # Fluroquinolones Studyathon 2023
 
+|<img src="https://img.shields.io/badge/Study%20Status-Started-blue.svg" alt="Study Status: Started">
+
+- Analytics use case(s): **Characterization**
+- Study type: 
+- Tags: 
+- Study lead: 
+- Study lead forums tag: 
+- Study start date: 
+- Study end date: 
+- Protocol: 
+- Publications: 
+- Results explorer:
+
 ## Overview
 This repository contains code for a drug utilisation study focused on the use of systemic fluoroquinolones in primary care and hospital settings in the UK
 
-The repo is organised in the following manner:
-Documents: This folder contains documents relevant to the study 
-Diagnostics: This folder containers code to run study-specific data checks
-Study: This folder contains code to run the study
+The repo is organised in the following manner:  
+- Documents: This folder contains documents relevant to the study 
+- Diagnostics: This folder containers code to run study-specific data checks
+- Study: This folder contains code to run the study
 
 
-## DATA PARTNER INSTRUCTIONS
+## Data partner instructions
 
 To start download this entire repository (you can download as a zip folder using Code -> Download ZIP, or you can use GitHub Desktop). 
 
