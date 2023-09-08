@@ -1,4 +1,4 @@
-# StudyathonFeasibilityMHRA
+# Fluroquinolones Studyathon 2023
 
 ## DATA PARTNER INSTRUCTIONS
 
