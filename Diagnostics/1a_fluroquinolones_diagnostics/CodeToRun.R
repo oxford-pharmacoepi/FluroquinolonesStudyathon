@@ -11,9 +11,10 @@ library(here)
 database_name <- "...."
 
 # database connection ----
+# see https://darwin-eu.github.io/CDMConnector/articles/a04_DBI_connection_examples.html
+# for examples on how to connect and create your cdm reference
 db <- dbConnect(.....)
 
-cdm <- cdmFromCon(con = db,
-                  cdmSchema = "....")
+cdm <- cdmFromCon(.....)
 
 source(here("RunAnalysis.R"))
