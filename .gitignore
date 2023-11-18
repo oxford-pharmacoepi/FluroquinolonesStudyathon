@@ -1,5 +1,23 @@
 
-1a_fluroquinolones_diagnostics/CodeToRun_cprd.R
+1_StudyCode/CodeToRun_cprd.R
 1b_fluroquinolones_diagnostics_shiny/data/CPRD GOLD/*.csv
-1a_fluroquinolones_diagnostics/results/CPRD GOLD.zip
-Diagnostics/1a_fluroquinolones_diagnostics/CodeToRun_cprd.R
+1_StudyCode/results/CPRD GOLD.zip
+1_StudyCode/1a_fluroquinolones_diagnostics/CodeToRun_cprd.R
+1_StudyCode/1b_fluroquinolones_diagnostics_shiny/rsconnect/shinyapps.io/dpa-pde-oxford/fluroquinolones_diagnostics.dcf
+*.zip
+Diagnostics/1a_fluroquinolones_diagnostics/results/*.csv
+Diagnostics/1b_fluroquinolones_diagnostics_shiny/data/CPRD GOLD/*.csv
+Diagnostics/1b_fluroquinolones_diagnostics_shiny/data/CPRD_AURUM/*.csv
+1_StudyCode/1b_fluroquinolones_diagnostics_shiny/data/prd_omop/*.csv
+1_StudyCode/1a_fluroquinolones_diagnostics/CodeToRun_local.R
+3_Reporting/data/Results_CPRD GOLD/*.csv
+1_StudyCode/CodeToRun_local.R
+1_StudyCode/results/cdm_snapshot_Pharmetrics 100k.csv
+2_Reporting/data/CPRD GOLD/*.csv
+2_Reporting/data/CPRD GOLD 100k/*.csv
+2_Reporting/data/Pharmetrics/*.csv
+2_Reporting/data/Pharmetrics 100k/*.csv
+2_Reporting/data/Results_CPRD GOLD 100k/*.csv
+2_Reporting/rsconnect/shinyapps.io/dpa-pde-oxford/fluroquinolones_studyathon.dcf
+1_StudyCode/results/*.csv
+2_Reporting/data/Results_Pharmetrics 100k/*.csv
