@@ -2,19 +2,39 @@
 renv::activate()
 renv::restore() # this should prompt you to install the various packages required for the study
 
+# Load packages ------
 library(DBI)
 library(CDMConnector)
 library(DrugExposureDiagnostics)
+library(dplyr)
 library(here)
+library(dplyr)
+library(RPostgres)
+library(odbc)
+library(CodelistGenerator)
+library(PatientProfiles)
+library(DrugUtilisation)
+library(IncidencePrevalence)
+library(readr)
+library(tidyr)
+library(zip)
+library(stringr)
+library(testthat)
 
 # database name ----
-database_name <- "...."
+db_name <- "...."
 
 # database connection ----
-# see https://darwin-eu.github.io/CDMConnector/articles/a04_DBI_connection_examples.html
-# for examples on how to connect and create your cdm reference
 db <- dbConnect(.....)
+cdm_schema <- "...."
+write_schema <- "...."
 
-cdm <- cdmFromCon(.....)
+# Table prefix -----
+# any tables created in the database during the analysis will start with this prefix
+# we provide the default here but you can change it
+# note, any existing tables in your write schema starting with this prefix may
+# be dropped during running this analysis
+study_prefix <- "fluro_"
 
+# run analysis ----
 source(here("RunAnalysis.R"))
