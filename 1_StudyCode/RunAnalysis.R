@@ -17,16 +17,65 @@ write_csv(snapshot(cdm), here("Results", paste0(
   "cdm_snapshot_", cdmName(cdm), ".csv"
 )))
 
-# load drug concepts ----
-# note, these were identified in drug_concepts/concept_search.R
-drug_concepts <- read.csv(here("drug_concepts", "drug_concepts.csv"))
+# get drug concepts ----
+cli::cli_text("- Getting drug codes ({Sys.time()})")
+drug_ingredients <- cdm$concept %>%
+  mutate(concept_name = tolower(concept_name)) %>%
+  filter(concept_name %in% local(c("ciprofloxacin",
+                                   "delafloxacin",
+                                   "moxifloxacin",
+                                   "ofloxacin",
+                                   "levofloxacin",
+                                   "norfloxacin"))) %>%
+  filter(concept_class_id=="Ingredient")    %>%
+  filter(standard_concept =="S") %>%
+  select(c("concept_id", "concept_name")) %>%
+  collect() %>%
+  arrange(concept_name)
+
+# systemic forms
+drug_concepts <- getDrugIngredientCodes(cdm = cdm,
+                       name = c("ciprofloxacin",
+                                "delafloxacin",
+                                "moxifloxacin",
+                                "ofloxacin",
+                                "levofloxacin",
+                                "norfloxacin"),
+                       doseForm =
+                         c("Auto-Injector", "Buccal Film", "Buccal Tablet",
+                           "Cartridge", "Chewable Bar", "Chewable Extended Release Oral Tablet",
+                           "Chewable Tablet", "Chewing Gum", "Delayed Release Oral Capsule",
+                           "Delayed Release Oral Granules", "Delayed Release Oral Tablet", "Disintegrating Oral Tablet",
+                           "Drug Implant", "Effervescent Oral Tablet", "Enema",
+                           "Extended Release Oral Capsule", "Extended Release Oral Tablet", "Extended Release Suspension",
+                           "Granules for Oral Solution", "Granules for Oral Suspension", "Impregnated cigarette",
+                           "Injectable Foam", "Injectable Solution", "Injectable Suspension",
+                           "Injection", "Intramuscular Solution", "Intraperitoneal Solution",
+                           "Intrathecal Suspension", "Intratracheal Suspension", "Intrauterine Drug Delivery System",
+                           "Intrauterine System", "Intravenous Solution", "Intravenous Suspension",
+                           "Jet Injector", "Mucosal Spray","Nasal Powder",
+                           "Nasal Solution", "Nasal Spray","Oral Capsule",
+                           "Oral Film", "Oral Flakes","Oral Gel",
+                           "Oral Granules", "Oral Lozenge","Oral Pellet",
+                           "Oral Powder", "Oral Solution","Oral Spray",
+                           "Oral Suspension", "Oral Tablet","Oral Tablet with Sensor",
+                           "Oral Wafer", "Pen Injector","Powder for Oral Solution",
+                           "Powder for Oral Suspension", "Prefilled Syringe","Rectal Suppository",
+                           "Sublingual Film", "Sublingual Powder","Sublingual Tablet",
+                           "Suspension", "Sustained Release Buccal Tablet","Tablet for Oral Suspension",
+                           "Transdermal System", "Vaginal Powder"))
+
+# add overall group
+drug_concepts[["fluroquinolones"]] <- purrr::list_c(drug_concepts)
+
 
 # run drug exposure diagnostics ----
 drug_diagnostics <- suppressWarnings(suppressMessages(
   # uninformative warnings because we're not running all checks
   DrugExposureDiagnostics::executeChecks(
   cdm = cdm,
-  ingredients = drug_concepts$concept_id,
+  ingredients = drug_ingredients$concept_id,
+  subsetToConceptId = unique(purrr::list_c(drug_concepts)),
   checks = c(
     "missing",
     "exposureDuration",
@@ -42,21 +91,11 @@ for(i in seq_along(drug_diagnostics)){
             )))
 
 }
-# get ingredient codes -------
-cli::cli_text("- Getting descendant codes ({Sys.time()})")
-study_cs<-list()
-for(i in seq_along(drug_concepts$concept_name)){
-  cli::cli_text("- {drug_concepts$concept_name[i]} ({i} of {length(drug_concepts$concept_name)})")
- study_cs[[i]] <- getDrugIngredientCodes(cdm = cdm,
-                                    name = drug_concepts$concept_name[i])
-}
-study_cs<-purrr::flatten(study_cs)
-
 # instantiate concept cohorts -------
 cli::cli_text("- Instantiating concept based cohorts - all events included ({Sys.time()})")
 cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
                                                          name = "study_cohorts",
-                                                         conceptSet = study_cs,
+                                                         conceptSet = drug_concepts,
                                                          gapEra = 7)
 
 # cohort counts ----
@@ -84,7 +123,7 @@ for(i in seq_along(non_empty_cohorts)){
     pull("cohort_name")
   cli::cli_text("-- For {working_cohort} ({i} of {length(non_empty_cohorts)})")
 
-  index_codes[[i]] <- summariseCohortCodeUse(study_cs[working_cohort] ,
+  index_codes[[i]] <- summariseCohortCodeUse(drug_concepts[working_cohort] ,
                                              cohortTable = "study_cohorts",
                                              cohortId = working_cohort_id,
                                              timing = "entry",
@@ -240,7 +279,7 @@ write_csv(incidenceAttrition(inc_hosp),
 cli::cli_text("- Creating DUS cohorts ({Sys.time()})")
 cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
                                                          name = "study_cohorts_dus",
-                                                         conceptSet = study_cs,
+                                                         conceptSet = drug_concepts,
                                                          gapEra = 7,
                                                          limit = "all",
                                                          priorUseWashout = 30,
@@ -287,8 +326,8 @@ write_csv(dus_chars,
 # large scale characterisation -----
 cli::cli_text("- Running large scale characterisation of DUS cohorts ({Sys.time()})")
 dus_lsc <- PatientProfiles::summariseLargeScaleCharacteristics(cdm_dus$study_cohorts_dus,
-                                                                    eventInWindow = c("drug_exposure",
-                                                                                      "condition_occurrence"))
+                                                                    eventInWindow = c("condition_occurrence"),
+                                                               window = list(c(-30, -1), c(0, 0)))
 write_csv(dus_lsc,
           here("Results", paste0(
             "dus_lsc_summary_", cdmName(cdm), ".csv"
@@ -299,7 +338,8 @@ cli::cli_text("- Summarising indications for DUS cohorts ({Sys.time()})")
 dus_indication <- cdm_dus$study_cohorts_dus %>%
   addIndication(
     indicationCohortName = "indications",
-    indicationGap =  c(0, 7, 30)
+    indicationGap =  c(0, 7, 30),
+    unknownIndicationTable = "condition_occurrence"
   ) %>%
   summariseIndication()
 
@@ -313,6 +353,9 @@ write_csv(dus_indication,
 cli::cli_text("- Summarising drug utilisation ({Sys.time()})")
 non_empty_cohorts <- sort(cohort_count(cdm_dus[["study_cohorts_dus"]]) %>%
                             filter(number_records > 0) %>%
+                            left_join(cohort_set(cdm_dus[["study_cohorts_dus"]]),
+                                      by = "cohort_definition_id")%>%
+                            filter(cohort_name != "fluroquinolones") %>%
                             pull("cohort_definition_id"))
 
 dus_summary <- list()
@@ -322,16 +365,16 @@ working_cohort_name <- cohort_set(cdm_dus[["study_cohorts_dus"]]) %>%
   filter(cohort_definition_id == non_empty_cohorts[i]) %>%
   pull(cohort_name)
 
-working_ingredient <- drug_concepts %>%
+working_ingredient <- drug_ingredients %>%
   filter(concept_name == working_cohort_name) %>%
   pull(concept_id)
 
-cli::cli_text("-- Summarising duration and dose of {names(study_cs)[i]} ({i} of {length(non_empty_cohorts)}) ({Sys.time()})")
+cli::cli_text("-- Summarising duration and dose of {names(drug_concepts)[i]} ({i} of {length(non_empty_cohorts)}) ({Sys.time()})")
 
 dus_summary[[i]] <- cdm_dus$study_cohorts_dus %>%
   addDrugUse(
     ingredientConceptId = working_ingredient,
-    conceptSet = study_cs[working_cohort_name],
+    conceptSet = drug_concepts[working_cohort_name],
     duration = TRUE,
     quantity = FALSE,
     dose = TRUE,
