@@ -13,7 +13,7 @@ cdm <- CDMConnector::cdm_from_con(con = db,
 
 # cdm snapshot ----
 cli::cli_text("- Getting cdm snapshot ({Sys.time()})")
-write_csv(snapshot(cdm), here("Results", paste0(
+write_csv(snapshot(cdm), here("results", paste0(
   "cdm_snapshot_", cdmName(cdm), ".csv"
 )))
 
@@ -70,6 +70,7 @@ drug_concepts[["fluroquinolones"]] <- purrr::list_c(drug_concepts)
 
 
 # run drug exposure diagnostics ----
+cli::cli_text("- Running drug exposure diagnostics ({Sys.time()})")
 drug_diagnostics <- suppressWarnings(suppressMessages(
   # uninformative warnings because we're not running all checks
   DrugExposureDiagnostics::executeChecks(
@@ -86,7 +87,7 @@ drug_diagnostics <- suppressWarnings(suppressMessages(
 for(i in seq_along(drug_diagnostics)){
     write_csv(drug_diagnostics[[i]] %>%
               mutate(cdm_name = !!db_name),
-            here("Results", paste0(
+            here("results", paste0(
               names(drug_diagnostics)[i], "_" ,cdmName(cdm), ".csv"
             )))
 
@@ -105,7 +106,7 @@ cohort_counts <- cohort_count(cdm[["study_cohorts"]]) %>%
             by = "cohort_definition_id") %>%
   mutate(cdm_name = db_name)
 write_csv(cohort_counts,
-          here("Results", paste0(
+          here("results", paste0(
             "cohort_count_", cdmName(cdm), ".csv"
           )))
 
@@ -138,7 +139,7 @@ for(i in seq_along(non_empty_cohorts)){
 index_codes <- bind_rows(index_codes) %>%
   mutate(cdm_name = db_name)
 write_csv(index_codes,
-          here("Results", paste0(
+          here("results", paste0(
             "index_codes_", cdmName(cdm), ".csv"
           )))
 
@@ -166,11 +167,11 @@ inc_gpop <- estimateIncidence(cdm, denominatorTable = "denominator",
                               outcomeWashout = 30,
                               repeatedEvents = TRUE)
 write_csv(inc_gpop,
-          here("Results", paste0(
+          here("results", paste0(
             "incidence_general_population_", cdmName(cdm), ".csv"
           )))
 write_csv(incidenceAttrition(inc_gpop),
-          here("Results", paste0(
+          here("results", paste0(
             "incidence_attrition_general_population_", cdmName(cdm), ".csv"
           )))
 
@@ -181,11 +182,11 @@ prev_gpop <- estimatePeriodPrevalence(cdm,
                                       completeDatabaseIntervals = TRUE,
                                       fullContribution = TRUE)
 write_csv(prev_gpop,
-          here("Results", paste0(
+          here("results", paste0(
             "prevalence_general_population_", cdmName(cdm), ".csv"
           )))
-write_csv(incidenceAttrition(inc_gpop),
-          here("Results", paste0(
+write_csv(prevalenceAttrition(prev_gpop),
+          here("results", paste0(
             "prevalence_attrition_general_population_", cdmName(cdm), ".csv"
           )))
 
@@ -250,11 +251,11 @@ inc_hosp <- estimateIncidence(cdm, denominatorTable = "denominator_hosp",
                               outcomeWashout = 30,
                               repeatedEvents = TRUE)
 write_csv(inc_hosp,
-          here("Results", paste0(
+          here("results", paste0(
             "incidence_hospitalised_", cdmName(cdm), ".csv"
           )))
 write_csv(incidenceAttrition(inc_hosp),
-          here("Results", paste0(
+          here("results", paste0(
             "incidence_attrition_hospitalised_", cdmName(cdm), ".csv"
           )))
 
@@ -265,11 +266,11 @@ prev_hosp <- estimatePeriodPrevalence(cdm,
                                       completeDatabaseIntervals = TRUE,
                                       fullContribution = TRUE)
 write_csv(prev_hosp,
-          here("Results", paste0(
+          here("results", paste0(
             "prevalence_hospitalised_", cdmName(cdm), ".csv"
           )))
-write_csv(incidenceAttrition(inc_hosp),
-          here("Results", paste0(
+write_csv(prevalenceAttrition(prev_hosp),
+          here("results", paste0(
             "prevalence_attrition_hospitalised_", cdmName(cdm), ".csv"
           )))
 
@@ -319,7 +320,7 @@ dus_chars <- PatientProfiles::summariseCharacteristics(cdm_dus$study_cohorts_dus
                                                                        c(65,74),
                                                                        c(75,150)))
 write_csv(dus_chars,
-          here("Results", paste0(
+          here("results", paste0(
             "dus_chars_summary_", cdmName(cdm), ".csv"
           )))
 
@@ -329,7 +330,7 @@ dus_lsc <- PatientProfiles::summariseLargeScaleCharacteristics(cdm_dus$study_coh
                                                                     eventInWindow = c("condition_occurrence"),
                                                                window = list(c(-30, -1), c(0, 0)))
 write_csv(dus_lsc,
-          here("Results", paste0(
+          here("results", paste0(
             "dus_lsc_summary_", cdmName(cdm), ".csv"
           )))
 
@@ -344,7 +345,7 @@ dus_indication <- cdm_dus$study_cohorts_dus %>%
   summariseIndication()
 
 write_csv(dus_indication,
-          here("Results", paste0(
+          here("results", paste0(
             "dus_indication_", cdmName(cdm), ".csv"
           )))
 
@@ -392,24 +393,24 @@ dus_summary[[i]] <- cdm_dus$study_cohorts_dus %>%
 }
 dus_summary <- bind_rows(dus_summary)
 write_csv(dus_summary,
-          here("Results", paste0(
+          here("results", paste0(
             "dus_summary_", cdmName(cdm), ".csv"
           )))
 
 
 # zip all results -----
 cli::cli_text("- Zipping results ({Sys.time()})")
-files_to_zip <- list.files(here("Results"))
+files_to_zip <- list.files(here("results"))
 files_to_zip <- files_to_zip[str_detect(files_to_zip,
                                         db_name)]
 files_to_zip <- files_to_zip[str_detect(files_to_zip,
                                         ".csv")]
 
 zip::zip(zipfile = file.path(paste0(
-  here("Results"), "/Results_", db_name, ".zip"
+  here("results"), "/results_", db_name, ".zip"
 )),
 files = files_to_zip,
-root = here("Results"))
+root = here("results"))
 
 dur <- abs(as.numeric(Sys.time() - start_time, units = "secs"))
 cli::cli_alert_success("Study code finished")

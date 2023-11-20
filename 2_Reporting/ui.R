@@ -221,8 +221,8 @@ ui <- dashboardPage(
           pickerInput(
             inputId = "cd_index_group_name",
             label = "Group name",
-            choices = sort(unique(index_codes$group_name)),
-            selected = sort(unique(index_codes$group_name)),
+            choices = c("Codelist", "By concept"),
+            selected = "Codelist",
             options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
             multiple = TRUE
           )
@@ -232,8 +232,10 @@ ui <- dashboardPage(
           pickerInput(
             inputId = "cd_index_strata_name",
             label = "Strata name",
-            choices = sort(unique(index_codes$strata_name)),
-            selected = sort(unique(index_codes$strata_name)),
+            choices = c("Overall", "Age group", "Sex",
+                        "Age group and sex",
+                        "Year"),
+            selected = "Overall",
             options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
             multiple = TRUE
           )

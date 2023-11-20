@@ -103,14 +103,27 @@ server <- function(input, output, session) {
                "group_name", 
                "strata_name", "strata_level",
                "standard_concept_name", "standard_concept_id",
-               "source_concept_name",  "source_concept_id" ,   "domain_id",
+               "source_concept_name",  "source_concept_id" , 
                "variable_name", "estimate")) %>% 
       pivot_wider(names_from = variable_name, 
                   values_from = estimate)
     
+    
+    if(all(input$cd_index_group_name %in%  "Codelist")){
+      index_codes <- index_codes %>% 
+        select(!c(
+          "standard_concept_name", "standard_concept_id",
+          "source_concept_name",  "source_concept_id"
+        ))
+    }
+    
+    index_codes<-index_codes %>% 
+      arrange(desc(`Record count`))
+    
     names(index_codes)<-stringr::str_replace_all(names(index_codes), "_", " ")
     
     index_codes
+
   })
   
   output$dt_index_codes  <- DT::renderDataTable({
@@ -601,7 +614,7 @@ server <- function(input, output, session) {
     # )
 
     dus_summary %>% 
-      filter(cdm_name %in% input$lsc_cdm,
+      filter(cdm_name %in% input$dus_cdm,
              group_level %in% input$dus_cohort)
   })
   
