@@ -21,3 +21,6 @@ Diagnostics/1b_fluroquinolones_diagnostics_shiny/data/CPRD_AURUM/*.csv
 2_Reporting/rsconnect/shinyapps.io/dpa-pde-oxford/fluroquinolones_studyathon.dcf
 1_StudyCode/results/*.csv
 2_Reporting/data/Results_Pharmetrics 100k/*.csv
+2_Reporting/data/Results_CPRD GOLD/c*.csv
+2_Reporting/data/Results_Pharmetrics/*.csv
+2_Reporting/data/Results_CPRD GOLD/*.csv

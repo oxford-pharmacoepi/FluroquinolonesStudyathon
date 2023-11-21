@@ -20,7 +20,8 @@ write_csv(snapshot(cdm), here("results", paste0(
 # get drug concepts ----
 cli::cli_text("- Getting drug codes ({Sys.time()})")
 drug_ingredients <- cdm$concept %>%
-  mutate(concept_name = tolower(concept_name)) %>%
+  filter(standard_concept == "S") %>%
+  filter(domain_id == "Drug") %>%
   filter(concept_name %in% local(c("ciprofloxacin",
                                    "delafloxacin",
                                    "moxifloxacin",
