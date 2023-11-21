@@ -9,7 +9,9 @@ cdm <- CDMConnector::cdm_from_con(con = db,
                                                    prefix = study_prefix),
                                   cdm_name = db_name)
 
-
+# remove problematic concept if it is in vocab
+cdm$concept <- cdm$concept %>%
+  filter(concept_id != 43008995)
 
 # cdm snapshot ----
 cli::cli_text("- Getting cdm snapshot ({Sys.time()})")
