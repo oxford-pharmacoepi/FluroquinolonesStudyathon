@@ -227,8 +227,11 @@ DBI::dbRemoveTable(conn = attr(cdm, "dbcon"),
 
 
 if(cdm$hospitalisations %>% head(5) %>% tally() %>%  pull() > 0){
+
 cdm$hospitalisations <- cdm$hospitalisations %>%
-  new_generated_cohort_set(overwrite = TRUE)
+  new_generated_cohort_set(overwrite = TRUE,
+                           cohort_set_ref =  data.frame(cohort_definition_id = 1L,
+                                                        cohort_name = "hospitalised"))
 
 cdm <- generateDenominatorCohortSet(cdm = cdm,
                                     name = "denominator_hosp",
