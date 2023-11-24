@@ -20,6 +20,7 @@ library(tidyr)
 library(zip)
 library(stringr)
 library(testthat)
+library(remotes)
 
 # database name ----
 db_name <- "...."

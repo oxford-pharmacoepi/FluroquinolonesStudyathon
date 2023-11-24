@@ -289,7 +289,7 @@ indication <- dplyr::bind_rows(indication)
 dus_summary_files<-results[stringr::str_detect(results, ".csv")]
 dus_summary_files<-results[stringr::str_detect(results, "dus_summary")]
 dus_summary <- list()
-for(i in seq_along(large_scale_characteristics_files)){
+for(i in seq_along(dus_summary_files)){
   dus_summary[[i]]<-readr::read_csv(dus_summary_files[[i]], 
                                                     show_col_types = FALSE) %>% 
     mutate(estimate = as.character(estimate))
