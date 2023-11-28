@@ -73,7 +73,8 @@ cdm_snapshot <- cdm_snapshot %>%
   rename("Database name" = "cdm_name",
          "Persons in the database" = "person_count",
          "Number of observation periods" = "observation_period_count",
-         "OMOP CDM vocabulary version" = "vocabulary_version")
+         "OMOP CDM vocabulary version" = "vocabulary_version") %>% 
+  distinct()
 
 # cohort_count -----
 cohort_count_files<-results[stringr::str_detect(results, ".csv")]
@@ -114,6 +115,9 @@ conceptSummary <- list()
 for(i in seq_along(conceptSummary_files)){
   conceptSummary[[i]]<-readr::read_csv(conceptSummary_files[[i]], 
                                     show_col_types = FALSE) 
+  if(nrow(conceptSummary[[i]])==0){
+    conceptSummary[[i]]<- NULL 
+  }
 }
 conceptSummary <- dplyr::bind_rows(conceptSummary) 
 
@@ -125,6 +129,9 @@ drugExposureDurationByConcept <- list()
 for(i in seq_along(drugExposureDurationByConcept_files)){
   drugExposureDurationByConcept[[i]]<-readr::read_csv(drugExposureDurationByConcept_files[[i]], 
                                        show_col_types = FALSE) 
+  if(nrow(drugExposureDurationByConcept[[i]])==0){
+    drugExposureDurationByConcept[[i]]<- NULL 
+  }
 }
 drugExposureDurationByConcept <- dplyr::bind_rows(drugExposureDurationByConcept) 
 
@@ -137,6 +144,9 @@ drugExposureDurationOverall <- list()
 for(i in seq_along(drugExposureDurationOverall_files)){
   drugExposureDurationOverall[[i]]<-readr::read_csv(drugExposureDurationOverall_files[[i]], 
                                        show_col_types = FALSE) 
+  if(nrow(drugExposureDurationOverall[[i]])==0){
+    drugExposureDurationOverall[[i]]<- NULL 
+  }
 }
 drugExposureDurationOverall <- dplyr::bind_rows(drugExposureDurationOverall) 
 
@@ -155,6 +165,9 @@ drugSourceConceptsByConcept <- list()
 for(i in seq_along(drugSourceConceptsByConcept_files)){
   drugSourceConceptsByConcept[[i]]<-readr::read_csv(drugSourceConceptsByConcept_files[[i]], 
                                        show_col_types = FALSE) 
+  if(nrow(drugSourceConceptsByConcept[[i]])==0){
+    drugSourceConceptsByConcept[[i]]<- NULL 
+  }
 }
 drugSourceConceptsByConcept <- dplyr::bind_rows(drugSourceConceptsByConcept) 
 
@@ -167,6 +180,9 @@ missingValuesByConcept <- list()
 for(i in seq_along(missingValuesByConcept_files)){
   missingValuesByConcept[[i]]<-readr::read_csv(missingValuesByConcept_files[[i]], 
                                        show_col_types = FALSE) 
+  if(nrow(missingValuesByConcept[[i]])==0){
+    missingValuesByConcept[[i]]<- NULL 
+  }
 }
 missingValuesByConcept <- dplyr::bind_rows(missingValuesByConcept) 
 
@@ -179,6 +195,9 @@ missingValuesOverall <- list()
 for(i in seq_along(missingValuesOverall_files)){
   missingValuesOverall[[i]]<-readr::read_csv(missingValuesOverall_files[[i]], 
                                              show_col_types = FALSE) 
+  if(nrow(missingValuesOverall[[i]])==0){
+    missingValuesOverall[[i]]<- NULL 
+  }
 }
 missingValuesOverall <- dplyr::bind_rows(missingValuesOverall) 
 

@@ -1,5 +1,9 @@
 # start -----
 start_time <- Sys.time()
+start_temp <- floor(runif(1, min = 1, max = 10)*10)*100
+cli::cli_inform("Starting temp tables from {start_temp}")
+options(dbplyr_table_name = start_temp)
+
 
 # cdm reference ----
 cli::cli_text("- Creating CDM reference ({Sys.time()})")
@@ -11,7 +15,8 @@ cdm <- CDMConnector::cdm_from_con(con = db,
 
 # remove problematic concept if it is in vocab
 cdm$concept <- cdm$concept %>%
-  filter(concept_id != 43008995)
+  filter(!concept_id %in% c(43008995, 36852855,
+         36857452, 36859444, 36861127))
 
 # cdm snapshot ----
 cli::cli_text("- Getting cdm snapshot ({Sys.time()})")
@@ -36,8 +41,16 @@ drug_ingredients <- cdm$concept %>%
   collect() %>%
   arrange(concept_name)
 
-# systemic forms
+# all drug concepts
 drug_concepts <- getDrugIngredientCodes(cdm = cdm,
+                                                 name = c("ciprofloxacin",
+                                                          "delafloxacin",
+                                                          "moxifloxacin",
+                                                          "ofloxacin",
+                                                          "levofloxacin",
+                                                          "norfloxacin"))
+# systemic forms
+drug_concepts_systemic <- getDrugIngredientCodes(cdm = cdm,
                        name = c("ciprofloxacin",
                                 "delafloxacin",
                                 "moxifloxacin",
@@ -67,9 +80,62 @@ drug_concepts <- getDrugIngredientCodes(cdm = cdm,
                            "Sublingual Film", "Sublingual Powder","Sublingual Tablet",
                            "Suspension", "Sustained Release Buccal Tablet","Tablet for Oral Suspension",
                            "Transdermal System", "Vaginal Powder"))
-
-# add overall group
+names(drug_concepts_systemic) <- paste0(names(drug_concepts_systemic) ,
+                                        "_systemic")
+# add overall groups
 drug_concepts[["fluroquinolones"]] <- purrr::list_c(drug_concepts)
+drug_concepts_systemic[["fluroquinolones_systemic"]] <- purrr::list_c(drug_concepts_systemic)
+
+# combine
+drug_concepts <- purrr::flatten(list(drug_concepts, drug_concepts_systemic))
+
+
+# instantiate concept cohorts -------
+cli::cli_text("- Instantiating concept based cohorts - all events included ({Sys.time()})")
+cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
+                                                         name = "fluro",
+                                                         conceptSet = list(fluroquinolones = drug_concepts[["fluroquinolones"]]),
+                                                         gapEra = 7,
+                                                         limit = "all")
+cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
+                                                         name = "study_cohorts",
+                                                         conceptSet = drug_concepts,
+                                                         gapEra = 7,
+                                                         limit = "all")
+
+# drug utilisation cohorts -----
+cli::cli_text("- Creating DUS cohorts ({Sys.time()})")
+cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
+                                                         name = "study_cohorts_dus",
+                                                         conceptSet = drug_concepts,
+                                                         gapEra = 7,
+                                                         limit = "all",
+                                                         priorUseWashout = 30,
+                                                         priorObservation = 30,
+                                                         cohortDateRange =  as.Date(c("2012-01-01",
+                                                                                      "2022-01-01")))
+
+
+# subset cdm -----
+cli::cli_text("- Subsetting cdm to DUS cohorts ({Sys.time()})")
+cdm_dus <- cdm_subset_cohort(
+  cdm = cdm,
+  cohort_table = "fluro"
+)
+cdm_dus$person <- cdm_dus$person %>% computeQuery()
+cdm_dus$observation_period <- cdm_dus$observation_period %>% computeQuery()
+cdm_dus$condition_occurrence <- cdm_dus$condition_occurrence %>% computeQuery()
+cdm_dus$drug_exposure <- cdm_dus$drug_exposure %>% computeQuery()
+
+# indication cohorts --------
+cli::cli_text("- Creating indication cohorts ({Sys.time()})")
+cdm_dus <- CDMConnector::generate_concept_cohort_set(cdm = cdm_dus,
+                                                     concept_set = list("uti" = 81902,
+                                                                        "lrti" = 4175297),
+                                                     name = "indications",
+                                                     end = 1,
+                                                     limit = "all",
+                                                     overwrite = TRUE)
 
 
 # run drug exposure diagnostics ----
@@ -77,30 +143,24 @@ cli::cli_text("- Running drug exposure diagnostics ({Sys.time()})")
 drug_diagnostics <- suppressWarnings(suppressMessages(
   # uninformative warnings because we're not running all checks
   DrugExposureDiagnostics::executeChecks(
-  cdm = cdm,
-  ingredients = drug_ingredients$concept_id,
-  subsetToConceptId = unique(purrr::list_c(drug_concepts)),
-  checks = c(
-    "missing",
-    "exposureDuration",
-    "sourceConcept"
-  ))
+    cdm = cdm_dus,
+    ingredients = drug_ingredients$concept_id,
+    subsetToConceptId = unique(purrr::list_c(drug_concepts)),
+    checks = c(
+      "missing",
+      "exposureDuration",
+      "sourceConcept"
+    ))
 ))
 
 for(i in seq_along(drug_diagnostics)){
-    write_csv(drug_diagnostics[[i]] %>%
+  write_csv(drug_diagnostics[[i]] %>%
               mutate(cdm_name = !!db_name),
             here("results", paste0(
               names(drug_diagnostics)[i], "_" ,cdmName(cdm), ".csv"
             )))
 
 }
-# instantiate concept cohorts -------
-cli::cli_text("- Instantiating concept based cohorts - all events included ({Sys.time()})")
-cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
-                                                         name = "study_cohorts",
-                                                         conceptSet = drug_concepts,
-                                                         gapEra = 7)
 
 # cohort counts ----
 cli::cli_text("- Instantiating cohorts ({Sys.time()})")
@@ -150,6 +210,7 @@ write_csv(index_codes,
 cdm <- generateDenominatorCohortSet(cdm = cdm,
                                     name = "denominator",
                                     ageGroup = list(c(0, 150), c(0, 18), c(19, 150),
+                                                     c(19, 59), c(60, 150),
                                                     # pediatric
                                                     c(0, 1), c(1, 4), c(5, 9),
                                                     c(10, 14), c(15, 18),
@@ -165,7 +226,7 @@ cdm <- generateDenominatorCohortSet(cdm = cdm,
 
 inc_gpop <- estimateIncidence(cdm, denominatorTable = "denominator",
                               outcomeTable = "study_cohorts",
-                              interval = c("quarters", "years"),
+                              interval = c("months", "quarters", "years"),
                               completeDatabaseIntervals = TRUE,
                               outcomeWashout = 30,
                               repeatedEvents = TRUE)
@@ -181,7 +242,7 @@ write_csv(incidenceAttrition(inc_gpop),
 prev_gpop <- estimatePeriodPrevalence(cdm,
                                       denominatorTable = "denominator",
                                       outcomeTable = "study_cohorts",
-                                      interval = c("quarters", "years"),
+                                      interval = c("months", "quarters", "years"),
                                       completeDatabaseIntervals = TRUE,
                                       fullContribution = TRUE)
 write_csv(prev_gpop,
@@ -236,6 +297,7 @@ cdm$hospitalisations <- cdm$hospitalisations %>%
 cdm <- generateDenominatorCohortSet(cdm = cdm,
                                     name = "denominator_hosp",
                                     ageGroup = list(c(0, 150), c(0, 18), c(19, 150),
+                                                    c(19, 59), c(60, 150),
                                                     # pediatric
                                                     c(0, 1), c(1, 4), c(5, 9),
                                                     c(10, 14), c(15, 18),
@@ -252,7 +314,7 @@ cdm <- generateDenominatorCohortSet(cdm = cdm,
 
 inc_hosp <- estimateIncidence(cdm, denominatorTable = "denominator_hosp",
                               outcomeTable = "study_cohorts",
-                              interval = c("quarters", "years"),
+                              interval = c("months", "quarters", "years"),
                               completeDatabaseIntervals = TRUE,
                               outcomeWashout = 30,
                               repeatedEvents = TRUE)
@@ -268,7 +330,7 @@ write_csv(incidenceAttrition(inc_hosp),
 prev_hosp <- estimatePeriodPrevalence(cdm,
                                       denominatorTable = "denominator_hosp",
                                       outcomeTable = "study_cohorts",
-                                      interval = c("quarters", "years"),
+                                      interval = c("months", "quarters", "years"),
                                       completeDatabaseIntervals = TRUE,
                                       fullContribution = TRUE)
 write_csv(prev_hosp,
@@ -282,40 +344,13 @@ write_csv(prevalenceAttrition(prev_hosp),
 
 }
 
-# drug utilisation cohorts -----
-cli::cli_text("- Creating DUS cohorts ({Sys.time()})")
-cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
-                                                         name = "study_cohorts_dus",
-                                                         conceptSet = drug_concepts,
-                                                         gapEra = 7,
-                                                         limit = "all",
-                                                         priorUseWashout = 30,
-                                                         priorObservation = 30,
-                                                         cohortDateRange =  as.Date(c("2012-01-01",
-                                                                                      "2022-01-01")))
-
-# subset cdm -----
-cli::cli_text("- Subsetting cdm to DUS cohorts ({Sys.time()})")
-cdm_dus <- cdm_subset_cohort(
-  cdm = cdm,
-  cohort_table = "study_cohorts_dus"
-)
-cdm_dus$person <- cdm_dus$person %>% computeQuery()
-cdm_dus$observation_period <- cdm_dus$observation_period %>% computeQuery()
-cdm_dus$condition_occurrence <- cdm_dus$condition_occurrence %>% computeQuery()
-cdm_dus$drug_exposure <- cdm_dus$drug_exposure %>% computeQuery()
-
-cli::cli_text("- Creating indication cohorts ({Sys.time()})")
-cdm_dus <- CDMConnector::generate_concept_cohort_set(cdm = cdm_dus,
-                                                 concept_set = list("uti" = 81902,
-                                                                    "lrti" = 4175297),
-                                                 name = "indications",
-                                                 end = 1,
-                                                 limit = "all",
-                                                 overwrite = TRUE)
-
 # patient characteristics -----
 cli::cli_text("- Getting demographics of DUS cohorts ({Sys.time()})")
+cdm_dus$study_cohorts_dus <- cdm_dus$study_cohorts_dus %>%
+  addAge(ageGroup =
+           list( c(0, 18),
+                 c(19, 59),
+                 c(60, 150)))
 dus_chars <- PatientProfiles::summariseCharacteristics(cdm_dus$study_cohorts_dus,
                                                        ageGroup = list(c(0,17),
                                                                        c(18,24),
@@ -324,7 +359,8 @@ dus_chars <- PatientProfiles::summariseCharacteristics(cdm_dus$study_cohorts_dus
                                                                        c(45,54),
                                                                        c(55,64),
                                                                        c(65,74),
-                                                                       c(75,150)))
+                                                                       c(75,150)),
+                                                       strata = list("age_group"))
 write_csv(dus_chars,
           here("results", paste0(
             "dus_chars_summary_", cdmName(cdm), ".csv"
@@ -334,7 +370,8 @@ write_csv(dus_chars,
 cli::cli_text("- Running large scale characterisation of DUS cohorts ({Sys.time()})")
 dus_lsc <- PatientProfiles::summariseLargeScaleCharacteristics(cdm_dus$study_cohorts_dus,
                                                                     eventInWindow = c("condition_occurrence"),
-                                                               window = list(c(-30, -1), c(0, 0)))
+                                                               window = list(c(-30, -1), c(0, 0)),
+                                                               strata = list("age_group"))
 write_csv(dus_lsc,
           here("results", paste0(
             "dus_lsc_summary_", cdmName(cdm), ".csv"
@@ -348,7 +385,7 @@ dus_indication <- cdm_dus$study_cohorts_dus %>%
     indicationGap =  c(0, 7, 30),
     unknownIndicationTable = "condition_occurrence"
   ) %>%
-  summariseIndication()
+  summariseIndication(strata = list("age_group"))
 
 write_csv(dus_indication,
           here("results", paste0(
@@ -394,7 +431,7 @@ dus_summary[[i]] <- cdm_dus$study_cohorts_dus %>%
     durationRange = c(1, Inf),
     dailyDoseRange = c(0, Inf)
   ) %>%
-  summariseDrugUse()
+  summariseDrugUse(strata = list("age_group"))
 
 }
 dus_summary <- bind_rows(dus_summary)
