@@ -129,10 +129,40 @@ cdm_dus$drug_exposure <- cdm_dus$drug_exposure %>% computeQuery()
 
 # indication cohorts --------
 cli::cli_text("- Creating indication cohorts ({Sys.time()})")
+
+indications_def <- read_csv(here("indications",
+              "Fluoroquinolones_potIndications_v3.csv"),
+         show_col_types = FALSE)
+indications_def$decision_children<- CodelistGenerator:::tidyWords(indications_def$decision_children)
+indications_def$decision_adult<- CodelistGenerator:::tidyWords(indications_def$decision_adult)
+
+indications_pediatrics<-indications_def %>%
+  filter(!is.na(decision_children)) %>%
+  select(c("concept_id", "decision_children"))
+indications_pediatrics<- split(indications_pediatrics,
+      f = indications_pediatrics$decision_children)
+for(i in seq_along(indications_pediatrics)){
+  indications_pediatrics[[i]]<-indications_pediatrics[[i]] %>% pull("concept_id")
+}
+
+indications_adult<-indications_def %>%
+  filter(!is.na(decision_adult)) %>%
+  select(c("concept_id", "decision_adult"))
+indications_adult<- split(indications_adult,
+                               f = indications_adult$decision_adult)
+for(i in seq_along(indications_adult)){
+  indications_adult[[i]]<-indications_adult[[i]] %>% pull("concept_id")
+}
+
 cdm_dus <- CDMConnector::generate_concept_cohort_set(cdm = cdm_dus,
-                                                     concept_set = list("uti" = 81902,
-                                                                        "lrti" = 4175297),
-                                                     name = "indications",
+                                                     concept_set = indications_pediatrics,
+                                                     name = "indications_pediatrics",
+                                                     end = 1,
+                                                     limit = "all",
+                                                     overwrite = TRUE)
+cdm_dus <- CDMConnector::generate_concept_cohort_set(cdm = cdm_dus,
+                                                     concept_set = indications_adult,
+                                                     name = "indications_adult",
                                                      end = 1,
                                                      limit = "all",
                                                      overwrite = TRUE)
@@ -385,20 +415,38 @@ write_csv(dus_lsc,
             "dus_lsc_summary_", cdmName(cdm), ".csv"
           )))
 
-# indications -----
-cli::cli_text("- Summarising indications for DUS cohorts ({Sys.time()})")
-dus_indication <- cdm_dus$study_cohorts_dus %>%
+# indications: pediatric -----
+cli::cli_text("- Summarising pediatric indications for DUS cohorts ({Sys.time()})")
+dus_pediatric_indication <- cdm_dus$study_cohorts_dus %>%
+ filter(age <= 18) %>%
   addIndication(
-    indicationCohortName = "indications",
+    indicationCohortName = "indications_pediatrics",
     indicationGap =  c(0, 7, 30),
     unknownIndicationTable = "condition_occurrence"
   ) %>%
   summariseIndication(strata = list(c("age_group"),
                                     c("time_period")))
 
-write_csv(dus_indication,
+write_csv(dus_pediatric_indication,
           here("results", paste0(
-            "dus_indication_", cdmName(cdm), ".csv"
+            "dus_indication_pediatric_", cdmName(cdm), ".csv"
+          )))
+
+# indications: adult -----
+cli::cli_text("- Summarising adult indications for DUS cohorts ({Sys.time()})")
+dus_adult_indication <- cdm_dus$study_cohorts_dus %>%
+   filter(age > 18) %>%
+  addIndication(
+    indicationCohortName = "indications_adult",
+    indicationGap =  c(0, 7, 30),
+    unknownIndicationTable = "condition_occurrence"
+  ) %>%
+  summariseIndication(strata = list(c("age_group"),
+                                    c("time_period")))
+
+write_csv(dus_adult_indication,
+          here("results", paste0(
+            "dus_indication_adult_", cdmName(cdm), ".csv"
           )))
 
 # DUS details -----
