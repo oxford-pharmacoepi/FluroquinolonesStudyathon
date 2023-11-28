@@ -348,9 +348,15 @@ write_csv(prevalenceAttrition(prev_hosp),
 cli::cli_text("- Getting demographics of DUS cohorts ({Sys.time()})")
 cdm_dus$study_cohorts_dus <- cdm_dus$study_cohorts_dus %>%
   addAge(ageGroup =
-           list( c(0, 18),
+           list(c(0, 18),
                  c(19, 59),
                  c(60, 150)))
+
+cdm_dus$study_cohorts_dus <- cdm_dus$study_cohorts_dus %>%
+  mutate(time_period = if_else(cohort_start_date < as.Date("2019-04-01"),
+                               "Pre", "Post"))
+
+
 dus_chars <- PatientProfiles::summariseCharacteristics(cdm_dus$study_cohorts_dus,
                                                        ageGroup = list(c(0,17),
                                                                        c(18,24),
@@ -360,7 +366,8 @@ dus_chars <- PatientProfiles::summariseCharacteristics(cdm_dus$study_cohorts_dus
                                                                        c(55,64),
                                                                        c(65,74),
                                                                        c(75,150)),
-                                                       strata = list("age_group"))
+                                                       strata = list(c("age_group"),
+                                                                     c("time_period")))
 write_csv(dus_chars,
           here("results", paste0(
             "dus_chars_summary_", cdmName(cdm), ".csv"
@@ -371,7 +378,8 @@ cli::cli_text("- Running large scale characterisation of DUS cohorts ({Sys.time(
 dus_lsc <- PatientProfiles::summariseLargeScaleCharacteristics(cdm_dus$study_cohorts_dus,
                                                                     eventInWindow = c("condition_occurrence"),
                                                                window = list(c(-30, -1), c(0, 0)),
-                                                               strata = list("age_group"))
+                                                               strata = list(c("age_group"),
+                                                                             c("time_period")))
 write_csv(dus_lsc,
           here("results", paste0(
             "dus_lsc_summary_", cdmName(cdm), ".csv"
@@ -385,7 +393,8 @@ dus_indication <- cdm_dus$study_cohorts_dus %>%
     indicationGap =  c(0, 7, 30),
     unknownIndicationTable = "condition_occurrence"
   ) %>%
-  summariseIndication(strata = list("age_group"))
+  summariseIndication(strata = list(c("age_group"),
+                                    c("time_period")))
 
 write_csv(dus_indication,
           here("results", paste0(
