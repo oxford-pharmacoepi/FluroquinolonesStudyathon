@@ -260,10 +260,9 @@ cdm <- generateDenominatorCohortSet(cdm = cdm,
                                     sex = c("Both", "Male", "Female"),
                                     daysPriorObservation = c(30),
                                     overwrite = TRUE)
-
 inc_gpop <- estimateIncidence(cdm, denominatorTable = "denominator",
                               outcomeTable = "study_cohorts",
-                              interval = c("months", "quarters", "years"),
+                              interval = c("quarters", "years"),
                               completeDatabaseIntervals = TRUE,
                               outcomeWashout = 30,
                               repeatedEvents = TRUE)
@@ -274,6 +273,30 @@ write_csv(inc_gpop,
 write_csv(incidenceAttrition(inc_gpop),
           here("results", paste0(
             "incidence_attrition_general_population_", cdmName(cdm), ".csv"
+          )))
+
+
+cdm <- generateDenominatorCohortSet(cdm = cdm,
+                                    name = "denominator_for_months",
+                                    ageGroup = list(c(0, 18), c(19, 59)),
+                                    cohortDateRange = as.Date(c("2012-01-01", "2022-01-01")),
+                                    sex = c("Both"),
+                                    daysPriorObservation = c(30),
+                                    overwrite = TRUE)
+inc_gpop_months <- estimateIncidence(cdm,
+                                     denominatorTable = "denominator_for_months",
+                              outcomeTable = "study_cohorts",
+                              interval = c("months"),
+                              completeDatabaseIntervals = TRUE,
+                              outcomeWashout = 30,
+                              repeatedEvents = TRUE)
+write_csv(inc_gpop_months,
+          here("results", paste0(
+            "incidence_general_population_months_", cdmName(cdm), ".csv"
+          )))
+write_csv(incidenceAttrition(inc_gpop_months),
+          here("results", paste0(
+            "incidence_attrition_general_population_months_", cdmName(cdm), ".csv"
           )))
 
 prev_gpop <- estimatePeriodPrevalence(cdm,
@@ -350,7 +373,7 @@ cdm <- generateDenominatorCohortSet(cdm = cdm,
 
 inc_hosp <- estimateIncidence(cdm, denominatorTable = "denominator_hosp",
                               outcomeTable = "study_cohorts",
-                              interval = c("months", "quarters", "years"),
+                              interval = c("quarters", "years"),
                               completeDatabaseIntervals = TRUE,
                               outcomeWashout = 30,
                               repeatedEvents = TRUE)
@@ -366,7 +389,7 @@ write_csv(incidenceAttrition(inc_hosp),
 prev_hosp <- estimatePeriodPrevalence(cdm,
                                       denominatorTable = "denominator_hosp",
                                       outcomeTable = "study_cohorts",
-                                      interval = c("months", "quarters", "years"),
+                                      interval = c("quarters", "years"),
                                       completeDatabaseIntervals = TRUE,
                                       fullContribution = TRUE)
 write_csv(prev_hosp,
