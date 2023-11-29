@@ -563,35 +563,70 @@ server <- function(input, output, session) {
   
   
   
-  # indication ----
-  get_indication <- reactive({
+  # indication_pediatric ----
+  get_indication_pediatric <- reactive({
     
     validate(
-      need(input$indication_cdm != "", "Please select a database")
+      need(input$indication_pediatric_cdm != "", "Please select a database")
     )
     validate(
-      need(input$indication_cohort != "", "Please select a cohort")
+      need(input$indication_pediatric_cohort != "", "Please select a cohort")
     )
     validate(
-      need(input$indication_time_window != "", "Please select a time window")
+      need(input$indication_pediatric_time_window != "", "Please select a time window")
     )
     validate(
-      need(input$indication_indication != "", "Please select an indication of interest")
+      need(input$indication_indication_pediatric != "", "Please select an indication of interest")
     )
     
-    indication <- indication %>% 
-      filter(cdm_name %in% input$indication_cdm,
-             group_level %in%  input$indication_cohort,
-             variable %in%  input$indication_time_window,
-             variable_level %in%  input$indication_indication) 
+    indication_pediatric <- indication_pediatric %>% 
+      filter(cdm_name %in% input$indication_pediatric_cdm,
+             group_level %in%  input$indication_pediatric_cohort,
+             variable %in%  input$indication_pediatric_time_window,
+             variable_level %in%  input$indication_indication_pediatric) 
       
-    indication
+    indication_pediatric
   })
   
-  output$dt_indication  <- DT::renderDataTable({
-    table_data <- get_indication()
+  output$dt_indication_pediatric  <- DT::renderDataTable({
+    table_data <- get_indication_pediatric()
     datatable(table_data, rownames= FALSE) 
   })   
+  
+  
+  
+  
+  
+  # indication_adult ----
+  get_indication_adult <- reactive({
+    
+    validate(
+      need(input$indication_adult_cdm != "", "Please select a database")
+    )
+    validate(
+      need(input$indication_adult_cohort != "", "Please select a cohort")
+    )
+    validate(
+      need(input$indication_adult_time_window != "", "Please select a time window")
+    )
+    validate(
+      need(input$indication_indication_adult != "", "Please select an indication of interest")
+    )
+    
+    indication_adult <- indication_adult %>% 
+      filter(cdm_name %in% input$indication_adult_cdm,
+             group_level %in%  input$indication_adult_cohort,
+             variable %in%  input$indication_adult_time_window,
+             variable_level %in%  input$indication_indication_adult) 
+    
+    indication_adult
+  })
+  
+  output$dt_indication_adult  <- DT::renderDataTable({
+    table_data <- get_indication_adult()
+    datatable(table_data, rownames= FALSE) 
+  })   
+  
   
   
   

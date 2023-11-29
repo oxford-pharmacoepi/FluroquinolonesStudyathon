@@ -44,8 +44,12 @@ ui <- dashboardPage(
           tabName = "chars"
         ),
         menuSubItem(
-          text = "Indication",
-          tabName = "indication"
+          text = "Pediatric indications",
+          tabName = "indication_pediatric"
+        ),
+        menuSubItem(
+          text = "Adult indication",
+          tabName = "indication_adult"
         ),
         menuSubItem(
           text = "Large scale characteriscs",
@@ -749,16 +753,16 @@ ui <- dashboardPage(
     DT::dataTableOutput("dt_large_scale_characteristics") %>% 
       withSpinner()
   ),
-  # indication ------
+  # indication_pediatric ------
   tabItem(
-    tabName = "indication",
+    tabName = "indication_pediatric",
     div(
       style = "display: inline-block;vertical-align:top; width: 150px;",
       pickerInput(
-        inputId = "indication_cdm",
+        inputId = "indication_pediatric_cdm",
         label = "Database",
-        choices = sort(unique(indication$cdm_name)),
-        selected = sort(unique(indication$cdm_name)),
+        choices = sort(unique(indication_pediatric$cdm_name)),
+        selected = sort(unique(indication_pediatric$cdm_name)),
         options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
         multiple = TRUE
       )
@@ -766,10 +770,10 @@ ui <- dashboardPage(
     div(
       style = "display: inline-block;vertical-align:top; width: 150px;",
       pickerInput(
-        inputId = "indication_cohort",
+        inputId = "indication_pediatric_cohort",
         label = "Cohort",
-        choices = sort(unique(indication$group_level)),
-        selected = sort(unique(indication$group_level)),
+        choices = sort(unique(indication_pediatric$group_level)),
+        selected = sort(unique(indication_pediatric$group_level)),
         options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
         multiple = TRUE
       )
@@ -777,10 +781,10 @@ ui <- dashboardPage(
     div(
       style = "display: inline-block;vertical-align:top; width: 150px;",
       pickerInput(
-        inputId = "indication_time_window",
+        inputId = "indication_pediatric_time_window",
         label = "Time window",
-        choices = sort(unique(indication$variable)),
-        selected = sort(unique(indication$variable)),
+        choices = sort(unique(indication_pediatric$variable)),
+        selected = sort(unique(indication_pediatric$variable)),
         options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
         multiple = TRUE
       )
@@ -788,18 +792,71 @@ ui <- dashboardPage(
     div(
       style = "display: inline-block;vertical-align:top; width: 150px;",
       pickerInput(
-        inputId = "indication_indication",
+        inputId = "indication_indication_pediatric",
         label = "Indication",
-        choices = sort(unique(indication$variable_level)),
-        selected = sort(unique(indication$variable_level)),
+        choices = sort(unique(indication_pediatric$variable_level)),
+        selected = sort(unique(indication_pediatric$variable_level)),
         options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
         multiple = TRUE
       )
     ),
     tags$hr(),
-    DT::dataTableOutput("dt_indication") %>% 
+    DT::dataTableOutput("dt_indication_pediatric") %>% 
       withSpinner()
   ),
+  
+  # indication_adult ------
+  tabItem(
+    tabName = "indication_adult",
+    div(
+      style = "display: inline-block;vertical-align:top; width: 150px;",
+      pickerInput(
+        inputId = "indication_adult_cdm",
+        label = "Database",
+        choices = sort(unique(indication_adult$cdm_name)),
+        selected = sort(unique(indication_adult$cdm_name)),
+        options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
+        multiple = TRUE
+      )
+    ),
+    div(
+      style = "display: inline-block;vertical-align:top; width: 150px;",
+      pickerInput(
+        inputId = "indication_adult_cohort",
+        label = "Cohort",
+        choices = sort(unique(indication_adult$group_level)),
+        selected = sort(unique(indication_adult$group_level)),
+        options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
+        multiple = TRUE
+      )
+    ),
+    div(
+      style = "display: inline-block;vertical-align:top; width: 150px;",
+      pickerInput(
+        inputId = "indication_adult_time_window",
+        label = "Time window",
+        choices = sort(unique(indication_adult$variable)),
+        selected = sort(unique(indication_adult$variable)),
+        options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
+        multiple = TRUE
+      )
+    ),
+    div(
+      style = "display: inline-block;vertical-align:top; width: 150px;",
+      pickerInput(
+        inputId = "indication_indication_adult",
+        label = "Indication",
+        choices = sort(unique(indication_adult$variable_level)),
+        selected = sort(unique(indication_adult$variable_level)),
+        options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
+        multiple = TRUE
+      )
+    ),
+    tags$hr(),
+    DT::dataTableOutput("dt_indication_adult") %>% 
+      withSpinner()
+  ),
+  
   
   # dus -------
   tabItem(

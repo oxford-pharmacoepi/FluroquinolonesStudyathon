@@ -494,7 +494,6 @@ working_ingredient <- drug_ingredients %>%
   pull(concept_id)
 
 cli::cli_text("-- Summarising duration and dose of systemic {names(drug_concepts)[i]} ({i} of {length(dus_summary_cohorts)}) ({Sys.time()})")
-
 dus_summary[[i]] <- cdm_dus$study_cohorts_dus %>%
   addDrugUse(
     ingredientConceptId = working_ingredient,
@@ -513,6 +512,9 @@ dus_summary[[i]] <- cdm_dus$study_cohorts_dus %>%
   ) %>%
   summariseDrugUse(strata = list(c("age_group"),
                                  c("time_period")))
+
+dus_summary[[i]] <- dus_summary[[i]] %>%
+  filter(group_level == working_cohort_name)
 
 }
 dus_summary <- bind_rows(dus_summary)

@@ -293,16 +293,27 @@ large_scale_characteristics <- dplyr::bind_rows(large_scale_characteristics)
 
 
 
-# indications -----
-indication_files<-results[stringr::str_detect(results, ".csv")]
-indication_files<-results[stringr::str_detect(results, "indication")]
-indication <- list()
-for(i in seq_along(large_scale_characteristics_files)){
-  indication[[i]]<-readr::read_csv(indication_files[[i]], 
+# indication_pediatric -----
+indication_pediatric_files<-results[stringr::str_detect(results, ".csv")]
+indication_pediatric_files<-results[stringr::str_detect(results, "indication_pediatric")]
+indication_pediatric <- list()
+for(i in seq_along(indication_pediatric_files)){
+  indication_pediatric[[i]]<-readr::read_csv(indication_pediatric_files[[i]], 
                                     show_col_types = FALSE) %>% 
     mutate(estimate = as.character(estimate))
 }
-indication <- dplyr::bind_rows(indication)
+indication_pediatric <- dplyr::bind_rows(indication_pediatric)
+
+# indication_adult -----
+indication_adult_files<-results[stringr::str_detect(results, ".csv")]
+indication_adult_files<-results[stringr::str_detect(results, "indication_adult")]
+indication_adult <- list()
+for(i in seq_along(indication_adult_files)){
+  indication_adult[[i]]<-readr::read_csv(indication_adult_files[[i]], 
+                                             show_col_types = FALSE) %>% 
+    mutate(estimate = as.character(estimate))
+}
+indication_adult <- dplyr::bind_rows(indication_adult)
 
 # dus -----
 dus_summary_files<-results[stringr::str_detect(results, ".csv")]
