@@ -289,7 +289,7 @@ for(i in seq_along(large_scale_characteristics_files)){
                                                     show_col_types = FALSE) 
 }
 large_scale_characteristics <- dplyr::bind_rows(large_scale_characteristics)
-
+table(large_scale_characteristics$strata_name)
 
 
 

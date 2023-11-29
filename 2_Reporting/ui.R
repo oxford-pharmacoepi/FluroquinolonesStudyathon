@@ -749,6 +749,28 @@ ui <- dashboardPage(
         multiple = TRUE
       )
     ),
+    div(
+      style = "display: inline-block;vertical-align:top; width: 150px;",
+      pickerInput(
+        inputId = "lsc_strata_name",
+        label = "Strata",
+        choices = sort(unique(large_scale_characteristics$strata_name)),
+        selected = sort(unique(large_scale_characteristics$strata_name)),
+        options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
+        multiple = TRUE
+      )
+    ),
+    div(
+      style = "display: inline-block;vertical-align:top; width: 150px;",
+      pickerInput(
+        inputId = "lsc_strata_level",
+        label = "Strata level",
+        choices = sort(unique(large_scale_characteristics$strata_level)),
+        selected = sort(unique(large_scale_characteristics$strata_level)),
+        options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
+        multiple = TRUE
+      )
+    ),
     tags$hr(),
     DT::dataTableOutput("dt_large_scale_characteristics") %>% 
       withSpinner()
@@ -796,6 +818,28 @@ ui <- dashboardPage(
         label = "Indication",
         choices = sort(unique(indication_pediatric$variable_level)),
         selected = sort(unique(indication_pediatric$variable_level)),
+        options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
+        multiple = TRUE
+      )
+    ),
+    div(
+      style = "display: inline-block;vertical-align:top; width: 150px;",
+      pickerInput(
+        inputId = "indication_pediatric_strata_name",
+        label = "Strata",
+        choices = sort(unique(indication_pediatric$strata_name)),
+        selected = sort(unique(indication_pediatric$strata_name)),
+        options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
+        multiple = TRUE
+      )
+    ),
+    div(
+      style = "display: inline-block;vertical-align:top; width: 150px;",
+      pickerInput(
+        inputId = "indication_pediatric_strata_level",
+        label = "Strata level",
+        choices = sort(unique(indication_pediatric$strata_level)),
+        selected = sort(unique(indication_pediatric$strata_level)),
         options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
         multiple = TRUE
       )
@@ -848,6 +892,28 @@ ui <- dashboardPage(
         label = "Indication",
         choices = sort(unique(indication_adult$variable_level)),
         selected = sort(unique(indication_adult$variable_level)),
+        options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
+        multiple = TRUE
+      )
+    ),
+    div(
+      style = "display: inline-block;vertical-align:top; width: 150px;",
+      pickerInput(
+        inputId = "indication_adult_strata_name",
+        label = "Strata",
+        choices = sort(unique(indication_adult$strata_name)),
+        selected = sort(unique(indication_adult$strata_name)),
+        options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
+        multiple = TRUE
+      )
+    ),
+    div(
+      style = "display: inline-block;vertical-align:top; width: 150px;",
+      pickerInput(
+        inputId = "indication_adult_strata_level",
+        label = "Strata level",
+        choices = sort(unique(indication_adult$strata_level)),
+        selected = sort(unique(indication_adult$strata_level)),
         options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
         multiple = TRUE
       )

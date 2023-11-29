@@ -535,9 +535,10 @@ server <- function(input, output, session) {
       filter(cdm_name %in% input$lsc_cdm,
              group_level %in%  input$lsc_cohort,
              variable_level %in%  input$lsc_time_window,
-             table_name %in%  input$lsc_domain) %>% 
+             table_name %in%  input$lsc_domain,
+             strata_name %in%  input$lsc_strata_name,
+             strata_level %in%  input$lsc_strata_level) %>% 
       select(!c("result_type","group_name",
-                "strata_name", "strata_level",
                 "type", "analysis")) %>% 
       pivot_wider(names_from = estimate_type, 
                   values_from = estimate) %>% 
@@ -583,7 +584,9 @@ server <- function(input, output, session) {
       filter(cdm_name %in% input$indication_pediatric_cdm,
              group_level %in%  input$indication_pediatric_cohort,
              variable %in%  input$indication_pediatric_time_window,
-             variable_level %in%  input$indication_indication_pediatric) 
+             variable_level %in%  input$indication_indication_pediatric,
+             strata_name %in%  input$indication_pediatric_strata_name,
+             strata_level %in%  input$indication_pediatric_strata_level) 
       
     indication_pediatric
   })
@@ -617,7 +620,9 @@ server <- function(input, output, session) {
       filter(cdm_name %in% input$indication_adult_cdm,
              group_level %in%  input$indication_adult_cohort,
              variable %in%  input$indication_adult_time_window,
-             variable_level %in%  input$indication_indication_adult) 
+             variable_level %in%  input$indication_indication_adult,
+             strata_name %in%  input$indication_adult_strata_name,
+             strata_level %in%  input$indication_adult_strata_level) 
     
     indication_adult
   })

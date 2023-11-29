@@ -87,8 +87,9 @@ drug_concepts[["fluroquinolones"]] <- purrr::list_c(drug_concepts)
 drug_concepts_systemic[["fluroquinolones_systemic"]] <- purrr::list_c(drug_concepts_systemic)
 
 # combine
-drug_concepts <- purrr::flatten(list(drug_concepts, drug_concepts_systemic))
-
+if(isTRUE(ingredient_only)){
+  drug_concepts <- purrr::flatten(list(drug_concepts, drug_concepts_systemic))
+}
 
 # instantiate concept cohorts -------
 cli::cli_text("- Instantiating concept based cohorts - all events included ({Sys.time()})")
@@ -102,7 +103,6 @@ cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
                                                          conceptSet = drug_concepts,
                                                          gapEra = 7,
                                                          limit = "all")
-
 # drug utilisation cohorts -----
 cli::cli_text("- Creating DUS cohorts ({Sys.time()})")
 cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
@@ -244,18 +244,17 @@ write_csv(index_codes,
             "index_codes_", cdmName(cdm), ".csv"
           )))
 
+
 # incidence and prevalence: general population -----
+if(isTRUE(run_incidence_prevalence)){
 cdm <- generateDenominatorCohortSet(cdm = cdm,
                                     name = "denominator",
-                                    ageGroup = list(c(0, 150), c(0, 18), c(19, 150),
-                                                     c(19, 59), c(60, 150),
+                                    ageGroup = list(c(0, 150),
+                                                    c(0, 18),
+                                                    c(19, 59), c(60, 150),
                                                     # pediatric
                                                     c(0, 1), c(1, 4), c(5, 9),
-                                                    c(10, 14), c(15, 18),
-                                                    # adult
-                                                    c(19, 24), c(25, 34), c(35, 44),
-                                                    c(45, 54), c(55, 64), c(65, 74),
-                                                    c(75, 150)
+                                                    c(10, 14), c(15, 18)
                                                     ),
                                     cohortDateRange = as.Date(c("2012-01-01", "2022-01-01")),
                                     sex = c("Both", "Male", "Female"),
@@ -291,9 +290,10 @@ write_csv(prevalenceAttrition(prev_gpop),
           here("results", paste0(
             "prevalence_attrition_general_population_", cdmName(cdm), ".csv"
           )))
-
+}
 
 # incidence and prevalence: hospitalised -----
+if(isTRUE(run_incidence_prevalence)){
 hospitalisation_codes <- getDescendants(cdm, c(9201, 262)) %>%
   select("concept_id")
 
@@ -334,15 +334,13 @@ cdm$hospitalisations <- cdm$hospitalisations %>%
 
 cdm <- generateDenominatorCohortSet(cdm = cdm,
                                     name = "denominator_hosp",
-                                    ageGroup = list(c(0, 150), c(0, 18), c(19, 150),
-                                                    c(19, 59), c(60, 150),
+                                    ageGroup = list(c(0, 150),
+                                                    c(0, 18),
+                                                    c(19, 59),
+                                                    c(60, 150),
                                                     # pediatric
                                                     c(0, 1), c(1, 4), c(5, 9),
-                                                    c(10, 14), c(15, 18),
-                                                    # adult
-                                                    c(19, 24), c(25, 34), c(35, 44),
-                                                    c(45, 54), c(55, 64), c(65, 74),
-                                                    c(75, 150)
+                                                    c(10, 14), c(15, 18)
                                     ),
                                     targetCohortTable = "hospitalisations",
                                     cohortDateRange = as.Date(c("2012-01-01", "2022-01-01")),
@@ -382,6 +380,8 @@ write_csv(prevalenceAttrition(prev_hosp),
 
 }
 
+}
+
 # patient characteristics -----
 cli::cli_text("- Getting demographics of DUS cohorts ({Sys.time()})")
 cdm_dus$study_cohorts_dus <- cdm_dus$study_cohorts_dus %>%
@@ -396,14 +396,9 @@ cdm_dus$study_cohorts_dus <- cdm_dus$study_cohorts_dus %>%
 
 
 dus_chars <- PatientProfiles::summariseCharacteristics(cdm_dus$study_cohorts_dus,
-                                                       ageGroup = list(c(0,17),
-                                                                       c(18,24),
-                                                                       c(25,34),
-                                                                       c(35,44),
-                                                                       c(45,54),
-                                                                       c(55,64),
-                                                                       c(65,74),
-                                                                       c(75,150)),
+                                                       ageGroup = list(c(0,18),
+                                                                       c(19,59),
+                                                                       c(60,150)),
                                                        strata = list(c("age_group"),
                                                                      c("time_period")))
 
@@ -467,6 +462,7 @@ write_csv(dus_adult_indication,
           )))
 
 # DUS details -----
+if(isFALSE(ingredient_only)){
 # go ingredient by ingredient
 cli::cli_text("- Summarising drug utilisation ({Sys.time()})")
 non_empty_cohorts <- sort(cohort_count(cdm_dus[["study_cohorts_dus"]]) %>%
@@ -522,7 +518,7 @@ write_csv(dus_summary,
           here("results", paste0(
             "dus_summary_", cdmName(cdm), ".csv"
           )))
-
+}
 
 # zip all results -----
 cli::cli_text("- Zipping results ({Sys.time()})")
