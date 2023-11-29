@@ -198,6 +198,14 @@ cohort_counts <- cohort_count(cdm[["study_cohorts"]]) %>%
   left_join(cohort_set(cdm[["study_cohorts"]]),
             by = "cohort_definition_id") %>%
   mutate(cdm_name = db_name)
+cohort_counts <- cohort_counts %>%
+  mutate(number_records = if_else(number_records <5 & number_records >0,
+                                  as.character("<5"),
+                                  as.character(number_records))) %>%
+  mutate(number_subjects = if_else(number_subjects <5 & number_subjects >0,
+                                   as.character("<5"),
+                                   as.character(number_subjects)))
+
 write_csv(cohort_counts,
           here("results", paste0(
             "cohort_count_", cdmName(cdm), ".csv"
@@ -398,6 +406,15 @@ dus_chars <- PatientProfiles::summariseCharacteristics(cdm_dus$study_cohorts_dus
                                                                        c(75,150)),
                                                        strata = list(c("age_group"),
                                                                      c("time_period")))
+
+dus_chars <- dus_chars %>%
+  filter(!variable %in% c("Cohort start date",
+                          "Cohort end date")) %>%
+  filter(!(variable == "Age" &
+        estimate_type %in% c("min", "q05", "q95", "max"))) %>%
+  filter(!estimate_type %in% c("q05", "q95"))
+
+
 write_csv(dus_chars,
           here("results", paste0(
             "dus_chars_summary_", cdmName(cdm), ".csv"
@@ -459,18 +476,24 @@ non_empty_cohorts <- sort(cohort_count(cdm_dus[["study_cohorts_dus"]]) %>%
                             filter(cohort_name != "fluroquinolones") %>%
                             pull("cohort_definition_id"))
 
+dus_summary_cohorts <- cohort_set(cdm_dus[["study_cohorts_dus"]]) %>%
+  filter(str_detect(cohort_name, "systemic")) %>%
+  filter(str_detect(cohort_name, "fluroquinolone", negate = TRUE)) %>%
+  filter(cohort_definition_id %in% non_empty_cohorts) %>%
+  pull(cohort_definition_id)
+
 dus_summary <- list()
 cli::cli_text("- Summarising duration and dose of DUS cohorts ({Sys.time()})")
-for(i in seq_along(non_empty_cohorts)){
+for(i in seq_along(dus_summary_cohorts)){
 working_cohort_name <- cohort_set(cdm_dus[["study_cohorts_dus"]]) %>%
-  filter(cohort_definition_id == non_empty_cohorts[i]) %>%
+  filter(cohort_definition_id == dus_summary_cohorts[i]) %>%
   pull(cohort_name)
 
 working_ingredient <- drug_ingredients %>%
-  filter(concept_name == working_cohort_name) %>%
+  filter(concept_name == str_replace(working_cohort_name, "_systemic","")) %>%
   pull(concept_id)
 
-cli::cli_text("-- Summarising duration and dose of {names(drug_concepts)[i]} ({i} of {length(non_empty_cohorts)}) ({Sys.time()})")
+cli::cli_text("-- Summarising duration and dose of systemic {names(drug_concepts)[i]} ({i} of {length(dus_summary_cohorts)}) ({Sys.time()})")
 
 dus_summary[[i]] <- cdm_dus$study_cohorts_dus %>%
   addDrugUse(
@@ -488,7 +511,8 @@ dus_summary[[i]] <- cdm_dus$study_cohorts_dus %>%
     durationRange = c(1, Inf),
     dailyDoseRange = c(0, Inf)
   ) %>%
-  summariseDrugUse(strata = list("age_group"))
+  summariseDrugUse(strata = list(c("age_group"),
+                                 c("time_period")))
 
 }
 dus_summary <- bind_rows(dus_summary)
