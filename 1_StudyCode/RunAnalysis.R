@@ -144,6 +144,14 @@ for(i in seq_along(indications_pediatrics)){
   indications_pediatrics[[i]]<-indications_pediatrics[[i]] %>% pull("concept_id")
 }
 
+for (nm in names(indications_pediatrics)) {
+  if (paste0(nm, "inf") %in% names(indications_pediatrics)) {
+    indications_pediatrics[[nm]] <- c(
+      indications_pediatrics[[nm]], indications_pediatrics[[paste0(nm, "inf")]]
+    )
+  }
+}
+
 indications_adult<-indications_def %>%
   filter(!is.na(decision_adult)) %>%
   select(c("concept_id", "decision_adult"))
@@ -151,6 +159,13 @@ indications_adult<- split(indications_adult,
                                f = indications_adult$decision_adult)
 for(i in seq_along(indications_adult)){
   indications_adult[[i]]<-indications_adult[[i]] %>% pull("concept_id")
+}
+for (nm in names(indications_adult)) {
+  if (paste0(nm, "inf") %in% names(indications_adult)) {
+    indications_adult[[nm]] <- c(
+      indications_adult[[nm]], indications_adult[[paste0(nm, "inf")]]
+    )
+  }
 }
 
 cdm_dus <- CDMConnector::generate_concept_cohort_set(cdm = cdm_dus,
