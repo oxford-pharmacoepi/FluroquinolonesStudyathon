@@ -86,9 +86,8 @@ drug_concepts[["fluroquinolones"]] <- purrr::list_c(drug_concepts)
 drug_concepts_systemic[["fluroquinolones_systemic"]] <- purrr::list_c(drug_concepts_systemic)
 
 # combine
-if(isTRUE(ingredient_only)){
-  drug_concepts <- purrr::flatten(list(drug_concepts, drug_concepts_systemic))
-}
+drug_concepts <- purrr::flatten(list(drug_concepts, drug_concepts_systemic))
+
 
 # instantiate concept cohorts -------
 cli::cli_text("- Instantiating concept based cohorts - all events included ({Sys.time()})")
@@ -329,96 +328,6 @@ write_csv(prevalenceAttrition(prev_gpop),
           )))
 }
 
-# incidence and prevalence: hospitalised -----
-if(isTRUE(run_incidence_prevalence)){
-hospitalisation_codes <- getDescendants(cdm, c(9201, 262)) %>%
-  select("concept_id")
-
-DBI::dbWriteTable(conn = attr(cdm, "dbcon"),
-                  name = inSchema(attr(cdm, "write_schema"), "hospitalisation_codes"),
-                  value = hospitalisation_codes)
-
-cdm$hospitalisation_codes <- tbl(attr(cdm, "dbcon"),
-                                 inSchema(attr(cdm, "write_schema"), "hospitalisation_codes"))
-
-cdm$hospitalisations <- cdm$hospitalisation_codes %>%
-  inner_join(cdm$visit_occurrence %>%
-              select("person_id",
-                     "visit_start_date", "visit_end_date",
-                     "visit_concept_id"),
-            by = c("concept_id"="visit_concept_id")) %>%
-  select(!c("concept_id")) %>%
-  rename("subject_id" = "person_id",
-         "cohort_start_date" = "visit_start_date",
-         "cohort_end_date" = "visit_end_date") %>%
-  mutate(cohort_definition_id = 1L) %>%
-  relocate("cohort_definition_id") %>%
-  distinct() %>%
-  computeQuery(name = "hosp", temporary = FALSE,
-               schema = attr(cdm, "write_schema"),
-               overwrite = TRUE)
-
-DBI::dbRemoveTable(conn = attr(cdm, "dbcon"),
-                   name = inSchema(attr(cdm, "write_schema"), "hospitalisation_codes"))
-
-
-if(cdm$hospitalisations %>% head(5) %>% tally() %>%  pull() > 0){
-
-cdm$hospitalisations <- cdm$hospitalisations %>%
-  new_generated_cohort_set(overwrite = TRUE,
-                           cohort_set_ref =  data.frame(cohort_definition_id = 1L,
-                                                        cohort_name = "hospitalised"))
-
-cdm <- generateDenominatorCohortSet(cdm = cdm,
-                                    name = "denominator_hosp",
-                                    ageGroup = list(c(0, 150),
-                                                    c(0, 17),
-                                                    c(18, 59),
-                                                    c(60, 150),
-                                                    # pediatric
-                                                    c(0, 1), c(1, 4), c(5, 9),
-                                                    c(10, 14), c(15, 17)
-                                    ),
-                                    targetCohortTable = "hospitalisations",
-                                    cohortDateRange = as.Date(c("2012-01-01", "2022-01-01")),
-                                    sex = c("Both", "Male", "Female"),
-                                    daysPriorObservation = c(30),
-                                    overwrite = TRUE)
-
-inc_hosp <- estimateIncidence(cdm, denominatorTable = "denominator_hosp",
-                              outcomeTable = "study_cohorts",
-                              interval = c("quarters", "years"),
-                              completeDatabaseIntervals = TRUE,
-                              outcomeWashout = 30,
-                              repeatedEvents = TRUE)
-write_csv(inc_hosp,
-          here("results", paste0(
-            "incidence_hospitalised_", cdmName(cdm), ".csv"
-          )))
-write_csv(incidenceAttrition(inc_hosp),
-          here("results", paste0(
-            "incidence_attrition_hospitalised_", cdmName(cdm), ".csv"
-          )))
-
-prev_hosp <- estimatePeriodPrevalence(cdm,
-                                      denominatorTable = "denominator_hosp",
-                                      outcomeTable = "study_cohorts",
-                                      interval = c("quarters", "years"),
-                                      completeDatabaseIntervals = TRUE,
-                                      fullContribution = TRUE)
-write_csv(prev_hosp,
-          here("results", paste0(
-            "prevalence_hospitalised_", cdmName(cdm), ".csv"
-          )))
-write_csv(prevalenceAttrition(prev_hosp),
-          here("results", paste0(
-            "prevalence_attrition_hospitalised_", cdmName(cdm), ".csv"
-          )))
-
-}
-
-}
-
 # patient characteristics -----
 cli::cli_text("- Getting demographics of DUS cohorts ({Sys.time()})")
 cdm_dus$study_cohorts_dus <- cdm_dus$study_cohorts_dus %>%
@@ -555,7 +464,6 @@ write_csv(dus_adult_indication,
           )))
 
 # DUS details -----
-if(isFALSE(ingredient_only)){
 # go ingredient by ingredient
 cli::cli_text("- Summarising drug utilisation ({Sys.time()})")
 non_empty_cohorts <- sort(cohort_count(cdm_dus[["study_cohorts_dus"]]) %>%
@@ -610,7 +518,6 @@ write_csv(dus_summary,
           here("results", paste0(
             "dus_summary_", cdmName(cdm), ".csv"
           )))
-}
 
 # zip all results -----
 cli::cli_text("- Zipping results ({Sys.time()})")
