@@ -110,8 +110,7 @@ cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
                                                          limit = "all",
                                                          priorUseWashout = 30,
                                                          priorObservation = 30,
-                                                         cohortDateRange =  as.Date(c("2012-01-01",
-                                                                                      "2022-01-01")))
+                                                         cohortDateRange =  as.Date(c("2012-01-01",NA)))
 
 
 # subset cdm -----
@@ -269,7 +268,7 @@ cdm <- generateDenominatorCohortSet(cdm = cdm,
                                                     c(0, 1), c(1, 4), c(5, 9),
                                                     c(10, 14), c(15, 17)
                                                     ),
-                                    cohortDateRange = as.Date(c("2012-01-01", "2022-01-01")),
+                                    cohortDateRange = as.Date(c("2012-01-01", NA)),
                                     sex = c("Both", "Male", "Female"),
                                     daysPriorObservation = c(30),
                                     overwrite = TRUE)
@@ -292,7 +291,7 @@ write_csv(incidenceAttrition(inc_gpop),
 cdm <- generateDenominatorCohortSet(cdm = cdm,
                                     name = "denominator_for_months",
                                     ageGroup = list(c(19, 59), c(60, 150)),
-                                    cohortDateRange = as.Date(c("2012-01-01", "2022-01-01")),
+                                    cohortDateRange = as.Date(c("2012-01-01", NA)),
                                     sex = c("Both"),
                                     daysPriorObservation = c(30),
                                     overwrite = TRUE)
