@@ -416,30 +416,68 @@ cdm_dus$study_cohorts_dus <- cdm_dus$study_cohorts_dus %>%
   mutate(time_period = if_else(cohort_start_date < as.Date("2019-04-01"),
                                "Pre", "Post"))
 
+assertDomains <- function(x, cdm) {
+  nam <- "abcd_concepts"
+  fullName <- CDMConnector::inSchema(schema = attr(cdm, "write_schema"), table = nam)
+  DBI::dbWriteTable(attr(cdm, "dbcon"), fullName, dplyr::tibble(concept_id = x))
+  x <- dplyr::tbl(attr(cdm, "dbcon"), fullName)
+  x <- cdm[["concept"]] %>%
+    dplyr::inner_join(x, by = "concept_id") %>%
+    dplyr::select("concept_id", "domain_id") %>%
+    dplyr::collect() %>%
+    dplyr::filter(tolower(.data$domain_id) %in% c(
+      "condition", "drug", "procedure", "observation", "measurement", "visit",
+      "device"
+    )) %>%
+    dplyr::pull("concept_id")
+  CDMConnector::dropTable(cdm, nam)
+  return(x)
+}
+comorbidities <- c(
+  codesFromConceptSet(path = here("comorbidities_anytime", "conceptsets"), cdm = cdm),
+  codesFromCohort(path = here("comorbidities_anytime", "cohorts"), cdm = cdm)
+)
+names(comorbidities) <- gsub(" ", "_", tolower(names(comorbidities)))
+medications1yr <- codesFromConceptSet(path = here("comedication_1yr"), cdm = cdm)
+names(medications1yr) <- gsub(" ", "_", tolower(names(medications1yr)))
+antibiotics <- codesFromConceptSet(path = here("comedication_30days"), cdm = cdm)
+names(antibiotics) <- gsub(" ", "_", tolower(names(antibiotics)))
+tests <- codesFromConceptSet(path = here("tests_14daysbefore_7daysafter"), cdm = cdm)
+names(tests) <- gsub(" ", "_", tolower(names(tests)))
+
+tests <- purrr::map(tests, ~assertDomains(., cdm = cdm))
+comorbidities <- purrr::map(comorbidities, ~assertDomains(., cdm = cdm))
+medications1yr <- purrr::map(medications1yr, ~assertDomains(., cdm = cdm))
+antibiotics <- purrr::map(antibiotics, ~assertDomains(., cdm = cdm))
+
+tests <- tests[lengths(tests) > 0]
+comorbidities <- comorbidities[lengths(comorbidities) > 0]
+medications1yr <- medications1yr[lengths(medications1yr) > 0]
+antibiotics <- antibiotics[lengths(antibiotics) > 0]
 
 dus_chars <- cdm_dus$study_cohorts_dus %>%
   PatientProfiles::summariseCharacteristics(
     ageGroup = list(c(0, 17), c(18, 59), c(60, 150)),
     strata = list(c("age_group"), c("time_period"), c("time_period", "age_group")),
-    conceptSetIntersect = list(
+    conceptIntersect = list(
       "Tests" = list(
-        conceptSet = codesFromConceptSet(path = here("tests_14daysbefore_7daysafter"), cdm = cdm),
+        conceptSet = tests,
         window = list(c(-14, 7)),
         value = "flag"
       ),
       "Comorbidities any time prior" = list(
-        conceptSet = codesFromConceptSet(path = here("comorbidities_anytime"), cdm = cdm),
-        window = list(c(-Inf, 0)),
+        conceptSet = comorbidities,
+        window = list(c(-Inf, -1)),
         value = "flag"
       ),
-      "Medications 30 days prior" = list(
-        conceptSet = codesFromConceptSet(path = here("comedication_30days"), cdm = cdm),
-        window = list(c(-30, 0)),
+      "Antibiotics 30 days prior" = list(
+        conceptSet = antibiotics,
+        window = list(c(-30, -1)),
         value = "flag"
       ),
-      "Medications 1 year prior" = list(
-        conceptSet = codesFromConceptSet(path = here("comedication_1yr"), cdm = cdm),
-        window = list(c(-365, 0)),
+      "Medication 1 year prior" = list(
+        conceptSet = medications1yr,
+        window = list(c(-365, -1)),
         value = "flag"
       )
     )
