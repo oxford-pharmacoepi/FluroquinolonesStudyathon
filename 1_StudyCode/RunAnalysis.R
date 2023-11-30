@@ -418,12 +418,33 @@ cdm_dus$study_cohorts_dus <- cdm_dus$study_cohorts_dus %>%
                                "Pre", "Post"))
 
 
-dus_chars <- PatientProfiles::summariseCharacteristics(cdm_dus$study_cohorts_dus,
-                                                       ageGroup = list(c(0,18),
-                                                                       c(19,59),
-                                                                       c(60,150)),
-                                                       strata = list(c("age_group"),
-                                                                     c("time_period")))
+dus_chars <- cdm_dus$study_cohorts_dus %>%
+  PatientProfiles::summariseCharacteristics(
+    ageGroup = list(c(0, 18), c(19,59), c(60, 150)),
+    strata = list(c("age_group"), c("time_period"), c("time_period", "age_group")),
+    conceptSetIntersect = list(
+      "Tests" = list(
+        conceptSet = codesFromConceptSet(path = here("tests_14daysbefore_7daysafter"), cdm = cdm),
+        window = list(c(-14, 7)),
+        value = "flag"
+      ),
+      "Comorbidities any time prior" = list(
+        conceptSet = codesFromConceptSet(path = here("comorbidities_anytime"), cdm = cdm),
+        window = list(c(-Inf, 0)),
+        value = "flag"
+      ),
+      "Medications 30 days prior" = list(
+        conceptSet = codesFromConceptSet(path = here("comedication_30days"), cdm = cdm),
+        window = list(c(-30, 0)),
+        value = "flag"
+      ),
+      "Medications 1 year prior" = list(
+        conceptSet = codesFromConceptSet(path = here("comedication_1yr"), cdm = cdm),
+        window = list(c(-365, 0)),
+        value = "flag"
+      )
+    )
+  )
 
 dus_chars <- dus_chars %>%
   filter(!variable %in% c("Cohort start date",
