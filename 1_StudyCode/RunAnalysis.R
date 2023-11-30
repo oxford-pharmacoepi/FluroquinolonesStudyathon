@@ -463,8 +463,7 @@ cli::cli_text("- Running large scale characterisation of DUS cohorts ({Sys.time(
 dus_lsc <- PatientProfiles::summariseLargeScaleCharacteristics(cdm_dus$study_cohorts_dus,
                                                                     eventInWindow = c("condition_occurrence"),
                                                                window = list(c(-30, -1), c(0, 0)),
-                                                               strata = list(c("age_group"),
-                                                                             c("time_period")))
+                                                               strata = list(c("age_group"), c("time_period"), c("time_period", "age_group")))
 write_csv(dus_lsc,
           here("results", paste0(
             "dus_lsc_summary_", cdmName(cdm), ".csv"
@@ -479,8 +478,7 @@ dus_pediatric_indication <- cdm_dus$study_cohorts_dus %>%
     indicationGap =  c(0, 7, 30),
     unknownIndicationTable = "condition_occurrence"
   ) %>%
-  summariseIndication(strata = list(c("age_group"),
-                                    c("time_period")))
+  summariseIndication(strata = list(c("age_group"), c("time_period"), c("time_period", "age_group")))
 
 write_csv(dus_pediatric_indication,
           here("results", paste0(
@@ -496,8 +494,7 @@ dus_adult_indication <- cdm_dus$study_cohorts_dus %>%
     indicationGap =  c(0, 7, 30),
     unknownIndicationTable = "condition_occurrence"
   ) %>%
-  summariseIndication(strata = list(c("age_group"),
-                                    c("time_period")))
+  summariseIndication(strata = list(c("age_group"), c("time_period"), c("time_period", "age_group")))
 
 write_csv(dus_adult_indication,
           here("results", paste0(
@@ -549,8 +546,7 @@ dus_summary[[i]] <- cdm_dus$study_cohorts_dus %>%
     durationRange = c(1, Inf),
     dailyDoseRange = c(0, Inf)
   ) %>%
-  summariseDrugUse(strata = list(c("age_group"),
-                                 c("time_period")))
+  summariseDrugUse(strata = list(c("age_group"), c("time_period"), c("time_period", "age_group")))
 
 dus_summary[[i]] <- dus_summary[[i]] %>%
   filter(group_level == working_cohort_name)
