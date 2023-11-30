@@ -15,8 +15,7 @@ cdm <- CDMConnector::cdm_from_con(con = db,
 
 # remove problematic concept if it is in vocab
 cdm$concept <- cdm$concept %>%
-  filter(!concept_id %in% c(43008995, 36852855,
-         36857452, 36859444, 36861127))
+  filter(!concept_id %in% c(43008995, 36852855, 36857452, 36859444, 36861127))
 
 # cdm snapshot ----
 cli::cli_text("- Getting cdm snapshot ({Sys.time()})")
@@ -232,8 +231,8 @@ for(i in seq_along(non_empty_cohorts)){
                                              cdm = cdm,
                                              byYear = TRUE,
                                              bySex = TRUE,
-                                             ageGroup = list(c(0,18),
-                                                             c(19,150))) %>%
+                                             ageGroup = list(c(0,17),
+                                                             c(18,150))) %>%
     mutate(cohort_name = working_cohort)
 
 }
@@ -250,11 +249,11 @@ if(isTRUE(run_incidence_prevalence)){
 cdm <- generateDenominatorCohortSet(cdm = cdm,
                                     name = "denominator",
                                     ageGroup = list(c(0, 150),
-                                                    c(0, 18),
-                                                    c(19, 59), c(60, 150),
+                                                    c(0, 17),
+                                                    c(18, 59), c(60, 150),
                                                     # pediatric
                                                     c(0, 1), c(1, 4), c(5, 9),
-                                                    c(10, 14), c(15, 18)
+                                                    c(10, 14), c(15, 17)
                                                     ),
                                     cohortDateRange = as.Date(c("2012-01-01", "2022-01-01")),
                                     sex = c("Both", "Male", "Female"),
@@ -358,12 +357,12 @@ cdm$hospitalisations <- cdm$hospitalisations %>%
 cdm <- generateDenominatorCohortSet(cdm = cdm,
                                     name = "denominator_hosp",
                                     ageGroup = list(c(0, 150),
-                                                    c(0, 18),
-                                                    c(19, 59),
+                                                    c(0, 17),
+                                                    c(18, 59),
                                                     c(60, 150),
                                                     # pediatric
                                                     c(0, 1), c(1, 4), c(5, 9),
-                                                    c(10, 14), c(15, 18)
+                                                    c(10, 14), c(15, 17)
                                     ),
                                     targetCohortTable = "hospitalisations",
                                     cohortDateRange = as.Date(c("2012-01-01", "2022-01-01")),
@@ -409,21 +408,80 @@ write_csv(prevalenceAttrition(prev_hosp),
 cli::cli_text("- Getting demographics of DUS cohorts ({Sys.time()})")
 cdm_dus$study_cohorts_dus <- cdm_dus$study_cohorts_dus %>%
   addAge(ageGroup =
-           list(c(0, 18),
-                 c(19, 59),
+           list(c(0, 17),
+                 c(18, 59),
                  c(60, 150)))
 
 cdm_dus$study_cohorts_dus <- cdm_dus$study_cohorts_dus %>%
   mutate(time_period = if_else(cohort_start_date < as.Date("2019-04-01"),
                                "Pre", "Post"))
 
+assertDomains <- function(x, cdm) {
+  nam <- "abcd_concepts"
+  fullName <- CDMConnector::inSchema(schema = attr(cdm, "write_schema"), table = nam)
+  DBI::dbWriteTable(attr(cdm, "dbcon"), fullName, dplyr::tibble(concept_id = x))
+  x <- dplyr::tbl(attr(cdm, "dbcon"), fullName)
+  x <- cdm[["concept"]] %>%
+    dplyr::inner_join(x, by = "concept_id") %>%
+    dplyr::select("concept_id", "domain_id") %>%
+    dplyr::collect() %>%
+    dplyr::filter(tolower(.data$domain_id) %in% c(
+      "condition", "drug", "procedure", "observation", "measurement", "visit",
+      "device"
+    )) %>%
+    dplyr::pull("concept_id")
+  CDMConnector::dropTable(cdm, nam)
+  return(x)
+}
+comorbidities <- c(
+  codesFromConceptSet(path = here("comorbidities_anytime", "conceptsets"), cdm = cdm),
+  codesFromCohort(path = here("comorbidities_anytime", "cohorts"), cdm = cdm)
+)
+names(comorbidities) <- gsub(" ", "_", tolower(names(comorbidities)))
+medications1yr <- codesFromConceptSet(path = here("comedication_1yr"), cdm = cdm)
+names(medications1yr) <- gsub(" ", "_", tolower(names(medications1yr)))
+antibiotics <- codesFromConceptSet(path = here("comedication_30days"), cdm = cdm)
+names(antibiotics) <- gsub(" ", "_", tolower(names(antibiotics)))
+tests <- codesFromConceptSet(path = here("tests_14daysbefore_7daysafter"), cdm = cdm)
+names(tests) <- gsub(" ", "_", tolower(names(tests)))
 
-dus_chars <- PatientProfiles::summariseCharacteristics(cdm_dus$study_cohorts_dus,
-                                                       ageGroup = list(c(0,18),
-                                                                       c(19,59),
-                                                                       c(60,150)),
-                                                       strata = list(c("age_group"),
-                                                                     c("time_period")))
+tests <- purrr::map(tests, ~assertDomains(., cdm = cdm))
+comorbidities <- purrr::map(comorbidities, ~assertDomains(., cdm = cdm))
+medications1yr <- purrr::map(medications1yr, ~assertDomains(., cdm = cdm))
+antibiotics <- purrr::map(antibiotics, ~assertDomains(., cdm = cdm))
+
+tests <- tests[lengths(tests) > 0]
+comorbidities <- comorbidities[lengths(comorbidities) > 0]
+medications1yr <- medications1yr[lengths(medications1yr) > 0]
+antibiotics <- antibiotics[lengths(antibiotics) > 0]
+
+dus_chars <- cdm_dus$study_cohorts_dus %>%
+  PatientProfiles::summariseCharacteristics(
+    ageGroup = list(c(0, 17), c(18, 59), c(60, 150)),
+    strata = list(c("age_group"), c("time_period"), c("time_period", "age_group")),
+    conceptIntersect = list(
+      "Tests" = list(
+        conceptSet = tests,
+        window = list(c(-14, 7)),
+        value = "flag"
+      ),
+      "Comorbidities any time prior" = list(
+        conceptSet = comorbidities,
+        window = list(c(-Inf, -1)),
+        value = "flag"
+      ),
+      "Antibiotics 30 days prior" = list(
+        conceptSet = antibiotics,
+        window = list(c(-30, -1)),
+        value = "flag"
+      ),
+      "Medication 1 year prior" = list(
+        conceptSet = medications1yr,
+        window = list(c(-365, -1)),
+        value = "flag"
+      )
+    )
+  )
 
 dus_chars <- dus_chars %>%
   filter(!variable %in% c("Cohort start date",
@@ -443,8 +501,7 @@ cli::cli_text("- Running large scale characterisation of DUS cohorts ({Sys.time(
 dus_lsc <- PatientProfiles::summariseLargeScaleCharacteristics(cdm_dus$study_cohorts_dus,
                                                                     eventInWindow = c("condition_occurrence"),
                                                                window = list(c(-30, -1), c(0, 0)),
-                                                               strata = list(c("age_group"),
-                                                                             c("time_period")))
+                                                               strata = list(c("age_group"), c("time_period"), c("time_period", "age_group")))
 write_csv(dus_lsc,
           here("results", paste0(
             "dus_lsc_summary_", cdmName(cdm), ".csv"
@@ -453,14 +510,13 @@ write_csv(dus_lsc,
 # indications: pediatric -----
 cli::cli_text("- Summarising pediatric indications for DUS cohorts ({Sys.time()})")
 dus_pediatric_indication <- cdm_dus$study_cohorts_dus %>%
- filter(age <= 18) %>%
+ filter(age <= 17) %>%
   addIndication(
     indicationCohortName = "indications_pediatrics",
     indicationGap =  c(0, 7, 30),
     unknownIndicationTable = "condition_occurrence"
   ) %>%
-  summariseIndication(strata = list(c("age_group"),
-                                    c("time_period")))
+  summariseIndication(strata = list(c("age_group"), c("time_period"), c("time_period", "age_group")))
 
 write_csv(dus_pediatric_indication,
           here("results", paste0(
@@ -470,14 +526,13 @@ write_csv(dus_pediatric_indication,
 # indications: adult -----
 cli::cli_text("- Summarising adult indications for DUS cohorts ({Sys.time()})")
 dus_adult_indication <- cdm_dus$study_cohorts_dus %>%
-   filter(age > 18) %>%
+   filter(age > 17) %>%
   addIndication(
     indicationCohortName = "indications_adult",
     indicationGap =  c(0, 7, 30),
     unknownIndicationTable = "condition_occurrence"
   ) %>%
-  summariseIndication(strata = list(c("age_group"),
-                                    c("time_period")))
+  summariseIndication(strata = list(c("age_group"), c("time_period"), c("time_period", "age_group")))
 
 write_csv(dus_adult_indication,
           here("results", paste0(
@@ -529,8 +584,7 @@ dus_summary[[i]] <- cdm_dus$study_cohorts_dus %>%
     durationRange = c(1, Inf),
     dailyDoseRange = c(0, Inf)
   ) %>%
-  summariseDrugUse(strata = list(c("age_group"),
-                                 c("time_period")))
+  summariseDrugUse(strata = list(c("age_group"), c("time_period"), c("time_period", "age_group")))
 
 dus_summary[[i]] <- dus_summary[[i]] %>%
   filter(group_level == working_cohort_name)
