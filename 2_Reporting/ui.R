@@ -85,14 +85,10 @@ ui <- dashboardPage(
         tabName = "cdm_snapshot",
         htmlOutput("tbl_cdm_snaphot"),
         tags$hr(),
-        div(
-          style = "display:inline-block",
-          downloadButton(
-            outputId = "gt_cdm_snaphot_word",
-            label = "Download table as word"
-          ),
-          style = "display:inline-block; float:right"
-        )
+        downloadButton(
+            "gt_cdm_snaphot_word",
+            "Download table as word"
+          )
       ),
       # drug exposure diagnostics ------
       tabItem(
@@ -709,11 +705,7 @@ ui <- dashboardPage(
           )
         ),
         tags$hr(),
-        div(
-          style = "display:inline-block",
-          downloadButton(outputId = "download_gt_patient_characteristics", label = "Download table as word"),
-          style = "display:inline-block; float:right"
-        ),
+        downloadButton("download_gt_patient_characteristics", "Download table as word"),
         gt_output("gt_patient_characteristics") %>%
           withSpinner()
       ),
@@ -787,11 +779,7 @@ ui <- dashboardPage(
           )
         ),
         tags$hr(),
-        div(
-          style = "display:inline-block",
-          downloadButton(outputId = "download_dt_large_scale_characteristics", label = "Download"),
-          style = "display:inline-block; float:right"
-        ),
+        downloadButton("download_dt_large_scale_characteristics", "Download"),
         DT::dataTableOutput("dt_large_scale_characteristics") %>%
           withSpinner()
       ),
@@ -865,11 +853,7 @@ ui <- dashboardPage(
           )
         ),
         tags$hr(),
-        div(
-          style = "display:inline-block",
-          downloadButton(outputId = "download_dt_indication_pediatric", label = "Download"),
-          style = "display:inline-block; float:right"
-        ),
+        downloadButton("download_dt_indication_pediatric", "Download"),
         DT::dataTableOutput("dt_indication_pediatric") %>%
           withSpinner()
       ),
@@ -944,11 +928,7 @@ ui <- dashboardPage(
           )
         ),
         tags$hr(),
-        div(
-          style = "display:inline-block",
-          downloadButton(outputId = "download_dt_indication_adult", label = "Download"),
-          style = "display:inline-block; float:right"
-        ),
+        downloadButton("download_dt_indication_adult", "Download"),
         DT::dataTableOutput("dt_indication_adult") %>%
           withSpinner()
       ),
@@ -987,33 +967,21 @@ ui <- dashboardPage(
           tabPanel(
             "Duration",
             tags$hr(),
-            div(
-              style = "display:inline-block",
-              downloadButton(outputId = "download_dt_dus_duration", label = "Download"),
-              style = "display:inline-block; float:right"
-            ),
+            downloadButton("download_dt_dus_duration", "Download"),
             DT::dataTableOutput("dt_dus_duration") %>%
               withSpinner()
           ),
           tabPanel(
             "Initial daily dose (milligram)",
             tags$hr(),
-            div(
-              style = "display:inline-block",
-              downloadButton(outputId = "download_dt_dus_initial_dd", label = "Download"),
-              style = "display:inline-block; float:right"
-            ),
+            downloadButton("download_dt_dus_initial_dd", "Download"),
             DT::dataTableOutput("dt_dus_initial_dd") %>%
               withSpinner()
           ),
           tabPanel(
             "Cumulative dose (milligram)",
             tags$hr(),
-            div(
-              style = "display:inline-block",
-              downloadButton(outputId = "download_dt_dus_cumulative_dose", label = "Download"),
-              style = "display:inline-block; float:right"
-            ),
+            downloadButton("download_dt_dus_cumulative_dose", "Download"),
             DT::dataTableOutput("dt_dus_cumulative_dose") %>%
               withSpinner()
           )

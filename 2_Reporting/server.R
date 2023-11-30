@@ -481,6 +481,8 @@ server <- function(input, output, session) {
       )
     }
   )
+
+  
   ### plot ----
   output$prevalence_estimates_plot <- renderPlotly({
     plotprevalence()
@@ -670,9 +672,12 @@ server <- function(input, output, session) {
     filename = function() {
       "indication_adult.csv"
     },
-    content = function(file) {
-      write.csv(get_indication_adult(), file, row.names = FALSE)
+    content = function(con) {
+      write.csv(dplyr::tibble(a = 1), con)
     }
+    # content = function(file) {
+    #   write.csv(get_indication_adult(), file, row.names = FALSE)
+    # }
   )
   
   
