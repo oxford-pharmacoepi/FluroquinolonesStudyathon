@@ -82,7 +82,13 @@ cohort_count_files<-results[stringr::str_detect(results, "cohort_count")]
 cohort_count <- list()
 for(i in seq_along(cohort_count_files)){
   cohort_count[[i]]<-readr::read_csv(cohort_count_files[[i]], 
-                                 show_col_types = FALSE) 
+                                 show_col_types = FALSE) %>%
+    mutate(number_records = if_else(number_records <5 & number_records >0,
+                                    as.character("<5"),
+                                    as.character(number_records))) %>%
+    mutate(number_subjects = if_else(number_subjects <5 & number_subjects >0,
+                                     as.character("<5"),
+                                     as.character(number_subjects)))
 }
 cohort_count <- dplyr::bind_rows(cohort_count)
 

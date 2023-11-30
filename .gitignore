@@ -29,3 +29,4 @@ Diagnostics/1b_fluroquinolones_diagnostics_shiny/data/CPRD_AURUM/*.csv
 2_Reporting/data/results_CPRD Aurum Full/*.csv
 2_Reporting/data/results_sqldb-gosh-CDM-dev/*.csv
 2_Reporting/data/results_vm/*.csv
+2_Reporting/data/results_Barts Health_fluoroquinolones291123/*.csv

@@ -588,7 +588,11 @@ server <- function(input, output, session) {
              strata_name %in%  input$indication_pediatric_strata_name,
              strata_level %in%  input$indication_pediatric_strata_level) 
       
-    indication_pediatric
+    indication_pediatric %>% 
+      pivot_wider(names_from = estimate_type, 
+                  values_from = estimate) %>% 
+      mutate(percentage = round(as.numeric(percentage), 2)) %>% 
+      mutate(count_percentage = paste0(count, " (", percentage, "%)"))
   })
   
   output$dt_indication_pediatric  <- DT::renderDataTable({
@@ -624,7 +628,11 @@ server <- function(input, output, session) {
              strata_name %in%  input$indication_adult_strata_name,
              strata_level %in%  input$indication_adult_strata_level) 
     
-    indication_adult
+    indication_adult %>% 
+      pivot_wider(names_from = estimate_type, 
+                  values_from = estimate) %>% 
+      mutate(percentage = round(as.numeric(percentage), 2)) %>% 
+      mutate(count_percentage = paste0(count, " (", percentage, "%)"))
   })
   
   output$dt_indication_adult  <- DT::renderDataTable({
