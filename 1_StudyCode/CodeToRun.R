@@ -38,6 +38,5 @@ write_schema <- "...."
 study_prefix <- "fluro_"
 
 # run analysis ----
-ingredient_only <- FALSE
 run_incidence_prevalence <- TRUE
 source(here("RunAnalysis.R"))
