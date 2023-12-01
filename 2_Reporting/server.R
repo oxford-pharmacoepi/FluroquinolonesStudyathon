@@ -504,6 +504,7 @@ server <- function(input, output, session) {
                  stringr::str_to_sentence(input$chars_cohort),
                  "_", " ")
       ) %>%
+      filter(variable %in% input$chars_variable) %>%
       inner_join(
         strataOpsChars %>%
           filter(strata %in% input$chars_strata) %>%
