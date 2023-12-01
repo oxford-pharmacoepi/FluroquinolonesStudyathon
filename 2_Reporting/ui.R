@@ -715,6 +715,17 @@ ui <- dashboardPage(
             multiple = TRUE
           )
         ),
+        div(
+          style = "display: inline-block;vertical-align:top; width: 150px;",
+          pickerInput(
+            inputId = "chars_variable",
+            label = "Variables",
+            choices = sort(unique(patient_characteristics$variable)),
+            selected = sort(unique(patient_characteristics$variable)),
+            options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
+            multiple = TRUE
+          )
+        ),
         tags$hr(),
         tabsetPanel(
           type = "tabs",
