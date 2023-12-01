@@ -503,13 +503,32 @@ server <- function(input, output, session) {
                stringr::str_replace_all(
                  stringr::str_to_sentence(input$chars_cohort),
                  "_", " ")
-      ) 
+      ) %>%
+      inner_join(
+        strataOpsChars %>%
+          filter(strata %in% input$chars_strata) %>%
+          select(-strata),
+        by = c("strata_name", "strata_level")
+      )
     patient_characteristics
   })
   
   output$gt_patient_characteristics  <- render_gt({
     PatientProfiles::gtCharacteristics(get_patient_characteristics())
   })
+  output$raw_patient_characteristics <- renderDataTable({
+    datatable(get_patient_characteristics(), options = list(scrollX = TRUE), rownames = FALSE)
+  })
+  
+  output$download_patient_characteristics_raw <- downloadHandler(
+    filename = function() {
+      "chracteristics.csv"
+    },
+    content = function(file) {
+      write.csv(get_patient_characteristics(), file, row.names = FALSE)
+    }
+  )
+  
   output$download_gt_patient_characteristics <- downloadHandler(
     filename = function() {
       "chracteristics.docx"

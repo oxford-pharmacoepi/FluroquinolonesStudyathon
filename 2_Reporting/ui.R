@@ -704,10 +704,35 @@ ui <- dashboardPage(
             multiple = TRUE
           )
         ),
+        div(
+          style = "display: inline-block;vertical-align:top; width: 150px;",
+          pickerInput(
+            inputId = "chars_strata",
+            label = "Strata",
+            choices = sort(unique(strataOpsChars$strata)),
+            selected = sort(unique(strataOpsChars$strata)),
+            options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
+            multiple = TRUE
+          )
+        ),
         tags$hr(),
-        downloadButton("download_gt_patient_characteristics", "Download table as word"),
-        gt_output("gt_patient_characteristics") %>%
-          withSpinner()
+        tabsetPanel(
+          type = "tabs",
+          tabPanel(
+            "Raw data",
+            tags$hr(),
+            downloadButton("download_patient_characteristics_raw", "Download csv data"),
+            DTOutput("raw_patient_characteristics") %>%
+              withSpinner()
+          ),
+          tabPanel(
+            "gt Table",
+            tags$hr(),
+            downloadButton("download_gt_patient_characteristics", "Download table as word"),
+            gt_output("gt_patient_characteristics") %>%
+              withSpinner()
+          )
+        )
       ),
       # lsc ------
       tabItem(
