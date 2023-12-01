@@ -342,4 +342,7 @@ for(i in seq_along(dus_summary_files)){
 dus_summary <- dplyr::bind_rows(dus_summary)
 
 
-
+strataOpsChars <- patient_characteristics %>%
+  dplyr::select("strata_name", "strata_level") %>%
+  dplyr::distinct() %>%
+  dplyr::mutate(strata = paste0(strata_name, ": ", strata_level))
