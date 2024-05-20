@@ -109,14 +109,32 @@ cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
                                                          limit = "all")
 # drug utilisation cohorts -----
 cli::cli_text("- Creating DUS cohorts ({Sys.time()})")
+
+drug_concepts_ph <- drug_concepts
+names(drug_concepts_ph) <-paste0(names(drug_concepts_ph), "_30_day_prior_observation")
 cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
-                                                         name = "study_cohorts_dus",
-                                                         conceptSet = drug_concepts,
+                                                         name = "study_cohorts_dus_30",
+                                                         conceptSet = drug_concepts_ph,
                                                          gapEra = 7,
                                                          limit = "all",
                                                          priorUseWashout = 30,
                                                          priorObservation = 30,
                                                          cohortDateRange =  as.Date(c("2012-01-01", NA)))
+
+drug_concepts_no_ph <- drug_concepts
+names(drug_concepts_no_ph) <-paste0(names(drug_concepts_no_ph), "_0_day_prior_observation")
+cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
+                                                         name = "study_cohorts_dus_0",
+                                                         conceptSet = drug_concepts_no_ph,
+                                                         gapEra = 7,
+                                                         limit = "all",
+                                                         priorUseWashout = 30,
+                                                         priorObservation = 0,
+                                                         cohortDateRange =  as.Date(c("2012-01-01", NA)))
+
+cdm <- omopgenerics::bind(cdm$study_cohorts_dus_30,
+                   cdm$study_cohorts_dus_0,
+                   name = "study_cohorts_dus")
 
 # subset cdm -----
 cli::cli_text("- Subsetting cdm to DUS cohorts ({Sys.time()})")
