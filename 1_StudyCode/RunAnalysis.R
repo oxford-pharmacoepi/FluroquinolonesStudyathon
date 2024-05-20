@@ -3,7 +3,13 @@ start_time <- Sys.time()
 start_temp <- floor(runif(1, min = 1, max = 10)*10)*100
 cli::cli_inform("Starting temp tables from {start_temp}")
 options(dbplyr_table_name = start_temp)
-
+# region settings -----
+use_region <- str_detect(tolower(db_name), "cprd")
+if(isTRUE(use_region)){
+  working_strata <- list("sex", "region")
+} else {
+  working_strata <- list("sex")
+}
 
 # cdm reference ----
 cli::cli_text("- Creating CDM reference ({Sys.time()})")
@@ -110,8 +116,7 @@ cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
                                                          limit = "all",
                                                          priorUseWashout = 30,
                                                          priorObservation = 30,
-                                                         cohortDateRange =  as.Date(c("2012-01-01",NA)))
-
+                                                         cohortDateRange =  as.Date(c("2012-01-01", NA)))
 
 # subset cdm -----
 cli::cli_text("- Subsetting cdm to DUS cohorts ({Sys.time()})")
@@ -119,16 +124,16 @@ cdm_dus <- cdm_subset_cohort(
   cdm = cdm,
   cohort_table = "fluro"
 )
-cdm_dus$person <- cdm_dus$person %>% computeQuery()
-cdm_dus$observation_period <- cdm_dus$observation_period %>% computeQuery()
-cdm_dus$condition_occurrence <- cdm_dus$condition_occurrence %>% computeQuery()
-cdm_dus$drug_exposure <- cdm_dus$drug_exposure %>% computeQuery()
+cdm_dus$person <- cdm_dus$person %>% compute()
+cdm_dus$observation_period <- cdm_dus$observation_period %>% compute()
+cdm_dus$condition_occurrence <- cdm_dus$condition_occurrence %>% compute()
+cdm_dus$drug_exposure <- cdm_dus$drug_exposure %>% compute()
 
 # indication cohorts --------
 cli::cli_text("- Creating indication cohorts ({Sys.time()})")
 
 indications_def <- read_csv(here("indications",
-              "Fluoroquinolones_potIndications_v3.csv"),
+              "Fluoroquinolones_potIndications_clean_v2 1.csv"),
          show_col_types = FALSE)
 indications_def$decision_children<- CodelistGenerator:::tidyWords(indications_def$decision_children)
 indications_def$decision_adult<- CodelistGenerator:::tidyWords(indications_def$decision_adult)
@@ -181,6 +186,7 @@ cdm_dus <- CDMConnector::generate_concept_cohort_set(cdm = cdm_dus,
 
 
 # run drug exposure diagnostics ----
+if(isTRUE(run_drug_diagnostics)){
 cli::cli_text("- Running drug exposure diagnostics ({Sys.time()})")
 drug_diagnostics <- suppressWarnings(suppressMessages(
   # uninformative warnings because we're not running all checks
@@ -203,11 +209,12 @@ for(i in seq_along(drug_diagnostics)){
             )))
 
 }
+}
 
 # cohort counts ----
 cli::cli_text("- Instantiating cohorts ({Sys.time()})")
 cohort_counts <- cohort_count(cdm[["study_cohorts"]]) %>%
-  left_join(cohort_set(cdm[["study_cohorts"]]),
+  left_join(settings(cdm[["study_cohorts"]]),
             by = "cohort_definition_id") %>%
   mutate(cdm_name = db_name)
 cohort_counts <- cohort_counts %>%
@@ -257,32 +264,52 @@ write_csv(index_codes,
           )))
 
 
-# incidence and prevalence: general population -----
+# incidence and prevalence -----
 if(isTRUE(run_incidence_prevalence)){
 cdm <- generateDenominatorCohortSet(cdm = cdm,
                                     name = "denominator",
                                     ageGroup = list(c(0, 150),
-                                                    c(0, 17),
+                                                    c(0, 17), c(18, 150),
                                                     c(18, 59), c(60, 150),
                                                     # pediatric
                                                     c(0, 1), c(1, 4), c(5, 9),
                                                     c(10, 14), c(15, 17)
                                                     ),
                                     cohortDateRange = as.Date(c("2012-01-01", NA)),
-                                    sex = c("Both", "Male", "Female"),
-                                    daysPriorObservation = c(30),
-                                    overwrite = TRUE)
+                                    sex = c("Both"),
+                                    daysPriorObservation = c(0, 30))
+cdm$denominator <- cdm$denominator %>%
+  addSex(sexName = "sex")
+# add region for cprd
+if(isTRUE(use_region)){
+  cdm$denominator <- cdm$denominator %>%
+    left_join(cdm$person %>%
+                rename("subject_id"= "person_id") %>%
+                select("subject_id", "care_site_id"),
+              by = "subject_id") %>%
+    # add location_id id
+    left_join(cdm$care_site %>%
+                select("care_site_id", "location_id"),
+              by = "care_site_id") %>%
+    # add region
+    left_join(cdm$location %>%
+                rename("region" = "location_source_value") %>%
+                select(c("location_id", "region")),
+              by = "location_id")
+}
+
 inc_gpop <- estimateIncidence(cdm, denominatorTable = "denominator",
                               outcomeTable = "study_cohorts",
                               interval = c("quarters", "years"),
                               completeDatabaseIntervals = TRUE,
                               outcomeWashout = 30,
-                              repeatedEvents = TRUE)
+                              repeatedEvents = TRUE,
+                              strata = working_strata)
 write_csv(inc_gpop,
           here("results", paste0(
             "incidence_general_population_", cdmName(cdm), ".csv"
           )))
-write_csv(incidenceAttrition(inc_gpop),
+write_csv(attrition(inc_gpop),
           here("results", paste0(
             "incidence_attrition_general_population_", cdmName(cdm), ".csv"
           )))
@@ -290,23 +317,41 @@ write_csv(incidenceAttrition(inc_gpop),
 
 cdm <- generateDenominatorCohortSet(cdm = cdm,
                                     name = "denominator_for_months",
-                                    ageGroup = list(c(19, 59), c(60, 150)),
+                                    ageGroup = list(c(18, 59), c(60, 150)),
                                     cohortDateRange = as.Date(c("2012-01-01", NA)),
                                     sex = c("Both"),
-                                    daysPriorObservation = c(30),
-                                    overwrite = TRUE)
+                                    daysPriorObservation = c(30))
+cdm$denominator_for_months <- cdm$denominator_for_months %>%
+  addSex(sexName = "sex")
+if(isTRUE(use_region)){
+  cdm$denominator_for_months <- cdm$denominator_for_months %>%
+    left_join(cdm$person %>%
+                rename("subject_id"= "person_id") %>%
+                select("subject_id", "care_site_id"),
+              by = "subject_id") %>%
+    # add location_id id
+    left_join(cdm$care_site %>%
+                select("care_site_id", "location_id"),
+              by = "care_site_id") %>%
+    # add region
+    left_join(cdm$location %>%
+                rename("region" = "location_source_value") %>%
+                select(c("location_id", "region")),
+              by = "location_id")
+}
 inc_gpop_months <- estimateIncidence(cdm,
                                      denominatorTable = "denominator_for_months",
                               outcomeTable = "study_cohorts",
                               interval = c("months"),
                               completeDatabaseIntervals = TRUE,
                               outcomeWashout = 30,
-                              repeatedEvents = TRUE)
+                              repeatedEvents = TRUE,
+                              strata = working_strata)
 write_csv(inc_gpop_months,
           here("results", paste0(
             "incidence_general_population_months_", cdmName(cdm), ".csv"
           )))
-write_csv(incidenceAttrition(inc_gpop_months),
+write_csv(attrition(inc_gpop_months),
           here("results", paste0(
             "incidence_attrition_general_population_months_", cdmName(cdm), ".csv"
           )))
@@ -316,12 +361,13 @@ prev_gpop <- estimatePeriodPrevalence(cdm,
                                       outcomeTable = "study_cohorts",
                                       interval = c("quarters", "years"),
                                       completeDatabaseIntervals = TRUE,
-                                      fullContribution = TRUE)
+                                      fullContribution = TRUE,
+                                      strata = working_strata)
 write_csv(prev_gpop,
           here("results", paste0(
             "prevalence_general_population_", cdmName(cdm), ".csv"
           )))
-write_csv(prevalenceAttrition(prev_gpop),
+write_csv(attrition(prev_gpop),
           here("results", paste0(
             "prevalence_attrition_general_population_", cdmName(cdm), ".csv"
           )))
@@ -379,39 +425,35 @@ medications1yr <- medications1yr[lengths(medications1yr) > 0]
 antibiotics <- antibiotics[lengths(antibiotics) > 0]
 
 dus_chars <- cdm_dus$study_cohorts_dus %>%
-  PatientProfiles::summariseCharacteristics(
+  CohortCharacteristics::summariseCharacteristics(
     ageGroup = list(c(0, 17), c(18, 59), c(60, 150)),
     strata = list(c("age_group"), c("time_period"), c("time_period", "age_group")),
-    conceptIntersect = list(
+    conceptIntersectFlag = list(
       "Tests" = list(
         conceptSet = tests,
-        window = list(c(-14, 7)),
-        value = "flag"
+        window = list(c(-14, 7))
       ),
       "Comorbidities any time prior" = list(
         conceptSet = comorbidities,
-        window = list(c(-Inf, -1)),
-        value = "flag"
+        window = list(c(-Inf, -1))
       ),
       "Antibiotics 30 days prior" = list(
         conceptSet = antibiotics,
-        window = list(c(-30, -1)),
-        value = "flag"
+        window = list(c(-30, -1))
       ),
       "Medication 1 year prior" = list(
         conceptSet = medications1yr,
-        window = list(c(-365, -1)),
-        value = "flag"
+        window = list(c(-365, -1))
       )
     )
   )
 
 dus_chars <- dus_chars %>%
-  filter(!variable %in% c("Cohort start date",
+  filter(!variable_name %in% c("Cohort start date",
                           "Cohort end date")) %>%
-  filter(!(variable == "Age" &
-        estimate_type %in% c("min", "q05", "q95", "max"))) %>%
-  filter(!estimate_type %in% c("q05", "q95"))
+  filter(!(variable_name == "Age" &
+        estimate_name %in% c("min", "q05", "q95", "max"))) %>%
+  filter(!estimate_name %in% c("q05", "q95"))
 
 
 write_csv(dus_chars,
@@ -421,10 +463,10 @@ write_csv(dus_chars,
 
 # large scale characterisation -----
 cli::cli_text("- Running large scale characterisation of DUS cohorts ({Sys.time()})")
-dus_lsc <- PatientProfiles::summariseLargeScaleCharacteristics(cdm_dus$study_cohorts_dus,
-                                                                    eventInWindow = c("condition_occurrence"),
-                                                               window = list(c(-30, -1), c(0, 0)),
-                                                               strata = list(c("age_group"), c("time_period"), c("time_period", "age_group")))
+dus_lsc <- summariseLargeScaleCharacteristics(cdm_dus$study_cohorts_dus,
+                                              eventInWindow = c("condition_occurrence"),
+                                              window = list(c(-30, -1), c(0, 0)),
+                                              strata = list(c("age_group"), c("time_period"), c("time_period", "age_group")))
 write_csv(dus_lsc,
           here("results", paste0(
             "dus_lsc_summary_", cdmName(cdm), ".csv"
@@ -467,7 +509,7 @@ write_csv(dus_adult_indication,
 cli::cli_text("- Summarising drug utilisation ({Sys.time()})")
 non_empty_cohorts <- sort(cohort_count(cdm_dus[["study_cohorts_dus"]]) %>%
                             filter(number_records > 0) %>%
-                            left_join(cohort_set(cdm_dus[["study_cohorts_dus"]]),
+                            left_join(settings(cdm_dus[["study_cohorts_dus"]]),
                                       by = "cohort_definition_id")%>%
                             filter(cohort_name != "fluroquinolones") %>%
                             pull("cohort_definition_id"))

@@ -13,6 +13,7 @@ library(RPostgres)
 library(odbc)
 library(CodelistGenerator)
 library(PatientProfiles)
+library(CohortCharacteristics)
 library(DrugUtilisation)
 library(IncidencePrevalence)
 library(readr)
@@ -38,5 +39,6 @@ write_schema <- "...."
 study_prefix <- "fluro_"
 
 # run analysis ----
+run_drug_diagnostics <- TRUE
 run_incidence_prevalence <- TRUE
 source(here("RunAnalysis.R"))
