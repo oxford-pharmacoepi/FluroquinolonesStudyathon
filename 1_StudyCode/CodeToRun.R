@@ -23,6 +23,12 @@ library(stringr)
 library(testthat)
 library(remotes)
 
+packageVersion("PatientProfiles") # should be 0.8
+packageVersion("CodelistGenerator") # should be 2.2.3
+packageVersion("DrugUtilisation") # should be 0.5.3
+packageVersion("IncidencePrevalence") # should be 0.7.2
+
+
 # database name ----
 db_name <- "...."
 

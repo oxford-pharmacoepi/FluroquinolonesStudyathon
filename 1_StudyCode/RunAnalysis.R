@@ -257,7 +257,7 @@ non_empty_cohorts <- sort(cohort_count(cdm[["study_cohorts"]]) %>%
 
 for(i in seq_along(non_empty_cohorts)){
   working_cohort_id <- non_empty_cohorts[i]
-  working_cohort <- cohort_set(cdm[["study_cohorts"]]) %>%
+  working_cohort <- settings(cdm[["study_cohorts"]]) %>%
     filter(cohort_definition_id == working_cohort_id) %>%
     pull("cohort_name")
   cli::cli_text("-- For {working_cohort} ({i} of {length(non_empty_cohorts)})")
@@ -532,7 +532,7 @@ non_empty_cohorts <- sort(cohort_count(cdm_dus[["study_cohorts_dus"]]) %>%
                             filter(cohort_name != "fluroquinolones") %>%
                             pull("cohort_definition_id"))
 
-dus_summary_cohorts <- cohort_set(cdm_dus[["study_cohorts_dus"]]) %>%
+dus_summary_cohorts <- settings(cdm_dus[["study_cohorts_dus"]]) %>%
   filter(str_detect(cohort_name, "systemic")) %>%
   filter(str_detect(cohort_name, "fluroquinolone", negate = TRUE)) %>%
   filter(cohort_definition_id %in% non_empty_cohorts) %>%
@@ -541,19 +541,25 @@ dus_summary_cohorts <- cohort_set(cdm_dus[["study_cohorts_dus"]]) %>%
 dus_summary <- list()
 cli::cli_text("- Summarising duration and dose of DUS cohorts ({Sys.time()})")
 for(i in seq_along(dus_summary_cohorts)){
-working_cohort_name <- cohort_set(cdm_dus[["study_cohorts_dus"]]) %>%
+working_cohort_name <- settings(cdm_dus[["study_cohorts_dus"]]) %>%
+  filter(cohort_definition_id == dus_summary_cohorts[i]) %>%
+  pull(cohort_name)
+
+working_cohort_name_clean <- settings(cdm_dus[["study_cohorts_dus"]]) %>%
+  mutate(cohort_name = str_replace(cohort_name, "_30_day_prior_observation","")) %>%
+  mutate(cohort_name = str_replace(cohort_name, "_0_day_prior_observation","")) %>%
   filter(cohort_definition_id == dus_summary_cohorts[i]) %>%
   pull(cohort_name)
 
 working_ingredient <- drug_ingredients %>%
-  filter(concept_name == str_replace(working_cohort_name, "_systemic","")) %>%
+  filter(concept_name == str_replace(working_cohort_name_clean, "_systemic","")) %>%
   pull(concept_id)
 
 cli::cli_text("-- Summarising duration and dose of systemic {names(drug_concepts)[i]} ({i} of {length(dus_summary_cohorts)}) ({Sys.time()})")
 dus_summary[[i]] <- cdm_dus$study_cohorts_dus %>%
   addDrugUse(
     ingredientConceptId = working_ingredient,
-    conceptSet = drug_concepts[working_cohort_name],
+    conceptSet = drug_concepts[working_cohort_name_clean],
     duration = TRUE,
     quantity = FALSE,
     dose = TRUE,
