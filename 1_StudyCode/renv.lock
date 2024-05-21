@@ -42,16 +42,11 @@
     },
     "CodelistGenerator": {
       "Package": "CodelistGenerator",
-      "Version": "2.2.3.900",
-      "Source": "GitHub",
-      "Remotes": "darwin-eu-dev/omopgenerics, darwin-eu/CDMConnector, darwin-eu/visOmopResults",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "CodelistGenerator",
-      "RemoteUsername": "darwin-eu",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "a1112a3c1f84f24506354fb6de3a64336f4a3904",
+      "Version": "2.2.3",
+      "Source": "Repository",
+      "Repository": "RSPM",
       "Requirements": [
+        "CDMConnector",
         "DBI",
         "PatientProfiles",
         "R",
@@ -59,8 +54,8 @@
         "checkmate",
         "cli",
         "dplyr",
+        "duckdb",
         "glue",
-        "lifecycle",
         "lubridate",
         "magrittr",
         "omopgenerics",
@@ -69,10 +64,9 @@
         "stringr",
         "tidyr",
         "tidyselect",
-        "vctrs",
-        "visOmopResults"
+        "vctrs"
       ],
-      "Hash": "cd8cf0da2bec2326a42c43e8944b9bd5"
+      "Hash": "cc4a1269780cdf216ea59c6ffcf69573"
     },
     "CohortCharacteristics": {
       "Package": "CohortCharacteristics",
@@ -263,7 +257,7 @@
     },
     "PatientProfiles": {
       "Package": "PatientProfiles",
-      "Version": "1.0.0",
+      "Version": "0.8.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -272,6 +266,8 @@
         "checkmate",
         "cli",
         "dplyr",
+        "lifecycle",
+        "lubridate",
         "magrittr",
         "omopgenerics",
         "purrr",
@@ -280,7 +276,7 @@
         "tidyr",
         "visOmopResults"
       ],
-      "Hash": "1589725d3c89528a1d584fa64a0ec77c"
+      "Hash": "4fe667d15c8ce4dfd0c2699753925b50"
     },
     "R6": {
       "Package": "R6",
@@ -752,6 +748,19 @@
         "vctrs"
       ],
       "Hash": "fedd9d00c2944ff00a0e2696ccf048ec"
+    },
+    "duckdb": {
+      "Package": "duckdb",
+      "Version": "0.10.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "DBI",
+        "R",
+        "methods",
+        "utils"
+      ],
+      "Hash": "797d264c5dbae66be1fbd0e1e27c459b"
     },
     "ellipsis": {
       "Package": "ellipsis",
