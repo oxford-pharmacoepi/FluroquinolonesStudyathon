@@ -3,6 +3,7 @@ start_time <- Sys.time()
 start_temp <- floor(runif(1, min = 1, max = 10)*10)*100
 cli::cli_inform("Starting temp tables from {start_temp}")
 options(dbplyr_table_name = start_temp)
+
 # region settings -----
 use_region <- str_detect(tolower(db_name), "cprd")
 if(isTRUE(use_region)){
@@ -10,14 +11,6 @@ if(isTRUE(use_region)){
 } else {
   working_strata <- list("sex")
 }
-
-# cdm reference ----
-cli::cli_text("- Creating CDM reference ({Sys.time()})")
-cdm <- CDMConnector::cdm_from_con(con = db,
-                                  cdm_schema = cdm_schema,
-                                  write_schema = c(schema = write_schema,
-                                                   prefix = study_prefix),
-                                  cdm_name = db_name)
 
 # remove problematic concept if it is in vocab
 cdm$concept <- cdm$concept %>%
@@ -30,7 +23,7 @@ write_csv(snapshot(cdm), here("results", paste0(
 )))
 
 # get drug concepts ----
-cli::cli_text("- Getting drug codes ({Sys.time()})")
+cli::cli_text("- Getting drug codes for DED ({Sys.time()})")
 drug_ingredients <- cdm$concept %>%
   filter(standard_concept == "S") %>%
   filter(domain_id == "Drug") %>%
@@ -211,7 +204,7 @@ drug_diagnostics <- suppressWarnings(suppressMessages(
   DrugExposureDiagnostics::executeChecks(
     cdm = cdm_dus,
     ingredients = drug_ingredients$concept_id,
-    subsetToConceptId = unique(purrr::list_c(drug_concepts)),
+    subsetToConceptId = as.numeric(unique(purrr::list_c(drug_concepts))),
     checks = c(
       "missing",
       "exposureDuration",
@@ -266,11 +259,7 @@ for(i in seq_along(non_empty_cohorts)){
                                              cohortTable = "study_cohorts",
                                              cohortId = working_cohort_id,
                                              timing = "entry",
-                                             cdm = cdm,
-                                             byYear = TRUE,
-                                             bySex = TRUE,
-                                             ageGroup = list(c(0,17),
-                                                             c(18,150))) %>%
+                                             cdm = cdm) %>%
     mutate(cohort_name = working_cohort)
 
 }
@@ -284,7 +273,8 @@ write_csv(index_codes,
 
 # incidence and prevalence -----
 if(isTRUE(run_incidence_prevalence)){
-cdm <- generateDenominatorCohortSet(cdm = cdm,
+
+  cdm <- generateDenominatorCohortSet(cdm = cdm,
                                     name = "denominator",
                                     ageGroup = list(c(0, 150),
                                                     c(0, 17), c(18, 150),
@@ -316,23 +306,6 @@ if(isTRUE(use_region)){
               by = "location_id")
 }
 
-inc_gpop <- estimateIncidence(cdm, denominatorTable = "denominator",
-                              outcomeTable = "study_cohorts",
-                              interval = c("quarters", "years"),
-                              completeDatabaseIntervals = TRUE,
-                              outcomeWashout = 30,
-                              repeatedEvents = TRUE,
-                              strata = working_strata)
-write_csv(inc_gpop,
-          here("results", paste0(
-            "incidence_general_population_", cdmName(cdm), ".csv"
-          )))
-write_csv(attrition(inc_gpop),
-          here("results", paste0(
-            "incidence_attrition_general_population_", cdmName(cdm), ".csv"
-          )))
-
-
 cdm <- generateDenominatorCohortSet(cdm = cdm,
                                     name = "denominator_for_months",
                                     ageGroup = list(c(18, 59), c(60, 150)),
@@ -357,7 +330,44 @@ if(isTRUE(use_region)){
                 select(c("location_id", "region")),
               by = "location_id")
 }
-inc_gpop_months <- estimateIncidence(cdm,
+
+
+if(isTRUE(use_duckdb)){
+  cdm_incprev <- cdm |>
+    cdm_select_tbl(c("person","observation_period",
+                     "denominator","denominator_for_months",
+                     "study_cohorts")) |>
+    stow(path = here(), format = "duckdb")
+
+ db_duckdb <- DBI::dbConnect(duckdb::duckdb(here("cdm.duckdb")))
+ cdm_incprev <- cdm_from_con(db_duckdb,"main", "main",
+                            cohort_tables = c("denominator",
+                                             "denominator_for_months",
+                                             "study_cohorts"),
+                            cdm_name = cdm_name(cdm))
+
+} else {
+  cdm_incprev <- cdm
+}
+
+inc_gpop <- estimateIncidence(cdm_incprev,
+                              denominatorTable = "denominator",
+                              outcomeTable = "study_cohorts",
+                              interval = c("quarters", "years"),
+                              completeDatabaseIntervals = TRUE,
+                              outcomeWashout = 30,
+                              repeatedEvents = TRUE,
+                              strata = working_strata)
+write_csv(inc_gpop,
+          here("results", paste0(
+            "incidence_general_population_", cdmName(cdm), ".csv"
+          )))
+write_csv(attrition(inc_gpop),
+          here("results", paste0(
+            "incidence_attrition_general_population_", cdmName(cdm), ".csv"
+          )))
+
+inc_gpop_months <- estimateIncidence(cdm_incprev,
                                      denominatorTable = "denominator_for_months",
                               outcomeTable = "study_cohorts",
                               interval = c("months"),
@@ -374,7 +384,7 @@ write_csv(attrition(inc_gpop_months),
             "incidence_attrition_general_population_months_", cdmName(cdm), ".csv"
           )))
 
-prev_gpop <- estimatePeriodPrevalence(cdm,
+prev_gpop <- estimatePeriodPrevalence(cdm_incprev,
                                       denominatorTable = "denominator",
                                       outcomeTable = "study_cohorts",
                                       interval = c("quarters", "years"),
@@ -603,3 +613,9 @@ cli::cli_alert_success("Study code finished")
 cli::cli_alert_success(glue::glue(
   "Code ran in {floor(dur/60)} min and {dur %% 60 %/% 1} sec"
 ))
+
+cdm_disconnect(cdm)
+cdm_disconnect(cdm_inc_prev)
+if(file.exists(here("cdm.duckdb"))){
+  unlink(here("cdm.duckdb"))
+}

@@ -42,11 +42,10 @@
     },
     "CodelistGenerator": {
       "Package": "CodelistGenerator",
-      "Version": "2.2.3",
+      "Version": "3.0",
       "Source": "Repository",
       "Repository": "RSPM",
       "Requirements": [
-        "CDMConnector",
         "DBI",
         "PatientProfiles",
         "R",
@@ -54,8 +53,8 @@
         "checkmate",
         "cli",
         "dplyr",
-        "duckdb",
         "glue",
+        "lifecycle",
         "lubridate",
         "magrittr",
         "omopgenerics",
@@ -64,13 +63,14 @@
         "stringr",
         "tidyr",
         "tidyselect",
-        "vctrs"
+        "vctrs",
+        "visOmopResults"
       ],
-      "Hash": "cc4a1269780cdf216ea59c6ffcf69573"
+      "Hash": "6032c17f4e475042accdd901ec9a8586"
     },
     "CohortCharacteristics": {
       "Package": "CohortCharacteristics",
-      "Version": "0.2.0",
+      "Version": "0.2.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -82,8 +82,6 @@
         "cli",
         "dplyr",
         "ggpubr",
-        "lifecycle",
-        "lubridate",
         "magrittr",
         "omopgenerics",
         "rlang",
@@ -92,7 +90,7 @@
         "tidyr",
         "visOmopResults"
       ],
-      "Hash": "becea347a297675e635c973b6bc47deb"
+      "Hash": "51aa97d11bb2d0b3dc30e02c0367f70f"
     },
     "DBI": {
       "Package": "DBI",
@@ -135,31 +133,31 @@
     },
     "DrugExposureDiagnostics": {
       "Package": "DrugExposureDiagnostics",
-      "Version": "1.0.1",
+      "Version": "1.0.6",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "CDMConnector",
+        "DrugUtilisation",
         "R",
         "checkmate",
         "dplyr",
         "glue",
-        "lifecycle",
         "magrittr",
+        "omopgenerics",
         "rlang",
         "tidyr",
         "tidyselect"
       ],
-      "Hash": "ebb8b45eb6be76b189ef927d47f6fceb"
+      "Hash": "cb0fb8279967304ff3191e785e08c5ae"
     },
     "DrugUtilisation": {
       "Package": "DrugUtilisation",
-      "Version": "0.6.0",
+      "Version": "0.6.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "CDMConnector",
-        "CohortCharacteristics",
         "DBI",
         "PatientProfiles",
         "R",
@@ -179,22 +177,22 @@
         "tidyr",
         "visOmopResults"
       ],
-      "Hash": "64b552087e4d150d805c15675558c3cb"
+      "Hash": "b5ba989e2b735a4d0320a270f44498d3"
     },
     "IncidencePrevalence": {
       "Package": "IncidencePrevalence",
-      "Version": "0.7.2",
+      "Version": "0.7.4",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "CDMConnector",
-        "DBI",
+        "PatientProfiles",
         "R",
         "checkmate",
         "cli",
+        "clock",
         "dbplyr",
         "dplyr",
-        "ggplot2",
         "glue",
         "lifecycle",
         "lubridate",
@@ -202,14 +200,11 @@
         "omopgenerics",
         "purrr",
         "rlang",
-        "scales",
         "stringr",
-        "tibble",
         "tidyr",
-        "tidyselect",
-        "zip"
+        "visOmopResults"
       ],
-      "Hash": "9939c6d913e99a077b6459693117a937"
+      "Hash": "644352fe1c48cab082e268f0c5a04002"
     },
     "MASS": {
       "Package": "MASS",
@@ -257,7 +252,7 @@
     },
     "PatientProfiles": {
       "Package": "PatientProfiles",
-      "Version": "0.8.0",
+      "Version": "1.1.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -267,7 +262,6 @@
         "cli",
         "dplyr",
         "lifecycle",
-        "lubridate",
         "magrittr",
         "omopgenerics",
         "purrr",
@@ -276,7 +270,7 @@
         "tidyr",
         "visOmopResults"
       ],
-      "Hash": "4fe667d15c8ce4dfd0c2699753925b50"
+      "Hash": "8981f38fcf92168d90112c9b5dacd826"
     },
     "R6": {
       "Package": "R6",
@@ -588,6 +582,22 @@
       ],
       "Hash": "3f038e5ac7f41d4ac41ce658c85e3042"
     },
+    "clock": {
+      "Package": "clock",
+      "Version": "0.7.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "cli",
+        "cpp11",
+        "lifecycle",
+        "rlang",
+        "tzdb",
+        "vctrs"
+      ],
+      "Hash": "3d8a84cdf9f6f8564531c49b70f3833d"
+    },
     "colorspace": {
       "Package": "colorspace",
       "Version": "2.1-0",
@@ -751,7 +761,7 @@
     },
     "duckdb": {
       "Package": "duckdb",
-      "Version": "0.10.2",
+      "Version": "1.0.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -760,7 +770,7 @@
         "methods",
         "utils"
       ],
-      "Hash": "797d264c5dbae66be1fbd0e1e27c459b"
+      "Hash": "8e25c772b479ce4ad9a59620cfe3cc06"
     },
     "ellipsis": {
       "Package": "ellipsis",
@@ -1331,14 +1341,9 @@
     },
     "omopgenerics": {
       "Package": "omopgenerics",
-      "Version": "0.2.0",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "omopgenerics",
-      "RemoteUsername": "darwin-eu-dev",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "8d9f0feb86202a4f931b66c77480220231fe58a6",
+      "Version": "0.2.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
         "cli",
@@ -1351,7 +1356,7 @@
         "stringr",
         "tidyr"
       ],
-      "Hash": "de2128fbd308ea57134b29c57633d178"
+      "Hash": "455369900c393d3eb843fcbd056e1a9c"
     },
     "pbkrtest": {
       "Package": "pbkrtest",
