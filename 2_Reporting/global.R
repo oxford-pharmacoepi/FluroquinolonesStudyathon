@@ -18,6 +18,7 @@ library(ggplot2)
 library(fresh)
 library(plotly)
 library(IncidencePrevalence)
+library(CohortCharacteristics)
 
 # theme -----
 mytheme <- create_theme(
@@ -114,7 +115,13 @@ for(i in seq_along(index_codes_files)){
                                     show_col_types = FALSE) 
 }
 index_codes <- dplyr::bind_rows(index_codes) %>% 
-  filter(!is.na(estimate))
+  filter(!is.na(estimate_value))
+index_codes <- index_codes |> 
+  mutate(strata_level = cohort_name) |> 
+  mutate(result_type = "code_use") |> 
+  group_by(strata_level) |> 
+  mutate(result_id = dplyr::cur_group_id()) |> 
+  omopgenerics::newSummarisedResult()
 
 # conceptSummary -----
 conceptSummary_files<-results[stringr::str_detect(results, ".csv")]
@@ -234,7 +241,16 @@ for(i in seq_along(prevalence_files)){
 prevalence <- dplyr::bind_rows(prevalence) %>% 
   mutate(denominator_target_cohort_name = if_else(is.na(denominator_target_cohort_name),
                                                   "General population",
-                                                  denominator_target_cohort_name))
+                                                  denominator_target_cohort_name)) |> 
+mutate(strata_level = if_else(strata_level == "Overall",
+                              "Both",
+                              strata_level)) |> 
+  mutate(denominator_sex = strata_level)
+
+
+prevalence <- prevalence |> 
+  dplyr::filter(prevalence_start_date < as.Date("2022-01-01"))
+
 
 # prevalence_attrition  ------
 prevalence_attrition_files<-results[stringr::str_detect(results, ".csv")]
@@ -263,7 +279,15 @@ incidence <- dplyr::bind_rows(incidence)
 incidence <- dplyr::bind_rows(incidence) %>% 
   mutate(denominator_target_cohort_name = if_else(is.na(denominator_target_cohort_name),
                                                   "General population",
-                                                  denominator_target_cohort_name))
+                                                  denominator_target_cohort_name)) |> 
+  mutate(strata_level = if_else(strata_level == "Overall",
+                             "Both",
+                             strata_level)) |> 
+  mutate(denominator_sex = strata_level)
+#   
+#   
+# incidence <- incidence |> 
+#   dplyr::filter(incidence_start_date < as.Date("2022-01-01"))
 
 # incidence_attrition  ------
 incidence_attrition_files<-results[stringr::str_detect(results, ".csv")]
@@ -287,10 +311,19 @@ patient_characteristics <- list()
 for(i in seq_along(patient_characteristics_files)){
   patient_characteristics[[i]]<-readr::read_csv(patient_characteristics_files[[i]], 
                                                 show_col_types = FALSE) %>% 
-    mutate(estimate = as.character(estimate))
+    mutate(estimate = as.character(estimate_value))
 }
 patient_characteristics <- dplyr::bind_rows(patient_characteristics)
-
+patient_characteristics <- patient_characteristics |> 
+  group_by(group_name, group_level,
+           strata_name, strata_level,
+           additional_name, additional_level,
+           variable_name, variable_level, 
+           estimate_name
+           ) |> 
+  mutate(result_id = dplyr::cur_group_id()) |> 
+  dplyr::distinct() |> 
+  omopgenerics::newSummarisedResult()
 
 # large_scale_characteristics -----
 large_scale_characteristics_files<-results[stringr::str_detect(results, ".csv")]
@@ -312,7 +345,7 @@ indication_pediatric <- list()
 for(i in seq_along(indication_pediatric_files)){
   indication_pediatric[[i]]<-readr::read_csv(indication_pediatric_files[[i]], 
                                     show_col_types = FALSE) %>% 
-    mutate(estimate = as.character(estimate))
+    mutate(estimate = as.character(estimate_value))
 }
 indication_pediatric <- dplyr::bind_rows(indication_pediatric)
 
@@ -323,7 +356,7 @@ indication_adult <- list()
 for(i in seq_along(indication_adult_files)){
   indication_adult[[i]]<-readr::read_csv(indication_adult_files[[i]], 
                                              show_col_types = FALSE) %>% 
-    mutate(estimate = as.character(estimate))
+    mutate(estimate = as.character(estimate_value))
 }
 indication_adult <- dplyr::bind_rows(indication_adult)
 
@@ -337,7 +370,7 @@ for(i in seq_along(dus_summary_files)){
                                                     show_col_types = FALSE)
   if(nrow(dus_summary[[i]]>0)){
     dus_summary[[i]] <- dus_summary[[i]] %>% 
-      mutate(estimate = as.character(estimate))   
+      mutate(estimate = as.character(estimate_value))   
   }
 
 }

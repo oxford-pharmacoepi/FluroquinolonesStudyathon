@@ -86,7 +86,7 @@ server <- function(input, output, session) {
  
  # index_codes ----
   get_index_codes <- reactive({
-    
+
     validate(
       need(input$cd_cdm != "", "Please select a database")
     )
@@ -94,43 +94,44 @@ server <- function(input, output, session) {
       need(input$cd_cohort != "", "Please select a cohort")
     )
     
-    index_codes <- index_codes %>% 
-    filter(cdm_name %in% input$cd_cdm,
-           cohort_name %in%  input$cd_cohort,
-           group_name %in%  input$cd_index_group_name,
-           strata_name %in%  input$cd_index_strata_name) %>% 
-      select(c("cdm_name", "cohort_name" ,
-               "group_name", 
-               "strata_name", "strata_level",
-               "standard_concept_name", "standard_concept_id",
-               "source_concept_name",  "source_concept_id" , 
-               "variable_name", "estimate")) %>% 
-      pivot_wider(names_from = variable_name, 
-                  values_from = estimate)
+    working_index_codes <- index_codes %>% 
+      filter(cdm_name %in% input$cd_cdm) %>% 
+      filter(tolower(strata_level)  %in%  tolower(input$cd_cohort))
     
+    validate(
+      need(nrow(working_index_codes) > 0, "No results found")
+    )
     
-    if(all(input$cd_index_group_name %in%  "Codelist")){
-      index_codes <- index_codes %>% 
-        select(!c(
-          "standard_concept_name", "standard_concept_id",
-          "source_concept_name",  "source_concept_id"
-        ))
-    }
+    working_index_codes
     
-    index_codes<-index_codes %>% 
-      arrange(desc(`Record count`))
-    
-    names(index_codes)<-stringr::str_replace_all(names(index_codes), "_", " ")
-    
-    index_codes
-
   })
   
   output$dt_index_codes  <- DT::renderDataTable({
-    table_data <- get_index_codes()
-    datatable(table_data, rownames= FALSE) 
+    table <- CodelistGenerator::tableCodeUse(get_index_codes(), type = "tibble")
+    names(table) <- gsub("\\[.*?\\]", "", names(table))
+    names(table) <- str_replace_all(names(table), "CDM name\n", " ")
+    names(table) <- str_replace_all(names(table), "\n", ": ")
+    if(length(names(table))>=6){
+      table[[6]] <- as.numeric(table[[6]])
+    }
+    if(length(names(table))>=7){
+      table[[7]] <- as.numeric(table[[7]])
+    }
+    datatable(table, rownames= FALSE) 
   })   
   
+  output$gt_index_events_code_count <- render_gt({
+    CodelistGenerator::tableCodeUse(get_index_codes(),
+                                    type = "gt")
+  })
+  
+  output$table_index_events_code_count <- renderUI({
+    if (input$index_events_table_type == "tidy") {
+      gt_output("gt_index_events_code_count")
+    } else {
+      dataTableOutput("dt_index_codes")
+    }
+  })
   
   
  # cohort_intersection ----
@@ -315,7 +316,7 @@ server <- function(input, output, session) {
       filter(outcome_cohort_name %in% input$incidence_estimates_outcome_cohort_name) %>%
       filter(denominator_target_cohort_name %in% input$incidence_estimates_denominator_target_cohort_name) %>%
       filter(denominator_age_group %in% input$incidence_estimates_denominator_age_group) %>%
-      filter(denominator_sex %in% input$incidence_estimates_denominator_sex) %>%
+      filter(strata_level %in% input$incidence_estimates_denominator_sex) %>%
       filter(denominator_days_prior_observation %in% input$incidence_estimates_denominator_days_prior_observation) %>%
       # filter(denominator_start_date %in% input$incidence_estimates_denominator_start_date) %>%
       # filter(denominator_end_date %in% input$incidence_estimates_denominator_end_date) %>%
@@ -499,23 +500,26 @@ server <- function(input, output, session) {
     
     patient_characteristics <- patient_characteristics %>% 
       filter(cdm_name %in% input$chars_cdm) %>% 
-      filter(group_level %in%  
-               stringr::str_replace_all(
-                 stringr::str_to_sentence(input$chars_cohort),
-                 "_", " ")
-      ) %>%
-      filter(variable %in% input$chars_variable) %>%
-      inner_join(
-        strataOpsChars %>%
-          filter(strata %in% input$chars_strata) %>%
-          select(-strata),
-        by = c("strata_name", "strata_level")
-      )
-    patient_characteristics
+      filter(variable_name %in%  input$chars_variable) %>%
+      filter(group_level %in%  input$chars_cohort) %>%
+      # filter(group_level %in%  
+      #          stringr::str_replace_all(
+      #            stringr::str_to_sentence(input$chars_cohort),
+      #            "_", " ")
+      # ) %>%
+      filter(variable_name %in% input$chars_variable)
+    # %>%
+    #   inner_join(
+    #     strataOpsChars %>%
+    #       filter(strata %in% input$chars_strata) %>%
+    #       select(-strata),
+    #     by = c("strata_name", "strata_level")
+    #   )
+    patient_characteristics 
   })
   
   output$gt_patient_characteristics  <- render_gt({
-    PatientProfiles::gtCharacteristics(get_patient_characteristics())
+    tableCharacteristics(get_patient_characteristics())
   })
   output$raw_patient_characteristics <- renderDataTable({
     datatable(get_patient_characteristics(), options = list(scrollX = TRUE), rownames = FALSE)

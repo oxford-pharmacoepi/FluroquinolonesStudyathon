@@ -1,8 +1,5 @@
 # start -----
 start_time <- Sys.time()
-start_temp <- floor(runif(1, min = 1, max = 10)*10)*100
-cli::cli_inform("Starting temp tables from {start_temp}")
-options(dbplyr_table_name = start_temp)
 
 # region settings -----
 use_region <- str_detect(tolower(db_name), "cprd")
@@ -100,6 +97,7 @@ cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
                                                          conceptSet = drug_concepts,
                                                          gapEra = 7,
                                                          limit = "all")
+
 # drug utilisation cohorts -----
 cli::cli_text("- Creating DUS cohorts ({Sys.time()})")
 
@@ -126,7 +124,7 @@ cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
                                                          cohortDateRange =  as.Date(c("2012-01-01", NA)))
 
 cdm <- omopgenerics::bind(cdm$study_cohorts_dus_30,
-                   cdm$study_cohorts_dus_0,
+                          cdm$study_cohorts_dus_0,
                    name = "study_cohorts_dus")
 
 # subset cdm -----
@@ -332,25 +330,7 @@ if(isTRUE(use_region)){
 }
 
 
-if(isTRUE(use_duckdb)){
-  cdm_incprev <- cdm |>
-    cdm_select_tbl(c("person","observation_period",
-                     "denominator","denominator_for_months",
-                     "study_cohorts")) |>
-    stow(path = here(), format = "duckdb")
-
- db_duckdb <- DBI::dbConnect(duckdb::duckdb(here("cdm.duckdb")))
- cdm_incprev <- cdm_from_con(db_duckdb,"main", "main",
-                            cohort_tables = c("denominator",
-                                             "denominator_for_months",
-                                             "study_cohorts"),
-                            cdm_name = cdm_name(cdm))
-
-} else {
-  cdm_incprev <- cdm
-}
-
-inc_gpop <- estimateIncidence(cdm_incprev,
+inc_gpop <- estimateIncidence(cdm,
                               denominatorTable = "denominator",
                               outcomeTable = "study_cohorts",
                               interval = c("quarters", "years"),
@@ -367,7 +347,7 @@ write_csv(attrition(inc_gpop),
             "incidence_attrition_general_population_", cdmName(cdm), ".csv"
           )))
 
-inc_gpop_months <- estimateIncidence(cdm_incprev,
+inc_gpop_months <- estimateIncidence(cdm,
                                      denominatorTable = "denominator_for_months",
                               outcomeTable = "study_cohorts",
                               interval = c("months"),
@@ -384,7 +364,7 @@ write_csv(attrition(inc_gpop_months),
             "incidence_attrition_general_population_months_", cdmName(cdm), ".csv"
           )))
 
-prev_gpop <- estimatePeriodPrevalence(cdm_incprev,
+prev_gpop <- estimatePeriodPrevalence(cdm,
                                       denominatorTable = "denominator",
                                       outcomeTable = "study_cohorts",
                                       interval = c("quarters", "years"),
@@ -491,7 +471,7 @@ write_csv(dus_chars,
 
 # large scale characterisation -----
 cli::cli_text("- Running large scale characterisation of DUS cohorts ({Sys.time()})")
-dus_lsc <- summariseLargeScaleCharacteristics(cdm_dus$study_cohorts_dus,
+dus_lsc <- CohortCharacteristics::summariseLargeScaleCharacteristics(cdm_dus$study_cohorts_dus,
                                               eventInWindow = c("condition_occurrence"),
                                               window = list(c(-30, -1), c(0, 0)),
                                               strata = list(c("age_group"), c("time_period"), c("time_period", "age_group")))
@@ -503,7 +483,7 @@ write_csv(dus_lsc,
 # indications: pediatric -----
 cli::cli_text("- Summarising pediatric indications for DUS cohorts ({Sys.time()})")
 dus_pediatric_indication <- cdm_dus$study_cohorts_dus %>%
- filter(age <= 17) %>%
+  filter(age <= 17) %>%
   addIndication(
     indicationCohortName = "indications_pediatrics",
     indicationGap =  c(0, 7, 30),
@@ -519,7 +499,7 @@ write_csv(dus_pediatric_indication,
 # indications: adult -----
 cli::cli_text("- Summarising adult indications for DUS cohorts ({Sys.time()})")
 dus_adult_indication <- cdm_dus$study_cohorts_dus %>%
-   filter(age > 17) %>%
+  filter(age > 17) %>%
   addIndication(
     indicationCohortName = "indications_adult",
     indicationGap =  c(0, 7, 30),
@@ -562,7 +542,9 @@ working_cohort_name_clean <- settings(cdm_dus[["study_cohorts_dus"]]) %>%
   pull(cohort_name)
 
 working_ingredient <- drug_ingredients %>%
-  filter(concept_name == str_replace(working_cohort_name_clean, "_systemic","")) %>%
+  filter(concept_name == str_replace(
+    str_replace(working_cohort_name_clean, "1927663_|139462_|7517_|82122_|2551_|7623_",""),
+    "_systemic",""))  %>%
   pull(concept_id)
 
 cli::cli_text("-- Summarising duration and dose of systemic {names(drug_concepts)[i]} ({i} of {length(dus_summary_cohorts)}) ({Sys.time()})")
@@ -615,7 +597,4 @@ cli::cli_alert_success(glue::glue(
 ))
 
 cdm_disconnect(cdm)
-cdm_disconnect(cdm_inc_prev)
-if(file.exists(here("cdm.duckdb"))){
-  unlink(here("cdm.duckdb"))
-}
+

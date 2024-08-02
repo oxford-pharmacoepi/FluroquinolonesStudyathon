@@ -140,11 +140,11 @@ ui <- dashboardPage(
             DT::dataTableOutput("dt_drugExposureDuration") %>%
               withSpinner()
           ),
-          tabPanel(
-            "Drug source concepts",
-            DT::dataTableOutput("dt_drugSourceConceptsByConcept") %>%
-              withSpinner()
-          ),
+          # tabPanel(
+          #   "Drug source concepts",
+          #   DT::dataTableOutput("dt_drugSourceConceptsByConcept") %>%
+          #     withSpinner()
+          # ),
           tabPanel(
             "Drug record missing values",
             tags$hr(),
@@ -224,35 +224,43 @@ ui <- dashboardPage(
           tabPanel(
             "Index codes",
             tags$hr(),
-            div(
-              style = "display: inline-block;vertical-align:top; width: 150px;",
-              pickerInput(
-                inputId = "cd_index_group_name",
-                label = "Group name",
-                choices = c("Codelist", "By concept"),
-                selected = "Codelist",
-                options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
-                multiple = TRUE
-              )
-            ),
-            div(
-              style = "display: inline-block;vertical-align:top; width: 150px;",
-              pickerInput(
-                inputId = "cd_index_strata_name",
-                label = "Strata name",
-                choices = c(
-                  "Overall", "Age group", "Sex",
-                  "Age group and sex",
-                  "Year"
-                ),
-                selected = "Overall",
-                options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
-                multiple = TRUE
-              )
+            # div(
+            #   style = "display: inline-block;vertical-align:top; width: 150px;",
+            #   pickerInput(
+            #     inputId = "cd_index_group_name",
+            #     label = "Group name",
+            #     choices = c("Codelist", "By concept"),
+            #     selected = "Codelist",
+            #     options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
+            #     multiple = TRUE
+            #   )
+            # ),
+            # div(
+            #   style = "display: inline-block;vertical-align:top; width: 150px;",
+            #   pickerInput(
+            #     inputId = "cd_index_strata_name",
+            #     label = "Strata name",
+            #     choices = c(
+            #       "Overall", "Age group", "Sex",
+            #       "Age group and sex",
+            #       "Year"
+            #     ),
+            #     selected = "Overall",
+            #     options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
+            #     multiple = TRUE
+            #   )
+            # ),
+            radioGroupButtons(
+              inputId = "index_events_table_type",
+              label = "Table type",
+              choices = c("tidy", "raw"),
+              status = "primary"
             ),
             tags$hr(),
-            DT::dataTableOutput("dt_index_codes") %>%
+            uiOutput("table_index_events_code_count") %>%
               withSpinner()
+            # DT::dataTableOutput("dt_index_codes") %>%
+            #   withSpinner()
           )
           # ,
           # tabPanel(
@@ -299,7 +307,7 @@ ui <- dashboardPage(
             inputId = "incidence_estimates_denominator_target_cohort_name",
             label = "Target cohort",
             choices = unique(incidence$denominator_target_cohort_name),
-            selected = "General population",
+            selected = "None",
             options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
             multiple = TRUE
           )
@@ -320,7 +328,7 @@ ui <- dashboardPage(
           pickerInput(
             inputId = "incidence_estimates_denominator_sex",
             label = "Sex",
-            choices = unique(incidence$denominator_sex),
+            choices = unique(incidence$strata_level),
             selected = "Both",
             options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
             multiple = TRUE
@@ -332,7 +340,7 @@ ui <- dashboardPage(
             inputId = "incidence_estimates_denominator_days_prior_observation",
             label = "Days prior observation",
             choices = unique(incidence$denominator_days_prior_observation),
-            selected = unique(incidence$denominator_days_prior_observation),
+            selected = unique(incidence$denominator_days_prior_observation)[1],
             options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
             multiple = TRUE
           )
@@ -720,8 +728,8 @@ ui <- dashboardPage(
           pickerInput(
             inputId = "chars_variable",
             label = "Variables",
-            choices = sort(unique(patient_characteristics$variable)),
-            selected = sort(unique(patient_characteristics$variable)),
+            choices = sort(unique(patient_characteristics$variable_name)),
+            selected = sort(unique(patient_characteristics$variable_name)),
             options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
             multiple = TRUE
           )

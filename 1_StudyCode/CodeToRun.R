@@ -4,25 +4,23 @@ renv::restore(repos = c(CRAN = "https://cloud.r-project.org")) # this should pro
 
 # Load packages ------
 library(DBI)
-library(duckdb)
-library(omopgenerics) # 0.2.3
-library(CDMConnector) #1.4.0
-library(DrugExposureDiagnostics) # 1.0.6
+library(omopgenerics)
+library(CDMConnector)
+library(DrugExposureDiagnostics)
 library(dplyr)
 library(here)
 library(dplyr)
 library(RPostgres)
 library(odbc)
-library(CodelistGenerator) # 3.0
-library(PatientProfiles) # 1.1.0
-library(CohortCharacteristics) # 0.2.1
-library(DrugUtilisation) # 0.6.1
-library(IncidencePrevalence) #0.7.4
+library(CodelistGenerator)
+library(PatientProfiles)
+library(CohortCharacteristics)
+library(DrugUtilisation)
+library(IncidencePrevalence)
 library(readr)
 library(tidyr)
 library(zip)
 library(stringr)
-library(testthat)
 library(remotes)
 
 # database name ----
@@ -54,5 +52,4 @@ cdm <- CDMConnector::cdm_from_con(con = db,
 # run analysis ----
 run_drug_diagnostics <- FALSE
 run_incidence_prevalence <- FALSE
-use_duckdb <- FALSE # will collect to duckdb for incprev - faster, but requires more memory
 source(here("RunAnalysis.R"))
