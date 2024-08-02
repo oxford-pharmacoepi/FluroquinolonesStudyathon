@@ -50,6 +50,6 @@ cdm <- CDMConnector::cdm_from_con(con = db,
 
 
 # run analysis ----
-run_drug_diagnostics <- FALSE
-run_incidence_prevalence <- FALSE
+run_drug_diagnostics <- TRUE
+run_incidence_prevalence <- TRUE
 source(here("RunAnalysis.R"))
