@@ -1,5 +1,10 @@
 # start -----
 start_time <- Sys.time()
+maxObsEnd <- cdm$observation_period |>
+  summarise(maxObsEnd = max(observation_period_end_date, na.rm = TRUE)) |>
+  dplyr::pull()
+studyPeriod <- c(as.Date("2012-01-01"), as.Date(maxObsEnd))
+# study period ----
 
 # region settings -----
 use_region <- str_detect(tolower(db_name), "cprd")
@@ -110,7 +115,7 @@ cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
                                                          limit = "all",
                                                          priorUseWashout = 30,
                                                          priorObservation = 30,
-                                                         cohortDateRange =  as.Date(c("2012-01-01", NA)))
+                                                         cohortDateRange =  studyPeriod)
 
 drug_concepts_no_ph <- drug_concepts
 names(drug_concepts_no_ph) <-paste0(names(drug_concepts_no_ph), "_0_day_prior_observation")
@@ -121,7 +126,7 @@ cdm <- DrugUtilisation::generateDrugUtilisationCohortSet(cdm = cdm,
                                                          limit = "all",
                                                          priorUseWashout = 30,
                                                          priorObservation = 0,
-                                                         cohortDateRange =  as.Date(c("2012-01-01", NA)))
+                                                         cohortDateRange =  studyPeriod)
 
 cdm <- omopgenerics::bind(cdm$study_cohorts_dus_30,
                           cdm$study_cohorts_dus_0,
@@ -281,7 +286,7 @@ if(isTRUE(run_incidence_prevalence)){
                                                     c(0, 1), c(1, 4), c(5, 9),
                                                     c(10, 14), c(15, 17)
                                                     ),
-                                    cohortDateRange = as.Date(c("2012-01-01", NA)),
+                                    cohortDateRange = studyPeriod,
                                     sex = c("Both"),
                                     daysPriorObservation = c(0, 30))
 cdm$denominator <- cdm$denominator %>%
@@ -307,7 +312,7 @@ if(isTRUE(use_region)){
 cdm <- generateDenominatorCohortSet(cdm = cdm,
                                     name = "denominator_for_months",
                                     ageGroup = list(c(18, 59), c(60, 150)),
-                                    cohortDateRange = as.Date(c("2012-01-01", NA)),
+                                    cohortDateRange = studyPeriod,
                                     sex = c("Both"),
                                     daysPriorObservation = c(30))
 cdm$denominator_for_months <- cdm$denominator_for_months %>%
