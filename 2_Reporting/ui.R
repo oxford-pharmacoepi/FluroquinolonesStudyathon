@@ -380,28 +380,16 @@ ui <- dashboardPage(
           )
         ),
         p("Dates"),
-        div(
-          style = "display: inline-block;vertical-align:top; width: 150px;",
-          pickerInput(
-            inputId = "incidence_estimates_analysis_interval",
-            label = "Interval",
-            choices = unique(incidence$analysis_interval),
-            selected = "years",
-            options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
-            multiple = TRUE
-          )
+        pickerInput(
+          inputId = "incidence_estimates_analysis_interval",
+          label = "Interval",
+          choices = unique(incidence$analysis_interval),
+          selected = "years",
+          options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
+          multiple = TRUE, 
+          inline = TRUE
         ),
-        div(
-          style = "display: inline-block;vertical-align:top; width: 150px;",
-          pickerInput(
-            inputId = "incidence_estimates_incidence_start_date",
-            label = "Incidence start date",
-            choices = as.character(unique(incidence$incidence_start_date)),
-            selected = as.character(unique(incidence$incidence_start_date)),
-            options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
-            multiple = TRUE
-          )
-        ),
+        shiny::uiOutput("incidence_estimates_incidence_start_date_filter"),
         tabsetPanel(
           type = "tabs",
           tabPanel(

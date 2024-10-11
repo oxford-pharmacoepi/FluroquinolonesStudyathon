@@ -1,6 +1,22 @@
 # server shiny ----
 server <- function(input, output, session) {
 
+  # incidence filter ----
+  output$incidence_estimates_incidence_start_date_filter <- shiny::renderUI({
+    opts <- as.character(unique(incidence$incidence_start_date[
+      incidence$analysis_interval %in% input$incidence_estimates_analysis_interval]))
+    
+    pickerInput(
+      inputId = "incidence_estimates_incidence_start_date",
+      label = "Incidence start date",
+      choices = opts,
+      selected = opts,
+      options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3"),
+      multiple = TRUE,
+      inline = TRUE
+    )
+  })
+  
  # cdm snapshot ----
   output$tbl_cdm_snaphot <- renderText(kable(cdm_snapshot) %>%
                                           kable_styling("striped", full_width = F) )
@@ -325,7 +341,7 @@ server <- function(input, output, session) {
       filter(analysis_complete_database_intervals %in% input$incidence_estimates_analysis_complete_database_intervals) %>%
       # filter(analysis_min_cell_count %in% input$incidence_estimates_analysis_min_cell_count) %>%
       filter(analysis_interval %in% input$incidence_estimates_analysis_interval) %>%
-      # filter(incidence_start_date %in% input$incidence_estimates_incidence_start_date) %>%
+      filter(as.character(incidence_start_date) %in% input$incidence_estimates_incidence_start_date) %>%
       mutate(
         person_years = round(suppressWarnings(as.numeric(person_years))),
         person_days = round(suppressWarnings(as.numeric(person_days))),
